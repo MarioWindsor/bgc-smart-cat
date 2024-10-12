@@ -1,0 +1,327 @@
+<!-- Catalogue Section -->
+<section id="catalogue-section" class="catalogue-section space-250-top-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="columns text-center small-12 medium-10 medium-offset-1 large-6 large-offset-3">
+				<div class="h1 font-h strong text-blue text-uppercase">Catalogue</div>
+				<div class="h4 font-h text-blue-dark">Curated AI-Catalogue for your Industry!</div>
+				<div class="p space-50-top-bottom">At BGC, we recognize the unique needs of each sector. Explore our customised catalogues, <span class="text-orange text-underline">Choose your Industry below</span>.</div>
+			</div>
+			<div class="catalogue-tabs columns small-12 large-8 large-offset-2 space-100-top-bottom">
+				<div class="tabs row">
+					<div class="tab columns small-6 medium-3">
+						<input type="radio" id="catHotel" name="catIndustry" class="hidden">
+						<label for="catHotel" class="card text-center">
+							<img src="media/icon-hotel.png" style="width: 50%;">
+							<div class="h5 font-h text-uppercase strong space-50-top">Hotels</div>
+							<div class="label">Lorem ipsum dolor sit amet</div>
+						</label>
+					</div>
+					<div class="tab columns small-6 medium-3">
+						<input type="radio" id="catRestaurant" name="catIndustry" class="hidden">
+						<label for="catRestaurant" class="card text-center">
+							<img src="media/icon-restaurant.png" style="width: 50%;">
+							<div class="h5 font-h text-uppercase strong space-50-top" style="letter-spacing: -0.4px;">Restaurant</div>
+							<div class="label">Lorem ipsum dolor sit amet</div>
+						</label>
+					</div>
+					<div class="tab columns small-6 medium-3">
+						<input type="radio" id="catBakery" name="catIndustry" class="hidden">
+						<label for="catBakery" class="card text-center">
+							<img src="media/icon-bakery.png" style="width: 50%;">
+							<div class="h5 font-h text-uppercase strong space-50-top">Bakery</div>
+							<div class="label">Lorem ipsum dolor sit amet</div>
+						</label>
+					</div>
+					<div class="tab columns small-6 medium-3">
+						<input type="radio" id="catCatering" name="catIndustry" class="hidden">
+						<label for="catCatering" class="card text-center">
+							<img src="media/icon-catering.png" style="width: 50%;">
+							<div class="h5 font-h text-uppercase strong space-50-top">Catering</div>
+							<div class="label">Lorem ipsum dolor sit amet</div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="catalogue-box columns small-12">
+				<div class="catalogue-frame">
+					<!-- Catalogue -->		
+					<div id="catalogue" class="catalogue fill-white">
+						<div class="controls row">
+							<!-- <div class="header space-100-top space-100-left-right">
+								<div class="mascot inline-middle"><img src="media/clippy.png" alt=""></div>
+								<div class="message inline-middle">
+									<div class="h5 strong text-blue">HWelcome to our Smart Catalogue!</div>
+								</div>
+							</div> -->
+							<div class="filter text-center space-100-top-bottom">
+								<div class="heading p space-25 text-blue-light">Choose your categories:</div>
+								<ul class="filter-tabs space-min">
+									{% for category in category.category %}
+									<li>
+										<label class="pill inline" for="cb_prime{{ category.name }}">
+											<input class="cb_prime hidden" type="checkbox" id="cb_prime{{ category.name }}">
+											<span class="title p inline cursor-pointer">{{ category.name }} ({{ category.description | default: 'N/A' }})</span>
+										</label>
+									</li>
+									{% endfor %}
+
+								</ul>
+								<ul class="filter-tabs space-min hidden">
+									<li>
+										<label class="pill inline">
+											<input type="checkbox" name="" class="hidden">
+											<span class="title p inline cursor-pointer">Cups</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="listing">
+							<style>
+								.swimlane + .category-list { display: none; }
+								.swimlane:checked + .category-list { display: block; }
+							</style>
+							<ul>
+								{% for category in master.category.data %}
+								<input class="swimlane cb_slave hidden" type="checkbox" id="cb_slave{{ category.name }}">
+								<li class="category-list carousel">
+									<ul class="carousel-list">
+										<div class="title label strong text-neutral-5 space-50-left-right">{{ category.name }}({{ category.description }})</div>
+										{% for product in master.product.data %}
+											{% if product.category == category.name %}
+											<li class="item carousel-list-item">
+												<div class="card">
+													<div class="thumbnail"></div>
+													<div class="title label no-wrap">{{ product.variation_name }}</div>
+													<div class="isvid small">{{ product.isvid }}</div>
+													<div class="spec">{{ product.brand }}</div>
+													<div class="spec">{{ product.category }}</div>
+													{% for attributes in product.attributes %}
+														<div class="spec">{{ attributes.attr_name }} : {{ attributes.attr_value }}</div>
+													{% endfor %}
+													<div class="price">&#8377;.{{ product.price }}/-</div>
+												</div>
+											</li>
+											{% endif %}
+										{% endfor %}
+									</ul>
+								</li>
+								{% endfor %}
+								<li class="category-list carousel hidden">
+									<ul class="carousel-list">
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Fork 1</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Fork 2</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Fork 3</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Fork 4</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Fork 5</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Fork 6</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Fork 7</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Fork 8</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Fork 9</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Fork 10</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+									</ul>
+								</li>
+								<li class="category-list carousel hidden">
+									<ul class="carousel-list">
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Pan 1</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Pan 2</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Pan 3</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Pan 4</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Pan 5</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Pan 6</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Pan 7</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Pan 8</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Pan 9</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+										<li class="item carousel-list-item">
+											<div class="card">
+												<div class="thumbnail"></div>
+												<div class="title p">Pan 10</div>
+												<div class="spec">16 inches</div>
+												<div class="price">&#8377;.24.50/-</div>
+											</div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="cart row fill-white space-50">
+							<div class="total h4 strong font-h">Total: ₹ 4,82,529/-</div>
+							<div class="items p strong font-h text-neutral-5">Total Items: 20</div>
+							<div class="units p strong font-h text-neutral-5">Total Units: 500</div>
+							<a href="https://google.com" target="_blank" class="action button fill-orange text-white">Get Offer</a>
+						</div>
+						<div class="download row fill-orange space-75">
+							<input type="checkbox" id="catDownloadMin" class="download-toggle hidden">
+							<label for="catDownloadMin" class="minimise">Minimise</label>
+							<div class="action columns small-9">
+								<div class="h4 font-h strong">Complete Catalogue</div>
+								<div class="p space-25-top space-150-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+								<a href="https://google.com" target="_blank" class="button fill-white text-orange">Download Now</a>
+							</div>
+						</div>
+					</div>
+					<!-- End: Catalogue -->
+				</div>
+				<div class="shadow fill-light"></div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End: Catalogue Section -->
+
+<script type="text/javascript">
+	
+	const primeCheckboxes = document.querySelectorAll('.cb_prime');
+	const slaveCheckboxes = document.querySelectorAll('.cb_slave');
+
+	primeCheckboxes.forEach((primeCheckbox) => {
+		// console.log(primeCheckbox);
+		primeCheckbox.addEventListener('change', () => {
+			const slaveCheckboxId = `cb_slave${primeCheckbox.id.replace('cb_prime', '')}`;
+			// console.log(slaveCheckboxId);
+			const slaveCheckbox = document.getElementById(slaveCheckboxId);
+
+			if (slaveCheckbox) {
+				slaveCheckbox.checked = primeCheckbox.checked;
+			}
+		});
+	});
+
+</script>
+
+
+
