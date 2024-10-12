@@ -47,25 +47,19 @@
 				<div class="catalogue-frame">
 					<!-- Catalogue -->		
 					<div id="catalogue" class="catalogue fill-white">
+						{% #include 'parts/xyz.liquid' %}
 						<div class="controls row">
-							<!-- <div class="header space-100-top space-100-left-right">
-								<div class="mascot inline-middle"><img src="media/clippy.png" alt=""></div>
-								<div class="message inline-middle">
-									<div class="h5 strong text-blue">HWelcome to our Smart Catalogue!</div>
-								</div>
-							</div> -->
-							<div class="filter text-center space-100-top-bottom">
-								<div class="heading p space-25 text-blue-light">Choose your categories:</div>
+							<div class="filter radius-50 space-50 space-100-top">
 								<ul class="filter-tabs space-min">
+									<span class="heading p space-25 text-blue-light">Choose Categories:</span>
 									{% for category in category.category %}
 									<li>
 										<label class="pill inline" for="cb_prime{{ category.name }}">
 											<input class="cb_prime hidden" type="checkbox" id="cb_prime{{ category.name }}">
-											<span class="title p inline cursor-pointer">{{ category.name }} ({{ category.description | default: 'N/A' }})</span>
+											<span class="title label strong inline cursor-pointer">{{ category.name }} ({{ category.description | default: 'N/A' }})</span>
 										</label>
 									</li>
 									{% endfor %}
-
 								</ul>
 								<ul class="filter-tabs space-min hidden">
 									<li>
@@ -78,16 +72,12 @@
 							</div>
 						</div>
 						<div class="listing">
-							<style>
-								.swimlane + .category-list { display: none; }
-								.swimlane:checked + .category-list { display: block; }
-							</style>
 							<ul>
 								{% for category in master.category.data %}
 								<input class="swimlane cb_slave hidden" type="checkbox" id="cb_slave{{ category.name }}">
 								<li class="category-list carousel">
+									<div class="title label strong text-neutral-3 space-150-left">{{ category.name }}({{ category.description }})</div>
 									<ul class="carousel-list">
-										<div class="title label strong text-neutral-5 space-50-left-right">{{ category.name }}({{ category.description }})</div>
 										{% for product in master.product.data %}
 											{% if product.category == category.name %}
 											<li class="item carousel-list-item">
@@ -108,189 +98,23 @@
 									</ul>
 								</li>
 								{% endfor %}
-								<li class="category-list carousel hidden">
-									<ul class="carousel-list">
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Fork 1</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Fork 2</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Fork 3</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Fork 4</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Fork 5</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Fork 6</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Fork 7</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Fork 8</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Fork 9</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Fork 10</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-									</ul>
-								</li>
-								<li class="category-list carousel hidden">
-									<ul class="carousel-list">
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Pan 1</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Pan 2</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Pan 3</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Pan 4</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Pan 5</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Pan 6</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Pan 7</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Pan 8</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Pan 9</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-										<li class="item carousel-list-item">
-											<div class="card">
-												<div class="thumbnail"></div>
-												<div class="title p">Pan 10</div>
-												<div class="spec">16 inches</div>
-												<div class="price">&#8377;.24.50/-</div>
-											</div>
-										</li>
-									</ul>
-								</li>
 							</ul>
 						</div>
-						<div class="cart row fill-white space-50">
-							<div class="total h4 strong font-h">Total: ₹ 4,82,529/-</div>
-							<div class="items p strong font-h text-neutral-5">Total Items: 20</div>
-							<div class="units p strong font-h text-neutral-5">Total Units: 500</div>
-							<a href="https://google.com" target="_blank" class="action button fill-orange text-white">Get Offer</a>
-						</div>
-						<div class="download row fill-orange space-75">
-							<input type="checkbox" id="catDownloadMin" class="download-toggle hidden">
-							<label for="catDownloadMin" class="minimise">Minimise</label>
-							<div class="action columns small-9">
-								<div class="h4 font-h strong">Complete Catalogue</div>
-								<div class="p space-25-top space-150-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-								<a href="https://google.com" target="_blank" class="button fill-white text-orange">Download Now</a>
+						<div class="cta">
+							<div class="cart row fill-white space-50">
+								<div class="total h4 strong font-h">Total: ₹ 4,82,529/-</div>
+								<div class="items p strong font-h text-neutral-5">Total Items: 20</div>
+								<div class="units p strong font-h text-neutral-5">Total Units: 500</div>
+								<a href="https://google.com" target="_blank" class="action button fill-orange text-white">Get Offer</a>
+							</div>
+							<div class="download row fill-orange space-75">
+								<input type="checkbox" id="catDownloadMin" class="download-toggle hidden">
+								<label for="catDownloadMin" class="minimise">Minimise</label>
+								<div class="action columns small-9">
+									<div class="h4 font-h strong">Complete Catalogue</div>
+									<div class="p space-25-top space-150-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+									<a href="https://google.com" target="_blank" class="button fill-white text-orange">Download Now</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -298,6 +122,70 @@
 				</div>
 				<div class="shadow fill-light"></div>
 			</div>
+			<div class="catalogue-form columns small-12 medium-10 medium-offset-1 large-8 large-offset-2 space-200-top">
+						<div class="form-box fill-blue-light text-white radius-25 space-50" style="box-shadow: 0 0 1px 1px rgba(0, 102, 255, 0.3), 0 0 var(--space-200) 0px rgba(0, 102, 255, 0.5);">
+							<!-- https://docs.google.com/forms/d/e/1FAIpQLScwVGA7s0ndpD6lX7rQNbFu0yQvPlEZrwwYYkqmebG2FJFR2g/viewform?usp=sf_link -->
+							<!-- <form action="https://formspree.io/f/xwkgbone" method="POST"> -->
+							<form id="homeGeneralLeads" action="https://docs.google.com/forms/d/e/1FAIpQLSeG6nfZX6S_nq29su85Olfx_5UT31lj8Mj50WJIwbrVa1wPTw/formResponse" method="POST" enctype="multipart/form-data">
+							<div class="row">
+								<div class="columns small-12 space-25">
+									<div class="h6 strong">Request a Quote:</div>
+								</div>
+								<div class="columns small-12 large-6 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue-light text-white">Full Name <span class="text-orange">*</span></span>
+										<!-- <input type="text" name="egim_fullname" required class="input-field block"> -->
+										<input type="text" name="entry.1421501943" required class="input-field block">
+									</label>
+								</div>
+								<div class="columns small-12 large-6 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue-light text-white">Email ID <span class="text-orange">*</span></span>
+										<!-- <input type="text" name="egim_emailid" required class="input-field block"> -->
+										<input type="text" name="entry.839199106" required class="input-field block">
+									</label>
+								</div>
+								<div class="columns small-12 large-6 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue-light text-white">Phone Number <span class="text-orange">*</span></span>
+										<!-- <input type="text" name="egim_phonenumber" required class="input-field block"> -->
+										<input type="text" name="entry.636038964" required class="input-field block">
+									</label>
+								</div>
+								<div class="columns small-12 large-6 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue-light text-white">Industry</span>
+										<!-- <input type="text" name="egim_country" class="input-field block"> -->
+										<!-- <select name="egim_country" class="input-field block"> -->
+										<select name="entry.203903897" class="input-field block">
+											<option value="blank" disabled="disabled" selected="selected">Select</option>
+											<option value="Hotel">Hotel</option>
+											<option value="Restaurant">Restaurant</option>
+											<option value="Bakery">Bakery</option>
+											<option value="Catering">Catering</option>
+											<option value="Cloud Kitchen">Cloud Kitchen</option>
+											<option value="Others">Others</option>
+										</select>
+									</label>
+								</div>
+								<div class="columns small-12 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue-light text-white">message</span>
+										<!-- <input type="text" name="egim_purpose" class="input-field block"> -->
+										<!-- <input type="text" name="entry.677688100" class="input-field block"> -->
+										<textarea class="input-field block" name="entry.1788879696"></textarea>
+									</label>
+								</div>
+								<div class="columns small-12 space-25">
+									<label class="block">
+										<!-- <span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Submit</span> -->
+										<button class="button text-white fill-orange block" type="submit">Get in Touch</button>
+									</label>
+								</div>
+							</div>
+							</form>
+						</div>
+					</div>
 		</div>
 	</div>
 </section>
@@ -322,6 +210,8 @@
 	});
 
 </script>
+
+
 
 
 

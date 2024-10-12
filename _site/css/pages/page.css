@@ -3,7 +3,7 @@
  */
 
 #page-wrapper {
-	overflow-x: hidden;
+/*	overflow-x: hidden;*/ /* discontinued in support of position sticky */
 }
 
 /* -- Page Content -- */
