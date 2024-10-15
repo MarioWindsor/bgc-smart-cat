@@ -2,6 +2,7 @@
 backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to main)
+  repo: MarioWindsor/bgc-smart-cat
 
 # when using the default proxy server port
 local_backend: true
