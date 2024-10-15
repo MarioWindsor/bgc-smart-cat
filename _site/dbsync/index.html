@@ -446,9 +446,9 @@
 			
 			if (user) {
 			    document.getElementById("dbsync").style = "display: block";
-			} else {
+			} /* else {
 				netlifyIdentity.open();
-			}
+			}*/
 
 		    document.getElementById('fetch-variations').addEventListener('click', function () {
 		        fetch('http://localhost:3000/variations')
