@@ -104,6 +104,9 @@
 	<!-- Smooth Scroll JS -->
 	<!-- <script src="https://cdn.jsdelivr.net/npm/jump.js/dist/jump.min.js"></script> -->
 
+	<!-- Netlify Identity -->
+	<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 </head>
 
 <body class="body" id="body">
@@ -154,12 +157,65 @@
 			<div class="container">
 				<div class="row">
 					<div class="columns small-12">
+						<div data-netlify-identity-menu></div>
 						<div class="h3 strong">Welcome to Database Sync:</div>
+						<!-- JSON Link Buttons -->
+						<div id="dbsync" style="display: none;">
+						    <button id="fetch-variations">Fetch Variations</button>
+						    <button id="fetch-categories">Fetch Categories</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 		<!-- END: DB Sync Section -->
+
+
+
+
+		<script>
+		    // netlifyIdentity.init();
+
+		    const user = netlifyIdentity.currentUser();
+		    if (user) {
+		        document.getElementById("dbsync").style.display = "block";
+		    } else {
+		        document.getElementById("dbsync").style.display = "none";
+		    }
+
+
+		    document.getElementById('fetch-variations').addEventListener('click', function () {
+		        fetch('http://localhost:3000/variations')
+		            .then(response => response.json())
+		            .then(data => {
+		                const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+		                const url = window.URL.createObjectURL(blob);
+		                const a = document.createElement('a');
+		                a.style.display = 'none';
+		                a.href = url;
+		                a.download = 'variations.json';
+		                document.body.appendChild(a);
+		                a.click();
+		                window.URL.revokeObjectURL(url);
+		            });
+		    });
+
+		    document.getElementById('fetch-categories').addEventListener('click', function () {
+		        fetch('http://localhost:3000/categories')
+		            .then(response => response.json())
+		            .then(data => {
+		                const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+		                const url = window.URL.createObjectURL(blob);
+		                const a = document.createElement('a');
+		                a.style.display = 'none';
+		                a.href = url;
+		                a.download = 'categories.json';
+		                document.body.appendChild(a);
+		                a.click();
+		                window.URL.revokeObjectURL(url);
+		            });
+		    });
+		</script>
 
 
 
