@@ -25,12 +25,10 @@
 
 
 		<script>
-		    const user = netlifyIdentity.currentUser();
-		    if (user) {
-		        document.getElementById("dbsync").style = "display: block";
-		    }
-
-
+			if (user) {
+			    document.getElementById("dbsync").style = "display: block";
+			}
+			
 		    document.getElementById('fetch-variations').addEventListener('click', function () {
 		        fetch('http://localhost:3000/variations')
 		            .then(response => response.json())
