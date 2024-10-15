@@ -173,51 +173,6 @@
 
 
 
-		<script>
-			netlifyIdentity.init();
-
-			const user = netlifyIdentity.currentUser();
-			
-			if (user) {
-			    document.getElementById("dbsync").style = "display: block";
-			}
-
-		    document.getElementById('fetch-variations').addEventListener('click', function () {
-		        fetch('http://localhost:3000/variations')
-		            .then(response => response.json())
-		            .then(data => {
-		                const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
-		                const url = window.URL.createObjectURL(blob);
-		                const a = document.createElement('a');
-		                a.style.display = 'none';
-		                a.href = url;
-		                a.download = 'variations.json';
-		                document.body.appendChild(a);
-		                a.click();
-		                window.URL.revokeObjectURL(url);
-		            });
-		    });
-
-		    document.getElementById('fetch-categories').addEventListener('click', function () {
-		        fetch('http://localhost:3000/categories')
-		            .then(response => response.json())
-		            .then(data => {
-		                const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
-		                const url = window.URL.createObjectURL(blob);
-		                const a = document.createElement('a');
-		                a.style.display = 'none';
-		                a.href = url;
-		                a.download = 'categories.json';
-		                document.body.appendChild(a);
-		                a.click();
-		                window.URL.revokeObjectURL(url);
-		            });
-		    });
-		</script>
-
-
-
-
 		
 		
 
@@ -480,6 +435,52 @@
 	        });
 	        form.classList.add("thank-you");
 	    });
+	});
+</script>
+
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function() {
+			netlifyIdentity.init();
+
+			const user = netlifyIdentity.currentUser();
+			
+			if (user) {
+			    document.getElementById("dbsync").style = "display: block";
+			} else {
+				netlifyIdentity.open();
+			}
+
+		    document.getElementById('fetch-variations').addEventListener('click', function () {
+		        fetch('http://localhost:3000/variations')
+		            .then(response => response.json())
+		            .then(data => {
+		                const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+		                const url = window.URL.createObjectURL(blob);
+		                const a = document.createElement('a');
+		                a.style.display = 'none';
+		                a.href = url;
+		                a.download = 'variations.json';
+		                document.body.appendChild(a);
+		                a.click();
+		                window.URL.revokeObjectURL(url);
+		            });
+		    });
+
+		    document.getElementById('fetch-categories').addEventListener('click', function () {
+		        fetch('http://localhost:3000/categories')
+		            .then(response => response.json())
+		            .then(data => {
+		                const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+		                const url = window.URL.createObjectURL(blob);
+		                const a = document.createElement('a');
+		                a.style.display = 'none';
+		                a.href = url;
+		                a.download = 'categories.json';
+		                document.body.appendChild(a);
+		                a.click();
+		                window.URL.revokeObjectURL(url);
+		            });
+		    });
 	});
 </script>
 
