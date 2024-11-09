@@ -52,7 +52,8 @@
 							<div class="filter radius-50 space-50 space-100-top">
 								<ul class="filter-tabs space-min">
 									<span class="heading p space-25 text-blue-light">Choose Categories:</span>
-									{% for category in category.category %}
+									{% #for category in category.category %}
+									{% for category in master.category_data.data.category %}
 									<li>
 										<label class="pill inline" for="cb_prime{{ category.name }}">
 											<input class="cb_prime hidden" type="checkbox" id="cb_prime{{ category.name }}">
@@ -73,12 +74,14 @@
 						</div>
 						<div class="listing">
 							<ul>
-								{% for category in master.category.data %}
+								{% #for category in master.category.data %}
+								{% for category in master.category_data.data.category %}
 								<input class="swimlane cb_slave hidden" type="checkbox" id="cb_slave{{ category.name }}">
 								<li class="category-list carousel">
 									<div class="title label strong text-neutral-3 space-150-left">{{ category.name }}({{ category.description }})</div>
 									<ul class="carousel-list">
-										{% for product in master.product.data %}
+										{% #for product in master.product.data %}
+										{% for product in master.product_data.data.variations %}
 											{% if product.category == category.name %}
 											<li class="item carousel-list-item">
 												<div class="card">

@@ -100,5 +100,100 @@
 
 
 
+/* -- Expertise Section --  */
+
+.expertise-section {}
+
+.expertise-section .points .point .card { height: 100%; }
+
+/* hotels */
+.expertise-section .hotel .points {
+	display: grid;
+	gap: var(--space-75);
+}
+.expertise-section .hotel .points .point .card {}
+
+@media( min-width: 640px )  {
+	.expertise-section .hotel .points {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media( min-width: 1040px ) {
+	.expertise-section .hotel .columns {
+		vertical-align: bottom;
+	}
+	.expertise-section .hotel .points {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+	.expertise-section .hotel .points .point {
+		text-align: center;
+	}
+}
+@media( min-width: 1480px ) {}
+
+
+/* catering */
+.expertise-section .catering .points {
+	display: grid;
+	gap: var(--space-75);
+}
+.expertise-section .catering .points .point ul li {
+	padding-left: var(--space-100);
+	text-indent: calc(-1.1 * var(--h6));
+}
+
+@media( min-width: 640px )  {
+	.expertise-section .catering .points {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media( min-width: 1040px ) {
+	.expertise-section .catering .columns {
+		vertical-align: bottom;
+	}
+	.expertise-section .catering .points {
+		grid-template-columns: 1fr 1fr;
+	}
+	.expertise-section .catering .points .point .icon {
+		padding-left: var(--space-50);
+	}
+}
+@media( min-width: 1480px ) {}
+
+
+
+/* Restaurants & Bakerys */
+
+.expertise-section .restaurant .points,
+.expertise-section .bakery .points {
+	display: grid;
+	gap: var(--space-75);
+}
+
+.expertise-section .restaurant .points .point,
+.expertise-section .bakery .points .point {
+	text-align: center;
+}
+
+@media( min-width: 640px )  {
+	.expertise-section .restaurant .points,
+	.expertise-section .bakery .points {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media( min-width: 1040px ) {
+	.expertise-section .restaurant .columns,
+	.expertise-section .bakery .columns {
+		vertical-align: bottom;
+	}
+	.expertise-section .restaurant .points,
+	.expertise-section .bakery .points {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+@media( min-width: 1480px ) {}
+
+
+
 
 

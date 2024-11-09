@@ -906,3 +906,29 @@ select {
 .carousel .carousel-controls .next {
 	pointer-events: all;
 }
+
+
+
+
+/*
+ * Box Shadow
+ */
+
+.box-shadow-blue {
+	box-shadow: 0 0 3px 1px rgba(25, 164, 246, 0.125),  0 0 9px 3px rgba(25, 164, 246, 0.125);
+}
+
+.box-shadow-orange {
+	box-shadow: 0 0 3px 1px rgba(246, 147, 26, 0.125),  0 0 12px 4px rgba(246, 147, 26, 0.2);
+}
+
+.box-shadow-green {
+	box-shadow: 0 0 3px 1px rgba(31, 205, 70, 0.125),  0 0 12px 4px rgba(31, 205, 70, 0.2);
+}
+
+.box-shadow-red {
+	box-shadow: 0 0 3px 1px rgba(242, 59, 92, 0.125),  0 0 12px 4px rgba(242, 59, 92, 0.2);
+}
+
+
+
