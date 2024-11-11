@@ -104,6 +104,73 @@
 
 .expertise-section {}
 
+.expertise-section .wave-set {
+	position: relative;
+	z-index: 1;
+	overflow-x: clip;
+	transform: scale(1.666);
+}
+.expertise-section .wave-set .wave {
+	position: relative;
+	display: block;
+/*	width: 2400px;*/
+/*	height: 80px;*/
+	width: 200%;
+	padding-top: 6.6666%;
+	animation: wavemotion 3s ease-in-out infinite 1s alternate;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+.expertise-section .wave-set .wave:nth-child(2) {
+	position: absolute;
+	top: 0;
+	opacity: 15%;
+	left: 0;
+/*	left: -12.5%;*/
+	animation: wavemotion 5s ease-in-out infinite 2s alternate;
+}
+.expertise-section .wave-set .wave:nth-child(3) {
+	position: absolute;
+	top: 0;
+	opacity: 50%;
+	left: 0;
+/*	left: -25%;*/
+	transform: scaleY(-1);
+	animation: wavemotionalt 4s ease-in-out infinite 0s alternate;
+}
+
+@keyframes wavemotion {
+	from {
+		transform: translateX(0);
+	} to {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes wavemotionalt {
+	from {
+		transform: scaleY(-1) translateX(0);
+	} to {
+		transform: scaleY(-1) translateX(-50%);
+	}
+}
+
+
+.expertise-section .squares {
+	display: none;
+}
+
+.expertise-section .container {
+	position: relative;
+	z-index: 3;
+}
+
+.expertise-section .thumbnail {
+	padding-bottom: var(--space-100);
+}
+
+
 .expertise-section .points .point .card { height: 100%; }
 
 /* hotels */
@@ -114,11 +181,37 @@
 .expertise-section .hotel .points .point .card {}
 
 @media( min-width: 640px )  {
+	.expertise-section .wave-set {
+		transform: scale(1.25);
+	}
+
+	.expertise-section .thumbnail {
+		padding-bottom: 0;
+	}
+
 	.expertise-section .hotel .points {
 		grid-template-columns: 1fr 1fr;
 	}
 }
 @media( min-width: 1040px ) {
+	.expertise-section .wave-set {
+		transform: scale(1);
+	}
+
+	.expertise-section .squares {
+		display: block;
+		position: absolute;
+		z-index: 1;
+		width: calc(var(--container-width) * 0.75);
+		padding-top: calc((var(--container-width) * 0.75) * 0.666%);
+		top: calc(var(--space-200) * 2);
+		left: 50%;
+		opacity: 0.4;
+		background-size: 100%;
+		background-position: top left;
+		background-repeat: no-repeat;
+	}
+
 	.expertise-section .hotel .columns {
 		vertical-align: bottom;
 	}
