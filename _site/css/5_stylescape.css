@@ -179,16 +179,6 @@ p, small, label {
  *
  */
 
-/*.h1 { font-size: var(--h1); }*/
-/*.h2 { font-size: var(--h2); }*/
-/*.h3 { font-size: var(--h3); }*/
-/*.h4 { font-size: var(--h4); }*/
-/*.h5 { font-size: var(--h5); }*/
-/*.h6 { font-size: var(--h6); }*/
-/*.p 	{ font-size: var(--p); }*/
-/*.label { font-size: var(--label); }*/
-/*.small { font-size: var(--small); }*/
-
 .h1 { font-size: var(--h1); }
 .h2 { font-size: var(--h2); }
 .h3 { font-size: var(--h3); }
@@ -202,52 +192,6 @@ p, small, label {
 .font-h {
 	font-family: "Rajdhani", Arial, serif;
 	line-height: 1.125;
-}
-
-/*.h1 { font-size: 3.6rem; }*/
-/*.h2 { font-size: 3.0rem; }*/
-/*.h3 { font-size: 2.4rem; }*/
-/*.h4 { font-size: 2.0rem; }*/
-/*.h5 { font-size: 1.6rem; }*/
-/*.h6 { font-size: 1.4rem; }*/
-/*.p 	{ font-size: 1.4rem; }*/
-/*.small { font-size: 0.8rem; }*/
-/*.label { font-size: 1.0rem; }*/
-
-@media( min-width: 640px )  {
-/*	.h1 { font-size: 4.0rem; }*/
-/*	.h2 { font-size: 3.2rem; }*/
-/*	.h3 { font-size: 2.6rem; }*/
-/*	.h4 { font-size: 2.2rem; }*/
-/*	.h5 { font-size: 1.8rem; }*/
-/*	.h6 { font-size: 1.4rem; }*/
-/*	.p 	{ font-size: 1.4rem; }*/
-/*	.small { font-size: 0.8rem; }*/
-/*	.label { font-size: 1.0rem; }*/
-}
-
-@media( min-width: 1040px ) {
-/*	.h1 { font-size: 5.4rem; }*/
-/*	.h2 { font-size: 4.2rem; }*/
-/*	.h3 { font-size: 3.4rem; }*/
-/*	.h4 { font-size: 2.6rem; }*/
-/*	.h5 { font-size: 2.0rem; }*/
-/*	.h6 { font-size: 1.6rem; }*/
-/*	.p 	{ font-size: 1.6rem; }*/
-/*	.small { font-size: 1.0rem; }*/
-/*	.label { font-size: 1.2rem; }*/
-}
-
-@media( min-width: 1480px ) {
-/*	.h1 { font-size: 6.2rem; }*/
-/*	.h2 { font-size: 4.8rem;  }*/
-/*	.h3 { font-size: 3.8rem;  }*/
-/*	.h4 { font-size: 3.0rem;  }*/
-/*	.h5 { font-size: 2.4rem;  }*/
-/*	.h6 { font-size: 1.8rem;  }*/
-/*	.p 	{ font-size: 1.8rem;  }*/
-/*	.small { font-size: 1.2rem; }*/
-/*	.label { font-size: 1.4rem; }*/
 }
 
 
@@ -289,7 +233,6 @@ hr {
 .fill-white {
 	color: var(--dark);
 	background-color: var(--white); }
-
 .fill-light {
 	color: var(--dark);
 	background-color: var(--light); }
@@ -413,13 +356,13 @@ hr {
 .space-min-top-bottom { padding-top: var(--space-min); padding-bottom: var(--space-min); }
 .space-min-left-right { padding-left: var(--space-min); padding-right: var(--space-min); }
 
-.space-100 { padding: var(--space-100); }
-.space-100-top { padding-top: var(--space-100); }
-.space-100-bottom { padding-bottom: var(--space-100); }
-.space-100-left { padding-left: var(--space-100); }
-.space-100-right { padding-right: var(--space-100); }
-.space-100-top-bottom { padding-top: var(--space-100); padding-bottom: var(--space-100); }
-.space-100-left-right { padding-left: var(--space-100); padding-right: var(--space-100); }
+.space-25 { padding: var(--space-25); }
+.space-25-top { padding-top: var(--space-25); }
+.space-25-bottom { padding-bottom: var(--space-25); }
+.space-25-left { padding-left: var(--space-25); }
+.space-25-right { padding-right: var(--space-25); }
+.space-25-top-bottom { padding-top: var(--space-25); padding-bottom: var(--space-25); }
+.space-25-left-right { padding-left: var(--space-25); padding-right: var(--space-25); }
 
 .space-50 { padding: var(--space-50); }
 .space-50-top { padding-top: var(--space-50); }
@@ -429,14 +372,6 @@ hr {
 .space-50-top-bottom { padding-top: var(--space-50); padding-bottom: var(--space-50); }
 .space-50-left-right { padding-left: var(--space-50); padding-right: var(--space-50); }
 
-.space-25 { padding: var(--space-25); }
-.space-25-top { padding-top: var(--space-25); }
-.space-25-bottom { padding-bottom: var(--space-25); }
-.space-25-left { padding-left: var(--space-25); }
-.space-25-right { padding-right: var(--space-25); }
-.space-25-top-bottom { padding-top: var(--space-25); padding-bottom: var(--space-25); }
-.space-25-left-right { padding-left: var(--space-25); padding-right: var(--space-25); }
-
 .space-75 { padding: var(--space-75); }
 .space-75-top { padding-top: var(--space-75); }
 .space-75-bottom { padding-bottom: var(--space-75); }
@@ -444,6 +379,14 @@ hr {
 .space-75-right { padding-right: var(--space-75); }
 .space-75-top-bottom { padding-top: var(--space-75); padding-bottom: var(--space-75); }
 .space-75-left-right { padding-left: var(--space-75); padding-right: var(--space-75); }
+
+.space-100 { padding: var(--space-100); }
+.space-100-top { padding-top: var(--space-100); }
+.space-100-bottom { padding-bottom: var(--space-100); }
+.space-100-left { padding-left: var(--space-100); }
+.space-100-right { padding-right: var(--space-100); }
+.space-100-top-bottom { padding-top: var(--space-100); padding-bottom: var(--space-100); }
+.space-100-left-right { padding-left: var(--space-100); padding-right: var(--space-100); }
 
 .space-150 { padding: var(--space-150); }
 .space-150-top { padding-top: var(--space-150); }
@@ -468,20 +411,6 @@ hr {
 .space-250-right { padding-right: var(--space-250); }
 .space-250-top-bottom { padding-top: var(--space-250); padding-bottom: var(--space-250); }
 .space-250-left-right { padding-left: var(--space-250); padding-right: var(--space-250); }
-
-
-
-
-
-/*
- *	Opacity
- */
-
-.opacity-0 { opacity: 0; }
-.opacity-25 { opacity: 0.25; }
-.opacity-50 { opacity: 0.5; }
-.opacity-75 { opacity: 0.75; }
-.opacity-100 { opacity: 1; }
 
 
 
@@ -672,6 +601,11 @@ select {
 	}
 }
 
+.form-field:focus-within .label {
+	color: rgba(255, 235, 59, 1);
+}
+
+
 
 
 
@@ -838,7 +772,7 @@ select {
 	z-index: 1;
 }
 
-/*.carousel:before,
+.carousel:before,
 .carousel:after {
 	pointer-events: none;
 	content: '';
@@ -848,7 +782,7 @@ select {
 	top: 0;
 	bottom: 0;
 	width: calc((100vw - var(--container-width) ) / 2);
-}*/
+}
 
 .carousel .carousel-list {
 	position: relative;
@@ -932,3 +866,46 @@ select {
 
 
 
+/* -- accordion -- */
+
+.accordion {}
+.accordion .tab {
+	margin-bottom: var(--space-50);
+}
+.accordion .tab .tab-head {
+	position: relative;
+}
+.accordion .tab .tab-head * { pointer-events: none; }
+.accordion .tab .tab-head .icon {
+	position: absolute;
+	top: 50%;
+	right: var(--space-50);
+	transform: translate(-50% -50%);
+}
+
+.accordion .tab input + .tab-head .icon {
+	transition: all 0.4s 0.1s ease-in-out;
+}
+.accordion .tab input:checked + .tab-head .icon {
+	transform: rotate(-180deg);
+}
+
+.accordion .tab .tab-content > .p {
+	padding-top: 0;
+}
+
+.accordion .tab input + .tab-head + .tab-content {
+/*	height: 0;*/
+/*	overflow: clip;*/
+/*	interpolate-size: allow-keywords; /* -- Support Limited : only Chrome (Desktop, Android), as on Oct 2024 -- */
+	
+	height: 100%;
+	overflow: hidden;
+	max-height: 0;
+	transition: all 0.7s ease-in-out;
+
+}
+.accordion .tab input:checked + .tab-head + .tab-content {
+/*	height: auto;*/
+	max-height: 800px;
+}

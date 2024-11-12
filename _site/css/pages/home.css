@@ -203,9 +203,9 @@
 		position: absolute;
 		z-index: 1;
 		width: calc(var(--container-width) * 0.75);
-		padding-top: calc((var(--container-width) * 0.75) * 0.666%);
+		padding-top: calc((var(--container-width) * 0.75) * 0.666);
 		top: calc(var(--space-200) * 2);
-		left: 50%;
+		left: calc(50% + var(--space-150));
 		opacity: 0.4;
 		background-size: 100%;
 		background-position: top left;

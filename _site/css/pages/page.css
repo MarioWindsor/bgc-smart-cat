@@ -4,6 +4,7 @@
 
 #page-wrapper {
 /*	overflow-x: hidden;*/ /* discontinued in support of position sticky */
+	overflow-x: clip; /* this works! has good support */
 }
 
 /* -- Page Content -- */
