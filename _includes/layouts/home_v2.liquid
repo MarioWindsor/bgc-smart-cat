@@ -4,8 +4,7 @@
 
 
 		<!-- Intro Section -->
-		<!-- <section id="intro-section" class="intro-section space-250-top-bottom"> -->
-		<section id="welcome" class="intro-section space-250-top-bottom">
+		<section id="intro-section" class="intro-section space-250-top">
 			<div class="container">
 				<div class="row intro">
 					<div class="logo columns small-12 medium-8 large-6">
@@ -16,7 +15,7 @@
 							<!-- End-to-end Commercial Solutions <span class="show-small-block show-large-inline">in <span class="js-immigration-text text-orange text-underline"></span></span> -->
 							End-to-end Commercial Solutions in <span class="js-immigration-text text-orange text-underline"></span>
 						</div>
-						<a href="" class="button fill-blue">View Catalogue</a>
+						<a href="#catalogue-section" class="button fill-blue">View Catalogue</a>
 					</div>
 					<div class="intro-video">
 						<div class="video-embed video-embed-bg">
@@ -61,52 +60,8 @@
 
 
 		<!-- Catalogue Section -->
-		{% # include 'parts/catalogue_v2.liquid' %}
+		{% include 'parts/catalogue_v3.liquid' %}
 		<!-- End: Catalogue Section -->
-
-
-
-		<!-- Fabrication Section -->
-		<section id="fabrication-section" class="fabrication-section hidden">
-			<div class="container">
-				<div class="row">
-					<div class="columns small-12">
-						Custom Kitchen Fabrication & Equipment
-						Precision-Engineered Custom Kitchen Solutions
-						Transform your commercial kitchen spaces with our extensive range of top-tier kitchenware, bar equipment, and specialised fabrication solutions. Our commitment goes beyond the ordinary – ensuring that every element is meticulously crafted to suit your needs, where every detail matters, and excellence is guaranteed.
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End: Fabrication Section -->
-
-
-
-		<!-- Brands Section -->
-		<section id="brands-section" class="brands-section">
-			<div class="container">
-				<div class="row">
-					<div class="columns small-12">
-						<!-- Content Here -->
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End: Brands Section -->
-
-
-
-		<!-- Legacy Section -->
-		<section id="legacy-section" class="legacy-section">
-			<div class="container">
-				<div class="row">
-					<div class="columns small-12">
-						<!-- Content Here -->
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End: Legacy Section -->
 
 
 
@@ -114,10 +69,11 @@
 		<section id="visit-section" class="visit-section fill-blue-dark-dark">
 			<div class="row img-cover" style="background-image: url('media/bg-dining.jpg');">
 				<div class="container">
-					<div class="columns small-12 medium-10 medium-offset-1 large-6 large-offset-6 space-200-top-bottom">
+					<div class="columns small-12 medium-10 medium-offset-1 large-6 large-offset-6 space-250-top-bottom">
 						<div class="card fill-white radius-50 space-100 box-shadow-blue" style="backdrop-filter: blur(10px) brightness(150%); -webkit-backdrop-filter: blur(10px) brightness(150%); background: rgba(172, 219, 246, 0.5);">
-							<div class="h3 font-h strong text-blue-dark">Book a Guided Tour at our Experience Center</div>
-							<div class="p space-50-top-bottom">Step into a world where innovation meets culinary mastery. Immerse yourself in a journey of flavors, design, and cutting-edge solutions at our Experience Center. Book your exclusive tour now to explore firsthand the latest trends in kitchenware, discover innovative culinary equipment, and witness bespoke solutions that redefine the art of cooking. Our expert guides will lead you through a captivating experience, showcasing the perfect fusion of form and function. Don't miss the opportunity to elevate your culinary endeavors – schedule a visit now!</div>
+							<div class="h3 font-h strong text-blue-dark-dark">Book a Guided Tour at our Experience Center</div>
+							<div class="h5 font-h text-blue-dark-dark space-min-top">Where innovation meets culinary mastery.</div>
+							<div class="p space-50-top-bottom">Immerse yourself in a journey of flavors, design, and cutting-edge solutions at our Experience Center. Book your exclusive tour now to explore firsthand the latest trends in kitchenware, discover innovative culinary equipment, and witness bespoke solutions that redefine the art of cooking. Our expert guides will lead you through a captivating experience, showcasing the perfect fusion of form and function. Don't miss the opportunity to elevate your culinary endeavors – schedule a visit now!</div>
 							<a href="" class="button fill-blue inline">Book a Visit, Now!</a>
 						</div>
 					</div>
@@ -131,14 +87,14 @@
 		<!-- Industry Section -->
 		<section id="industry-section" class="industry-section">
 			<div class="row">
-				<div class="container space-200-top-bottom">
+				<div class="container space-250-top-bottom">
 					<div class="columns text-center small-12 medium-10 medium-offset-1 large-8 large-offset-2">
 						<div class="h2 font-h strong text-blue text-uppercase">Industry Expertise</div>
 						<div class="h4 font-h text-blue-dark">We recognize the unique needs of each sector.</div>
 						<div class="p space-50-top-bottom">Explore our Customised Services and Smart Product Catalogue, <br><span class="text-blue text-uppercase">Select your Industry below</span>.</div>
 					</div>
-					<div class="industry-tabs columns small-12 large-8 large-offset-2 space-100-top-bottom">
-						<div class="tabs row">
+					<div class="industry-tabs columns small-12 large-8 large-offset-2 space-100-top">
+						<div class="tabs">
 							<div class="tab">
 								<a href="#catHotel" class="card text-center box-shadow-blue">
 									<img src="media/icon-hotel.png" style="width: 50%;">
@@ -178,7 +134,7 @@
 					<div class="wave" style="background-image: url('media/wave-blue.svg');"></div>
 				</div>
 				<div class="squares" style="background-image: url('media/squares-blue.svg');"></div>
-				<div class="container space-200-top-bottom">
+				<div class="container space-250-top-bottom">
 					<div class="columns small-12 medium-7">
 						<div class="thumbnail"><img class="block" src="media/cutout-hotel.png"></div>
 					</div>
@@ -187,7 +143,7 @@
 						<div class="heading h2 font-h strong space-50-top">Deliver Excellence at Every Table</div>
 						<div class="sub-heading h4 font-h strong space-50-top-bottom text-blue">Elevate your hospitality experience</div>
 						<div class="description p space-50-bottom">Transform your hospitality experience with premium kitchenware, exquisite glassware, and state-of-the-art banquet equipment. We provide industry-leading solutions designed to exceed hotel standards. From the kitchen to the dining table, our collection embodies quality, functionality, and sophistication.</div>
-						<a href="#catalogue" class="button inline fill-blue">Explore Products</a>
+						<a href="#catalogue-section" class="button inline fill-blue">Explore Products</a>
 					</div>
 					<div class="columns small-12">
 						<div class="points space-150-top">
@@ -246,7 +202,7 @@
 					<div class="wave" style="background-image: url('media/wave-orange.svg');"></div>
 				</div>
 				<div class="squares" style="background-image: url('media/squares-orange.svg');"></div>
-				<div class="container space-200-top-bottom">
+				<div class="container space-250-top-bottom">
 					<div class="columns small-12 medium-6">
 						<div class="thumbnail"><img class="block" src="media/cutout-restaurant.png"></div>
 					</div>
@@ -255,7 +211,7 @@
 						<div class="heading h2 font-h strong space-50-top">Crafting Experiences to Remember</div>
 						<div class="sub-heading h4 font-h strong space-50-top-bottom text-orange">Unmatched Dining & Bar Solutions</div>
 						<div class="description p space-50-bottom">Revitalize dining spaces with our selection of cutlery, crockery, and bar equipment. Our comprehensive collection of end-to-end kitchen equipment for optimal performance and efficiency. Explore our menu planning services, where creativity meets practicality for a perfect culinary blend. From innovative dishes to optimized resources, we bring your culinary vision to life.</div>
-						<a href="#catalogue" class="button inline fill-orange">Explore Products</a>
+						<a href="#catalogue-section" class="button inline fill-orange">Explore Products</a>
 					</div>
 					<div class="columns small-12">
 						<div class="points space-150-top">
@@ -271,7 +227,7 @@
 								</div>
 							</div>
 							<div class="point">
-								<div class="card row fill-white box-shadow-orange space-25 radius-50">
+								<div class="card row fill-white box-shadow-blue space-25 radius-50">
 									<div class="columns small-12 medium-5 large-12 space-25">
 										<div class="icon"><img class="block radius-25" src="media/point-restaurant-2.jpg"></div>
 									</div>
@@ -282,7 +238,7 @@
 								</div>
 							</div>
 							<div class="point">
-								<div class="card row fill-white box-shadow-orange space-25 radius-50">
+								<div class="card row fill-white box-shadow-blue space-25 radius-50">
 									<div class="columns small-12 medium-5 large-12 space-25">
 										<div class="icon"><img class="block radius-25" src="media/point-restaurant-3.jpg"></div>
 									</div>
@@ -303,7 +259,7 @@
 					<div class="wave" style="background-image: url('media/wave-green.svg');"></div>
 				</div>
 				<div class="squares" style="background-image: url('media/squares-green.svg');"></div>
-				<div class="container space-200-top-bottom">
+				<div class="container space-250-top-bottom">
 					<div class="columns small-12 medium-7">
 						<div class="thumbnail"><img class="block" src="media/cutout-catering.png"></div>
 					</div>
@@ -312,7 +268,7 @@
 						<div class="heading h2 font-h strong space-50-top">Seamless Event Mastery</div>
 						<div class="sub-heading h4 font-h strong space-50-top-bottom text-green">Complete Catering Solutions</div>
 						<div class="description p space-50-bottom">Streamline catering with our range of buffet ware and advanced electrical kitchen appliances — essential tools for a seamless, successful service. From stylish presentation to efficient prep, our curated collections elevate your catering. Trust us for precision, convenience, and exceptional events.</div>
-						<a href="#catalogue" class="button inline fill-green">Explore Products</a>
+						<a href="#catalogue-section" class="button inline fill-green">Explore Products</a>
 					</div>
 					<div class="columns small-12">
 						<div class="points space-150-top">
@@ -363,7 +319,7 @@
 					<div class="wave" style="background-image: url('media/wave-red.svg');"></div>
 				</div>
 				<div class="squares" style="background-image: url('media/squares-red.svg');"></div>
-				<div class="container space-200-top-bottom">
+				<div class="container space-250-top-bottom">
 					<div class="columns small-12 medium-6">
 						<div class="thumbnail"><img class="block" src="media/cutout-bakery.png"></div>
 					</div>
@@ -372,7 +328,7 @@
 						<div class="heading h2 font-h strong space-50-top">Precision Tools for Baking</div>
 						<div class="sub-heading h4 font-h strong space-50-top-bottom text-red">Elevate your Culinary Art</div>
 						<div class="description p space-50-bottom">Perfect your culinary creations with top-notch baking equipment, including premium bakeware, like moulds, mixers, and utensils, ensuring quality and precision. Our kitchen essentials combine functionality with excellence, supported by expert guidance to help your bakery exceed the highest standards.</div>
-						<a href="#catalogue" class="button inline fill-red">Explore Products</a>
+						<a href="#catalogue-section" class="button inline fill-red">Explore Products</a>
 					</div>
 					<div class="columns small-12">
 						<div class="points space-150-top">
@@ -418,89 +374,47 @@
 
 
 
-		<!-- CTA Section -->
-		<section id="cta-section" class="cta-section space-200-top">
-			<div class="container">
+		<!-- Brands Section -->
+		<section id="brands-section" class="brands-section fill-blue-dark-dark space-250-top-bottom">
+			<div class="container space-250-top-bottom">
 				<div class="row">
-					<div class="columns small-12 large-6">
-						<div class="heading">
-							<div class="h2 font-h space-50-bottom text-blue"><span class="strong text-blue-dark">Elevate your operation with tailored:</span> End-to-end Ho.Re.Ca Solutions</div>
-							<div class="p space-75-bottom" style="width: 75%;">Complete the form below  to initiate the conversation and embark on a journey towards greater success.</div>
-						</div>
-					</div>
-					<div class="columns small-12 large-5 large-offset-1">
-						<div class="form-box fill-blue-dark-dark light-blue-light-light radius-25 space-50" style="box-shadow: 0 0 1px 1px rgba(0, 102, 255, 0.2), 0 0 var(--space-200) 0px rgba(0, 102, 255, 0.3);">
-							<!-- https://docs.google.com/forms/d/e/1FAIpQLScwVGA7s0ndpD6lX7rQNbFu0yQvPlEZrwwYYkqmebG2FJFR2g/viewform?usp=sf_link -->
-							<!-- <form action="https://formspree.io/f/xwkgbone" method="POST"> -->
-							<form id="homeGeneralLeads" action="https://docs.google.com/forms/d/e/1FAIpQLSeG6nfZX6S_nq29su85Olfx_5UT31lj8Mj50WJIwbrVa1wPTw/formResponse" method="POST" enctype="multipart/form-data">
-							<div class="row">
-								<div class="columns small-12 space-25">
-									<div class="h4">Tell Us About Yourself:</div>
-								</div>
-								<div class="columns small-12 large-6 space-25">
-									<label class="block">
-										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue-dark-dark">Full Name <span class="text-orange">*</span></span>
-										<!-- <input type="text" name="egim_fullname" required class="input-field block"> -->
-										<input type="text" name="entry.1421501943" required class="input-field block">
-									</label>
-								</div>
-								<div class="columns small-12 large-6 space-25">
-									<label class="block">
-										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue-dark-dark">Email ID <span class="text-orange">*</span></span>
-										<!-- <input type="text" name="egim_emailid" required class="input-field block"> -->
-										<input type="text" name="entry.839199106" required class="input-field block">
-									</label>
-								</div>
-								<div class="columns small-12 large-6 space-25">
-									<label class="block">
-										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue-dark-dark">Phone Number <span class="text-orange">*</span></span>
-										<!-- <input type="text" name="egim_phonenumber" required class="input-field block"> -->
-										<input type="text" name="entry.636038964" required class="input-field block">
-									</label>
-								</div>
-								<div class="columns small-12 large-6 space-25">
-									<label class="block">
-										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue-dark-dark">Industry</span>
-										<!-- <input type="text" name="egim_country" class="input-field block"> -->
-										<!-- <select name="egim_country" class="input-field block"> -->
-										<select name="entry.203903897" class="input-field block">
-											<option value="blank" disabled="disabled" selected="selected">Select</option>
-											<option value="Hotel">Hotel</option>
-											<option value="Restaurant">Restaurant</option>
-											<option value="Bakery">Bakery</option>
-											<option value="Catering">Catering</option>
-											<option value="Cloud Kitchen">Cloud Kitchen</option>
-											<option value="Others">Others</option>
-										</select>
-									</label>
-								</div>
-								<div class="columns small-12 space-25">
-									<label class="block">
-										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue-dark-dark">message</span>
-										<!-- <input type="text" name="egim_purpose" class="input-field block"> -->
-										<!-- <input type="text" name="entry.677688100" class="input-field block"> -->
-										<textarea class="input-field block" name="entry.1788879696"></textarea>
-									</label>
-								</div>
-								<div class="columns small-12 space-25">
-									<label class="block">
-										<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Submit</span>
-										<button class="button fill-blue block" type="submit">Request a Call Back</button>
-									</label>
-								</div>
-							</div>
-							</form>
-						</div>
+					<div class="columns small-12">
+						<!-- Content Here -->
+						.
 					</div>
 				</div>
 			</div>
 		</section>
-		<!-- End: CTA Section -->
+		<!-- End: Brands Section -->
 
 
 
-		<!-- Features Section -->
-		<section id="features-section" class="features-section">
+		<!-- Legacy Section -->
+		<section id="legacy-section" class="legacy-section space-250-top-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="columns text-center small-12 medium-10 medium-offset-1 large-6 large-offset-3 space-100-bottom">
+						<div class="h2 font-h text-blue text-uppercase">65 YEAR LEGACY</div>
+						<div class="h3 font-h strong text-blue-dark">Milestones and Memories from over Six Decades!</div>
+						<div class="p space-50-top"><span class="strong text-blue-dark">Founded in 1959,</span> BGC has evolved into a beacon of excellence under the visionary leadership of <span class="strong text-blue-dark">Mr. P. Jagadeesh Kumar</span>.</div>
+					</div>
+					<div class="columns small-12">
+						<div class="video-embed radius-50 box-shadow-blue">
+							<iframe class="radius-50 no-overflow" src="https://www.youtube-nocookie.com/embed/4oGMOPkf8oc?html5=1&color=white&disablekb=0&fs=0&autoplay=0&loop=0&modestbranding=1&playsinline=1&rel=0&showinfo=1&enablejsapi=1&mute=0&controls=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						</div>
+					</div>
+					<div class="columns text-center small-12 medium-10 medium-offset-1 large-8 large-offset-2 space-100-top">
+						<div class="p">Today, under the foresight of <span class="strong text-blue-dark">Mr. Jagadeesh Kumar, Mrs Sneha Jagadeesh, and Mr. Sunit Jagadeesh,</span> the brand continues to grow, aiming to extend its footprint across India and international markets. <span class="strong text-blue-dark">Through Transparency, Quality, and Unwavering Customer Satisfaction!</span></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End: Legacy Section -->
+
+
+
+		<!-- FAQs Section -->
+		<section id="faqs-section" class="faqs-section">
 			<div class="container">
 				<div class="row">
 					<div class="columns small-12">
@@ -509,12 +423,31 @@
 				</div>
 			</div>
 		</section>
-		<!-- End: Features Section -->
+		<!-- End: FAQs Section -->
 
 
 
-		<!-- Contact Section -->
-		<section id="contact-section" class="contact-section">
+		<!-- Fabrication Section -->
+		<section id="fabrication-section" class="fabrication-section fill-orange-dark-dark">
+			<div class="row img-cover" style="background-image: url('media/bg-fabrication.jpg');">
+				<div class="container">
+					<div class="columns small-12 medium-10 medium-offset-1 large-6 large-offset-6 space-250-top-bottom">
+						<div class="card fill-white radius-50 space-100 box-shadow-orange" style="backdrop-filter: blur(10px) brightness(150%); -webkit-backdrop-filter: blur(10px) brightness(150%); background: rgba(246, 214, 175, 0.5);">
+							<div class="h3 font-h strong text-orange-dark-dark">Precision-Engineered Custom Kitchen Solutions</div>
+							<div class="h5 font-h text-orange-dark-dark space-min-top">Custom Kitchen Equipment and Fabrication</div>
+							<div class="p space-50-top-bottom">Transform your commercial kitchen spaces with our extensive range of top-tier kitchenware, bar equipment, and specialised fabrication solutions. Our commitment goes beyond the ordinary – ensuring that every element is meticulously crafted to suit your needs, where every detail matters, and excellence is guaranteed.</div>
+							<a href="" class="button fill-orange inline">Learn More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End: Fabrication Secti.on -->
+
+
+
+		<!-- Reviews Section -->
+		<section id="reviews-section" class="reviews-section">
 			<div class="container">
 				<div class="row">
 					<div class="columns small-12">
@@ -523,22 +456,7 @@
 				</div>
 			</div>
 		</section>
-		<!-- End: Contact Section -->
-
-
-
-
-
-		<!-- Blank Section -->
-		<section id="blank-section" class="blank-section">
-			<div class="container">
-				<div class="row">
-					<div class="columns small-12">
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- END: Blank Section -->
+		<!-- END: Reviews Section -->
 
 
 
