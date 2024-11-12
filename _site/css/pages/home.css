@@ -100,17 +100,43 @@
 
 
 
-/* -- Expertise Section --  */
+/* -- Industry Section --  */
 
-.expertise-section {}
+.industry-section {}
 
-.expertise-section .wave-set {
+.industry-section .industry-tabs .tabs {
+	display: grid;
+	gap: var(--space-50);
+	grid-template-columns: 1fr 1fr;
+}
+.industry-section .industry-tabs .tabs .tab {
+/*	padding: var(--space-min);*/
+	height: 100%;
+}
+.industry-section .industry-tabs .tabs .tab .card {
+	display: inline-block;
+	cursor: pointer;
+	height: 100%;
+	border-radius: var(--space-50);
+	padding: var(--space-100) var(--space-50);
+	transition: .3s ease-out;
+}
+.industry-section .industry-tabs .tabs .tab .card img {
+	transition: .3s ease-out;
+}
+
+.industry-section .industry-tabs .tabs .tab .card:hover {
+	transform: scale(1.05);
+}
+
+
+.industry-section .wave-set {
 	position: relative;
 	z-index: 1;
 	overflow-x: clip;
 	transform: scale(1.666);
 }
-.expertise-section .wave-set .wave {
+.industry-section .wave-set .wave {
 	position: relative;
 	display: block;
 /*	width: 2400px;*/
@@ -122,7 +148,7 @@
 	background-repeat: no-repeat;
 	background-position: top left;
 }
-.expertise-section .wave-set .wave:nth-child(2) {
+.industry-section .wave-set .wave:nth-child(2) {
 	position: absolute;
 	top: 0;
 	opacity: 15%;
@@ -130,7 +156,7 @@
 /*	left: -12.5%;*/
 	animation: wavemotion 5s ease-in-out infinite 2s alternate;
 }
-.expertise-section .wave-set .wave:nth-child(3) {
+.industry-section .wave-set .wave:nth-child(3) {
 	position: absolute;
 	top: 0;
 	opacity: 50%;
@@ -157,48 +183,47 @@
 }
 
 
-.expertise-section .squares {
+.industry-section .squares {
 	display: none;
 }
 
-.expertise-section .container {
+.industry-section .container {
 	position: relative;
 	z-index: 3;
 }
 
-.expertise-section .thumbnail {
+.industry-section .thumbnail {
 	padding-bottom: var(--space-100);
 }
 
 
-.expertise-section .points .point .card { height: 100%; }
-
-/* hotels */
-.expertise-section .hotel .points {
-	display: grid;
-	gap: var(--space-75);
-}
-.expertise-section .hotel .points .point .card {}
+.industry-section .points .point .card { height: 100%; }
 
 @media( min-width: 640px )  {
-	.expertise-section .wave-set {
+
+	.industry-section .industry-tabs .tabs {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+
+	.industry-section .wave-set {
 		transform: scale(1.25);
 	}
 
-	.expertise-section .thumbnail {
+	.industry-section .thumbnail {
 		padding-bottom: 0;
-	}
-
-	.expertise-section .hotel .points {
-		grid-template-columns: 1fr 1fr;
 	}
 }
 @media( min-width: 1040px ) {
-	.expertise-section .wave-set {
+
+	.industry-section .industry-tabs .tabs .tab .card {
+		padding: var(--space-100) var(--space-50);
+	}
+
+	.industry-section .wave-set {
 		transform: scale(1);
 	}
 
-	.expertise-section .squares {
+	.industry-section .squares {
 		display: block;
 		position: absolute;
 		z-index: 1;
@@ -211,43 +236,63 @@
 		background-position: top left;
 		background-repeat: no-repeat;
 	}
+}
+@media( min-width: 1480px ) {}
 
-	.expertise-section .hotel .columns {
-		vertical-align: bottom;
-	}
-	.expertise-section .hotel .points {
+
+/* hotels */
+.industry-section .hotel .points {
+	display: grid;
+	gap: var(--space-50);
+	grid-template-columns: 1fr 1fr;
+}
+.industry-section .hotel .points .point {
+	text-align: center;
+}
+.industry-section .hotel .points .point .card {}
+
+@media( min-width: 640px )  {
+	.industry-section .hotel .points {
 		grid-template-columns: 1fr 1fr 1fr 1fr;
 	}
-	.expertise-section .hotel .points .point {
-		text-align: center;
+}
+@media( min-width: 1040px ) {
+	.industry-section .hotel .columns {
+		vertical-align: bottom;
+	}
+	.industry-section .hotel .points {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+	.industry-section .hotel .points .point {
+		text-align: left;
 	}
 }
 @media( min-width: 1480px ) {}
 
 
 /* catering */
-.expertise-section .catering .points {
+.industry-section .catering .points {
 	display: grid;
-	gap: var(--space-75);
+	gap: var(--space-50);
 }
-.expertise-section .catering .points .point ul li {
+.industry-section .catering .points .point ul li {
 	padding-left: var(--space-100);
 	text-indent: calc(-1.1 * var(--h6));
 }
 
 @media( min-width: 640px )  {
-	.expertise-section .catering .points {
+	.industry-section .catering .points {
 		grid-template-columns: 1fr 1fr;
 	}
 }
 @media( min-width: 1040px ) {
-	.expertise-section .catering .columns {
+	.industry-section .catering .columns {
 		vertical-align: bottom;
 	}
-	.expertise-section .catering .points {
+	.industry-section .catering .points {
 		grid-template-columns: 1fr 1fr;
 	}
-	.expertise-section .catering .points .point .icon {
+	.industry-section .catering .points .point .icon {
 		padding-left: var(--space-50);
 	}
 }
@@ -257,31 +302,43 @@
 
 /* Restaurants & Bakerys */
 
-.expertise-section .restaurant .points,
-.expertise-section .bakery .points {
+.industry-section .restaurant .points,
+.industry-section .bakery .points {
 	display: grid;
-	gap: var(--space-75);
+	gap: var(--space-50);
 }
 
-.expertise-section .restaurant .points .point,
-.expertise-section .bakery .points .point {
+.industry-section .restaurant .points .point,
+.industry-section .bakery .points .point {
 	text-align: center;
 }
 
 @media( min-width: 640px )  {
-	.expertise-section .restaurant .points,
-	.expertise-section .bakery .points {
-		grid-template-columns: 1fr 1fr;
+	.industry-section .restaurant .points .point,
+	.industry-section .bakery .points .point {
+		text-align: left;
+	}
+	.industry-section .restaurant .points .point .icon,
+	.industry-section .bakery .points .point .icon {
+		padding-right: var(--space-50);
 	}
 }
 @media( min-width: 1040px ) {
-	.expertise-section .restaurant .columns,
-	.expertise-section .bakery .columns {
+	.industry-section .restaurant .columns,
+	.industry-section .bakery .columns {
 		vertical-align: bottom;
 	}
-	.expertise-section .restaurant .points,
-	.expertise-section .bakery .points {
+	.industry-section .restaurant .points,
+	.industry-section .bakery .points {
 		grid-template-columns: 1fr 1fr 1fr;
+	}
+	.industry-section .restaurant .points .point,
+	.industry-section .bakery .points .point {
+		text-align: center;
+	}
+	.industry-section .restaurant .points .point .icon,
+	.industry-section .bakery .points .point .icon {
+		padding-right: auto;
 	}
 }
 @media( min-width: 1480px ) {}

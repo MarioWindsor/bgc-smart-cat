@@ -61,13 +61,13 @@
 
 
 		<!-- Catalogue Section -->
-		{% include 'parts/catalogue_v2.liquid' %}
+		{% # include 'parts/catalogue_v2.liquid' %}
 		<!-- End: Catalogue Section -->
 
 
 
 		<!-- Fabrication Section -->
-		<section id="fabrication-section" class="fabrication-section">
+		<section id="fabrication-section" class="fabrication-section hidden">
 			<div class="container">
 				<div class="row">
 					<div class="columns small-12">
@@ -111,22 +111,67 @@
 
 
 		<!-- Visit Section -->
-		<section id="visit-section" class="visit-section">
-			<div class="container">
-				<div class="row">
-					<div class="columns small-12">
-						<!-- Content Here -->
+		<section id="visit-section" class="visit-section fill-blue-dark-dark">
+			<div class="row img-cover" style="background-image: url('media/bg-dining.jpg');">
+				<div class="container">
+					<div class="columns small-12 medium-10 medium-offset-1 large-6 large-offset-6 space-200-top-bottom">
+						<div class="card fill-white radius-50 space-100 box-shadow-blue" style="backdrop-filter: blur(10px) brightness(150%); -webkit-backdrop-filter: blur(10px) brightness(150%); background: rgba(172, 219, 246, 0.5);">
+							<div class="h3 font-h strong text-blue-dark">Book a Guided Tour at our Experience Center</div>
+							<div class="p space-50-top-bottom">Step into a world where innovation meets culinary mastery. Immerse yourself in a journey of flavors, design, and cutting-edge solutions at our Experience Center. Book your exclusive tour now to explore firsthand the latest trends in kitchenware, discover innovative culinary equipment, and witness bespoke solutions that redefine the art of cooking. Our expert guides will lead you through a captivating experience, showcasing the perfect fusion of form and function. Don't miss the opportunity to elevate your culinary endeavors – schedule a visit now!</div>
+							<a href="" class="button fill-blue inline">Book a Visit, Now!</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-		<!-- End: Visit Section -->
+		<!-- End: Visit Secti.on -->
 
 
 
-		<!-- Expertise Section -->
-		<section id="expertise-section" class="expertise-section">
-			<div class="row hotel position-relative">
+		<!-- Industry Section -->
+		<section id="industry-section" class="industry-section">
+			<div class="row">
+				<div class="container space-200-top-bottom">
+					<div class="columns text-center small-12 medium-10 medium-offset-1 large-8 large-offset-2">
+						<div class="h2 font-h strong text-blue text-uppercase">Industry Expertise</div>
+						<div class="h4 font-h text-blue-dark">We recognize the unique needs of each sector.</div>
+						<div class="p space-50-top-bottom">Explore our Customised Services and Smart Product Catalogue, <br><span class="text-blue text-uppercase">Select your Industry below</span>.</div>
+					</div>
+					<div class="industry-tabs columns small-12 large-8 large-offset-2 space-100-top-bottom">
+						<div class="tabs row">
+							<div class="tab">
+								<a href="#catHotel" class="card text-center box-shadow-blue">
+									<img src="media/icon-hotel.png" style="width: 50%;">
+									<div class="h5 font-h text-uppercase strong space-50-top">Hotels</div>
+									<div class="label text-blue">Equip Yourself for Service Excellence</div>
+								</a>
+							</div>
+							<div class="tab">
+								<a href="#catRestaurant" class="card text-center box-shadow-orange">
+									<img src="media/icon-restaurant.png" style="width: 50%;">
+									<div class="h5 font-h text-uppercase strong space-50-top" style="letter-spacing: -0.4px;">Restaurant</div>
+									<div class="label text-orange">Elevate Your Dining Experience</div>
+								</a>
+							</div>
+							<div class="tab">
+								<a href="#catCatering" class="card text-center box-shadow-green">
+									<img src="media/icon-catering.png" style="width: 50%;">
+									<div class="h5 font-h text-uppercase strong space-50-top">Catering</div>
+									<div class="label text-green">Upgrade Your Setup to Perfection</div>
+								</a>
+							</div>
+							<div class="tab">
+								<a href="#catBakery" class="card text-center box-shadow-red">
+									<img src="media/icon-bakery.png" style="width: 50%;">
+									<div class="h5 font-h text-uppercase strong space-50-top">Bakery</div>
+									<div class="label text-red">Superior Quality for Customer Delight</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="catHotel" class="row hotel position-relative">
 				<div class="wave-set">
 					<div class="wave" style="background-image: url('media/wave-blue.svg');"></div>
 					<div class="wave" style="background-image: url('media/wave-blue.svg');"></div>
@@ -138,54 +183,55 @@
 						<div class="thumbnail"><img class="block" src="media/cutout-hotel.png"></div>
 					</div>
 					<div class="columns small-12 medium-5">
-						<div class="title h6 font-h strong text-uppercase inline space-25-top-bottom space-50-left-right fill-blue radius-min">BGC for : Hotels</div>
+						<div class="title h6 font-h strong text-uppercase inline space-25-top-bottom space-50-left-right opacity-75 fill-blue radius-min">BGC for : Hotels</div>
 						<div class="heading h2 font-h strong space-50-top">Deliver Excellence at Every Table</div>
 						<div class="sub-heading h4 font-h strong space-50-top-bottom text-blue">Elevate your hospitality experience</div>
-						<div class="description p">Transform your hospitality experience with premium kitchenware, exquisite glassware, and state-of-the-art banquet equipment. We provide industry-leading solutions designed to exceed hotel standards. From the kitchen to the dining table, our collection embodies quality, functionality, and sophistication.</div>
+						<div class="description p space-50-bottom">Transform your hospitality experience with premium kitchenware, exquisite glassware, and state-of-the-art banquet equipment. We provide industry-leading solutions designed to exceed hotel standards. From the kitchen to the dining table, our collection embodies quality, functionality, and sophistication.</div>
+						<a href="#catalogue" class="button inline fill-blue">Explore Products</a>
 					</div>
 					<div class="columns small-12">
 						<div class="points space-150-top">
 							<div class="point">
 								<div class="card row fill-white box-shadow-blue space-25 radius-50">
-									<div class="columns small-5 large-6 space-25">
+									<div class="columns small-9 large-5 space-25">
 										<div class="icon"><img class="block" src="media/icons_cart_blue.png"></div>
 									</div>
-									<div class="columns small-7 large-12 space-25">
-										<div class="h2 font-h strong text-blue">8K+</div>
-										<div class="h6">PRODUCT <br>SKUs</div>
+									<div class="columns small-12 large-7 space-25">
+										<div class="h3 font-h text-blue">8K+</div>
+										<div class="p">PRODUCT <br>SKUs</div>
 									</div>
 								</div>
 							</div>
 							<div class="point">
 								<div class="card row fill-white box-shadow-blue space-25 radius-50">
-									<div class="columns small-5 large-6 space-25">
+									<div class="columns small-9 large-5 space-25">
 										<div class="icon"><img class="block" src="media/icons_cater_blue.png"></div>
 									</div>
-									<div class="columns small-7 large-12 space-25">
-										<div class="h2 font-h strong text-blue">500+</div>
-										<div class="h6">BANQUET <br>EQUIPMENT</div>
+									<div class="columns small-12 large-7 space-25">
+										<div class="h3 font-h text-blue">500+</div>
+										<div class="p">BANQUET <br>EQUIPMENT</div>
 									</div>
 								</div>
 							</div>
 							<div class="point">
 								<div class="card row fill-white box-shadow-blue space-25 radius-50">
-									<div class="columns small-5 large-6 space-25">
+									<div class="columns small-9 large-5 space-25">
 										<div class="icon"><img class="block" src="media/icons_building_blue.png"></div>
 									</div>
-									<div class="columns small-7 large-12 space-25">
-										<div class="h2 font-h strong text-blue">6K SFT</div>
-										<div class="h6">EXPERIENCE <br>CENTER</div>
+									<div class="columns small-12 large-7 space-25">
+										<div class="h3 font-h text-blue">6K SFT</div>
+										<div class="p">EXPERIENCE <br>CENTER</div>
 									</div>
 								</div>
 							</div>
 							<div class="point">
 								<div class="card row fill-white box-shadow-blue space-25 radius-50">
-									<div class="columns small-5 large-6 space-25">
+									<div class="columns small-9 large-5 space-25">
 										<div class="icon"><img class="block" src="media/icons_broom_blue.png"></div>
 									</div>
-									<div class="columns small-7 large-12 space-25">
-										<div class="h2 font-h strong text-blue">300+</div>
-										<div class="h6">HOUSEKEEPING <br>ESSENTIALS</div>
+									<div class="columns small-12 large-7 space-25">
+										<div class="h3 font-h text-blue">300+</div>
+										<div class="p">HOUSEKEEPING <br>ESSENTIALS</div>
 									</div>
 								</div>
 							</div>
@@ -193,7 +239,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row restaurant position-relative">
+			<div id="catRestaurant" class="row restaurant position-relative">
 				<div class="wave-set">
 					<div class="wave" style="background-image: url('media/wave-orange.svg');"></div>
 					<div class="wave" style="background-image: url('media/wave-orange.svg');"></div>
@@ -205,43 +251,44 @@
 						<div class="thumbnail"><img class="block" src="media/cutout-restaurant.png"></div>
 					</div>
 					<div class="columns small-12 medium-5 medium-offset-1">
-						<div class="title h6 font-h strong text-uppercase inline space-25-top-bottom space-50-left-right fill-orange radius-min">BGC for : Restaurants</div>
+						<div class="title h6 font-h strong text-uppercase inline space-25-top-bottom space-50-left-right opacity-75 fill-orange radius-min">BGC for : Restaurants</div>
 						<div class="heading h2 font-h strong space-50-top">Crafting Experiences to Remember</div>
 						<div class="sub-heading h4 font-h strong space-50-top-bottom text-orange">Unmatched Dining & Bar Solutions</div>
-						<div class="description p">Revitalize dining spaces with our selection of cutlery, crockery, and bar equipment. Our comprehensive collection of end-to-end kitchen equipment for optimal performance and efficiency. Explore our menu planning services, where creativity meets practicality for a perfect culinary blend. From innovative dishes to optimized resources, we bring your culinary vision to life.</div>
+						<div class="description p space-50-bottom">Revitalize dining spaces with our selection of cutlery, crockery, and bar equipment. Our comprehensive collection of end-to-end kitchen equipment for optimal performance and efficiency. Explore our menu planning services, where creativity meets practicality for a perfect culinary blend. From innovative dishes to optimized resources, we bring your culinary vision to life.</div>
+						<a href="#catalogue" class="button inline fill-orange">Explore Products</a>
 					</div>
 					<div class="columns small-12">
 						<div class="points space-150-top">
 							<div class="point">
 								<div class="card row fill-white box-shadow-orange space-25 radius-50">
-									<div class="columns small-12 space-25">
+									<div class="columns small-12 medium-5 large-12 space-25">
 										<div class="icon"><img class="block radius-25" src="media/point-restaurant-1.jpg"></div>
 									</div>
-									<div class="columns small-12 space-25">
-										<div class="h4 font-h strong text-orange">SATISFIED CLIENTS</div>
-										<div class="p">Trusted by over 500+ restaurants, we have a proven track record of successfully guiding businesses from equipment and glassware selection to menu planning.</div>
+									<div class="columns small-12 medium-7 large-12 space-25">
+										<div class="h4 font-h text-orange">Satisfied Clients</div>
+										<div class="p text-neutral-5">Trusted by over 500+ restaurants, we have a proven track record of successfully guiding businesses from equipment and glassware selection to menu planning.</div>
 									</div>
 								</div>
 							</div>
 							<div class="point">
 								<div class="card row fill-white box-shadow-orange space-25 radius-50">
-									<div class="columns small-12 space-25">
+									<div class="columns small-12 medium-5 large-12 space-25">
 										<div class="icon"><img class="block radius-25" src="media/point-restaurant-2.jpg"></div>
 									</div>
-									<div class="columns small-12 space-25">
-										<div class="h4 font-h strong text-orange">CERTIFIED BRANDS</div>
-										<div class="p">With 300+ industry-leading brands to ensure the highest quality & reliability. Our certified products and solutions are backed by trusted names in the industry.</div>
+									<div class="columns small-12 medium-7 large-12 space-25">
+										<div class="h4 font-h text-orange">Certified Brands</div>
+										<div class="p text-neutral-5">With 300+ industry-leading brands to ensure the highest quality & reliability. Our certified products and solutions are backed by trusted names in the industry.</div>
 									</div>
 								</div>
 							</div>
 							<div class="point">
 								<div class="card row fill-white box-shadow-orange space-25 radius-50">
-									<div class="columns small-12 space-25">
+									<div class="columns small-12 medium-5 large-12 space-25">
 										<div class="icon"><img class="block radius-25" src="media/point-restaurant-3.jpg"></div>
 									</div>
-									<div class="columns small-12 space-25">
-										<div class="h4 font-h strong text-orange">CUSTOM SOLUTIONS</div>
-										<div class="p">Over 200+ successful customisations. We fabricate and modify equipment to meet your exact needs. Our tailored solutions optimize operations and enhance your business.</div>
+									<div class="columns small-12 medium-7 large-12 space-25">
+										<div class="h4 font-h text-orange">Custom Solutions</div>
+										<div class="p text-neutral-5">Over 200+ successful customisations. We fabricate and modify equipment to meet your exact needs. Our tailored solutions optimize operations and enhance your business.</div>
 									</div>
 								</div>
 							</div>
@@ -249,7 +296,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row catering position-relative">
+			<div id="catCatering" class="row catering position-relative">
 				<div class="wave-set">
 					<div class="wave" style="background-image: url('media/wave-green.svg');"></div>
 					<div class="wave" style="background-image: url('media/wave-green.svg');"></div>
@@ -261,10 +308,11 @@
 						<div class="thumbnail"><img class="block" src="media/cutout-catering.png"></div>
 					</div>
 					<div class="columns small-12 medium-5">
-						<div class="title h6 font-h strong text-uppercase inline space-25-top-bottom space-50-left-right fill-green radius-min">BGC for : Catering</div>
+						<div class="title h6 font-h strong text-uppercase inline space-25-top-bottom space-50-left-right opacity-75 fill-green radius-min">BGC for : Catering</div>
 						<div class="heading h2 font-h strong space-50-top">Seamless Event Mastery</div>
 						<div class="sub-heading h4 font-h strong space-50-top-bottom text-green">Complete Catering Solutions</div>
-						<div class="description p">Streamline catering with our range of buffet ware and advanced electrical kitchen appliances — essential tools for a seamless, successful service. From stylish presentation to efficient prep, our curated collections elevate your catering. Trust us for precision, convenience, and exceptional events.</div>
+						<div class="description p space-50-bottom">Streamline catering with our range of buffet ware and advanced electrical kitchen appliances — essential tools for a seamless, successful service. From stylish presentation to efficient prep, our curated collections elevate your catering. Trust us for precision, convenience, and exceptional events.</div>
+						<a href="#catalogue" class="button inline fill-green">Explore Products</a>
 					</div>
 					<div class="columns small-12">
 						<div class="points space-150-top">
@@ -274,14 +322,14 @@
 										<div class="icon"><img class="block" src="media/icons_starman_green.png"></div>
 									</div>
 									<div class="columns small-7 large-8 space-25 inline-middle">
-										<div class="h3 font-h strong text-green">EXPERT SALES AGENTS</div>
+										<div class="h4 font-h text-green">EXPERT SALES AGENTS</div>
 									</div>
 									<div class="columns small-12 space-25 large-8 large-offset-3">
 										<ul>
-											<li class="p">Highly trained & knowledgeable agents</li>
-											<li class="p">Personalized assistance </li>
-											<li class="p">Expert guidance & customization</li>
-											<li class="p">Support specifically for the catering industry</li>
+											<li class="p">Deep knowledge of catering products.</li>
+											<li class="p">Best product recommendations.</li>
+											<li class="p">Excellent client relationship management.</li>
+											<li class="p">Strong negotiation and sales skills.</li>
 										</ul>
 									</div>
 								</div>
@@ -292,14 +340,14 @@
 										<div class="icon"><img class="block" src="media/icons_caller_green.png"></div>
 									</div>
 									<div class="columns small-7 large-8 space-25 inline-middle">
-										<div class="h3 font-h strong text-green">REMOTE CATERING SUPPORT</div>
+										<div class="h4 font-h text-green">REMOTE CATERING SUPPORT</div>
 									</div>
 									<div class="columns small-12 space-25 large-8 large-offset-3">
 										<ul>
-											<li class="p">24/7 remote support</li>
-											<li class="p">Prompt and efficient assistance at any time</li>
-											<li class="p">No need for on-site visits</li>
-											<li class="p">Dedicated team ensuring seamless service</li>
+											<li class="p">Quick online product assistance.</li>
+											<li class="p">Efficient handling of bulk orders.</li>
+											<li class="p">Expertise in product customization options.</li>
+											<li class="p">Seamless support, no need for on-site visit.</li>
 										</ul>
 									</div>
 								</div>
@@ -308,7 +356,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row bakery position-relative">
+			<div id="catBakery" class="row bakery position-relative">
 				<div class="wave-set">
 					<div class="wave" style="background-image: url('media/wave-red.svg');"></div>
 					<div class="wave" style="background-image: url('media/wave-red.svg');"></div>
@@ -320,43 +368,44 @@
 						<div class="thumbnail"><img class="block" src="media/cutout-bakery.png"></div>
 					</div>
 					<div class="columns small-12 medium-5 medium-offset-1">
-						<div class="title h6 font-h strong text-uppercase inline space-25-top-bottom space-50-left-right fill-red radius-min">BGC for : Bakerys</div>
+						<div class="title h6 font-h strong text-uppercase inline space-25-top-bottom space-50-left-right opacity-75 fill-red radius-min">BGC for : Bakerys</div>
 						<div class="heading h2 font-h strong space-50-top">Precision Tools for Baking</div>
 						<div class="sub-heading h4 font-h strong space-50-top-bottom text-red">Elevate your Culinary Art</div>
-						<div class="description p">Perfect your culinary creations with top-notch baking equipment, including premium bakeware, like moulds, mixers, and utensils, ensuring quality and precision. Our kitchen essentials combine functionality with excellence, supported by expert guidance to help your bakery exceed the highest standards.</div>
+						<div class="description p space-50-bottom">Perfect your culinary creations with top-notch baking equipment, including premium bakeware, like moulds, mixers, and utensils, ensuring quality and precision. Our kitchen essentials combine functionality with excellence, supported by expert guidance to help your bakery exceed the highest standards.</div>
+						<a href="#catalogue" class="button inline fill-red">Explore Products</a>
 					</div>
 					<div class="columns small-12">
 						<div class="points space-150-top">
 							<div class="point">
 								<div class="card row fill-white box-shadow-red space-25 radius-50">
-									<div class="columns small-12 space-25">
+									<div class="columns small-12 medium-5 large-12 space-25">
 										<div class="icon"><img class="block radius-25" src="media/point-bakery-1.jpg"></div>
 									</div>
-									<div class="columns small-12 space-25">
-										<div class="h4 font-h strong text-red">PRODUCT CONSULTATIONS</div>
-										<div class="p">Receive expert guidance and advice from our experienced team. Our product consultations help you select the right equipment and supplies to meet your specific needs and achieve your business goals.</div>
+									<div class="columns small-12 medium-7 large-12 space-25">
+										<div class="h4 font-h text-red">Product Assistance</div>
+										<div class="p text-neutral-5">Receive expert guidance and advice from our experienced team. Our product consultations help you select the right equipment and supplies to meet your specific needs and achieve your business goals.</div>
 									</div>
 								</div>
 							</div>
 							<div class="point">
 								<div class="card row fill-white box-shadow-red space-25 radius-50">
-									<div class="columns small-12 space-25">
+									<div class="columns small-12 medium-5 large-12 space-25">
 										<div class="icon"><img class="block radius-25" src="media/point-bakery-2.jpg"></div>
 									</div>
-									<div class="columns small-12 space-25">
-										<div class="h4 font-h strong text-red">SPECIALIZED BAKING PRODUCTS</div>
-										<div class="p">Discover our extensive range of over 400+ specialized baking product SKUS, from ovens and molds to trays, cooling racks, and decor tools. We offer everything you need to elevate your creations and bake perfection.</div>
+									<div class="columns small-12 medium-7 large-12 space-25">
+										<div class="h4 font-h text-red">Baking Products</div>
+										<div class="p text-neutral-5">Discover our extensive range of over 400+ specialized baking product SKUS, from ovens and molds to trays, cooling racks, and decor tools. We offer everything you need to elevate your creations and bake perfection.</div>
 									</div>
 								</div>
 							</div>
 							<div class="point">
 								<div class="card row fill-white box-shadow-red space-25 radius-50">
-									<div class="columns small-12 space-25">
+									<div class="columns small-12 medium-5 large-12 space-25">
 										<div class="icon"><img class="block radius-25" src="media/point-bakery-3.jpg"></div>
 									</div>
-									<div class="columns small-12 space-25">
-										<div class="h4 font-h strong text-red">PRODUCT WARRANTY</div>
-										<div class="p">Enjoy peace of mind with our comprehensive product warranty. We are committed to providing reliable and durable products, backed by our unwavering support  team, ready to assist you promptly and efficiently.</div>
+									<div class="columns small-12 medium-7 large-12 space-25">
+										<div class="h4 font-h text-red">Product Warranty</div>
+										<div class="p text-neutral-5">Enjoy peace of mind with our comprehensive product warranty. We are committed to providing reliable and durable products, backed by our unwavering support  team, ready to assist you promptly and efficiently.</div>
 									</div>
 								</div>
 							</div>
@@ -365,7 +414,7 @@
 				</div>
 			</div>
 		</section>
-		<!-- End: Expertise Section -->
+		<!-- End: Industry Section -->
 
 
 
