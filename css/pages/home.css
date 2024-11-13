@@ -346,4 +346,51 @@
 
 
 
+/* -- Legacy Section --  */
 
+.legacy-section {
+	position: relative;
+}
+.legacy-section .film-cta {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	display: inline-block;
+	white-space: nowrap;
+	transform: translate(-50%, -110%) scale(0.75);
+}
+.legacy-section .squares {
+	z-index: 1;
+	display: block;
+	position: absolute;
+	z-index: 1;
+	width: 75%;
+	padding-top: 75%;
+	opacity: 0.65;
+	background-size: 100%;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.legacy-section .squares.blue {
+	top: 20%;
+	left: 90%;
+	transform: translate(-50%, -50%);
+}
+.legacy-section .squares.orange {
+	top: 20%;
+	left: 15%;
+	transform: translate(-50%, -50%) scale(-1);
+}
+
+.legacy-section>.container>.row {
+	position: relative;
+	z-index: 2;
+}
+@media( min-width: 640px )  {
+	.legacy-section .film-cta {
+		transform: translate(-50%, -125%) scale(1);
+	}
+}
+@media( min-width: 1040px ) {}
+@media( min-width: 1480px ) {}
