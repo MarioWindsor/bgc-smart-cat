@@ -9,40 +9,6 @@
 	position: relative;
 }
 
-.catalogue-section .catalogue-tabs .tabs .tab {
-	padding: var(--space-min);
-}
-.catalogue-section .catalogue-tabs .tabs .tab .card {
-	display: inline-block;
-	cursor: pointer;
-	border-radius: var(--space-50);
-	padding: var(--space-100) var(--space-50);
-	box-shadow: 0 0 0 1px rgba(89, 191, 250, 1), 0 0 var(--space-75) var(--space-25) rgba(89, 191, 250, 0.333);
-	transition: .3s ease-out;
-}
-.catalogue-section .catalogue-tabs .tabs .tab input:checked +.card {
-	background: var(--blue);
-	color: var(--white);
-}
-.catalogue-section .catalogue-tabs .tabs .tab .card img {
-	transition: .3s ease-out;
-}
-.catalogue-section .catalogue-tabs .tabs .tab input:checked +.card img {
-	filter: invert(1);
-}
-
-@media( min-width: 640px )  {}
-@media( min-width: 1040px ) {
-	.catalogue-section .catalogue-tabs .tabs .tab {
-		padding: var(--space-25);
-	}
-	.catalogue-section .catalogue-tabs .tabs .tab .card {
-		padding: var(--space-100) var(--space-50);
-	}
-}
-@media( min-width: 1480px ) {}
-
-
 /* -- Catalogue Box -- */
 .catalogue-section .catalogue-box {
 	position: relative;
@@ -99,11 +65,7 @@
 	position: relative;
 	z-index: 5;
 	width: 100%;
-/*	height: calc(var(--card)*2);*/
-/*	font-size: 0;*/
-/*	line-height: 0;*/
 	border-radius: var(--space-50);
-/*	overflow: hidden;*/
 	box-shadow: 0 0 0 2px rgba(89, 191, 250, 1);
 }
 
@@ -117,47 +79,31 @@
 #catalogue {
 	position: relative;
 	z-index: 5;
-/*	overflow: auto;*/
 	border-radius: var(--space-50);
 }
 
-
-#catalogue .controls {}
-#catalogue .controls .header {}
-#catalogue .controls .header .mascot {
-	position: relative;
-	font-size: 0;
-	line-height: 0;
-	width: calc(var(--space-100)*2.75);
-	margin-right: var(--space-50);
-}
-#catalogue .controls .header .message {
-	position: relative;
-	transform: translateY(5px);
-	padding: var(--space-25);
-}
-
-#catalogue .controls .filter {}
-#catalogue .controls .filter .filter-tabs {
+#catalogue .filter {}
+#catalogue .filter .filter-tabs {
+	border: solid 2px var(--orange);
 	list-style: none;
 }
-#catalogue .controls .filter .filter-tabs li {
+#catalogue .filter .filter-tabs li {
 	margin: 0;
 	display: inline-block;
 	margin-right: var(--space-25);
 	margin-bottom: var(--space-25);
 }
-#catalogue .controls .filter .filter-tabs .pill {
+#catalogue .filter .filter-tabs .pill {
 	font-size: 0;
 }
-#catalogue .controls .filter .filter-tabs .pill .title {
+#catalogue .filter .filter-tabs .pill .title {
 	color: var(--blue);
 	padding: var(--space-25);
 	background-color: var(--white);
 	border-radius: var(--space-25);
 	border: solid 2px var(--blue-light-light);
 }
-#catalogue .controls .filter .filter-tabs .pill input:checked + .title {
+#catalogue .filter .filter-tabs .pill input:checked + .title {
 	color: var(--white);
 	background-color: var(--blue);
 	border: solid 2px var(--blue-dark);
@@ -197,14 +143,14 @@
 }
 
 #catalogue .listing .category-list .carousel-list {
-	padding: var(--space-100);
+	padding: var(--space-50);
 }
 #catalogue .listing .category-list .carousel-list .item {
-	padding: var(--space-25);
+/*	padding: var(--space-25);*/
 }
 #catalogue .listing .category-list .carousel-list .item .card {
-	width: calc(var(--card) *0.5);
-	height: calc(var(--card) *0.65);
+/*	width: calc(var(--card) *0.5);*/
+/*	height: calc(var(--card) *0.65);*/
 	color: var(--blue);
 	padding: var(--space-25);
 	background-color: var(--white);
@@ -215,7 +161,7 @@
 	font-size: 0;
 	line-height: 0;
 	width: 100%;
-	padding-top: 80%;
+	padding-top: 75%;
 	background-color: var(--neutral-2);
 	border-radius: var(--space-25);
 	background-size: cover;
