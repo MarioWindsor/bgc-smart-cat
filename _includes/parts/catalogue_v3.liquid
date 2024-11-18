@@ -15,16 +15,28 @@
 				<div class="catalogue-frame">
 					<!-- Catalogue -->		
 					<div id="catalogue" class="catalogue fill-white">
+
 						<div class="filter radius-50 space-50 space-50-top">
-							<span class="heading p space-25 text-blue-light">Choose Categories:</span>
+							<label class="button inline fill-blue">Choose Categories:</label>
 							<ul class="filter-tabs space-50 radius-50">
 								{% for category in master.category_data.data.category %}
+								{% if category.catid == category.main_parent %}
 								<li>
 									<label class="pill inline" for="cb_prime{{ category.name }}">
 										<input class="cb_prime hidden" type="checkbox" id="cb_prime{{ category.name }}">
-										<span class="title label strong inline cursor-pointer">{{ category.name }} ({{ category.description | default: 'N/A' }})</span>
+										<span class="title label strong inline cursor-pointer">
+											{{ category.name }} ({{ category.catid }} : {{ category.parent }} : {{ category.main_parent }})
+											<select>
+											{% for subcategory in master.category_data.data.category %}
+											{% if category.catid == subcategory.main_parent %}
+												<option>{{ subcategory.name }}</option>
+											{% endif %}
+											{% endfor %}
+											</select>
+										</span>
 									</label>
 								</li>
+								{% endif %}
 								{% endfor %}
 							</ul>
 							<ul class="filter-tabs space-min hidden">
