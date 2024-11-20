@@ -139,7 +139,7 @@
 }
 
 #catalogue .listing .category-list .title{
-	line-height: 0; white-space: nowrap; transform: translateY(var(--space-75));
+/*	line-height: 0; white-space: nowrap; transform: translateY(var(--space-75));*/
 }
 
 #catalogue .listing .category-list .carousel-list {

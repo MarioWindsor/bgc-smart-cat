@@ -17,43 +17,32 @@
 					<div id="catalogue" class="catalogue fill-white">
 
 						<div class="filter radius-50 space-50 space-50-top">
-							<label class="button inline fill-blue">Choose Categories:</label>
-							<ul class="filter-tabs space-50 radius-50">
+							<!-- <label class="button inline fill-blue">Choose Categories:</label> -->
+							<label class="p inline strong text-blue-dark space-50">Select Categories:</label>
+							<ul class="filter-tabs space-50-top space-25-bottom space-50-left-right radius-50">
 								{% for category in master.category_data.data.category %}
 								{% if category.catid == category.main_parent %}
 								<li>
 									<label class="pill inline" for="cb_prime{{ category.name }}">
-										<input class="cb_prime hidden" type="checkbox" id="cb_prime{{ category.name }}">
+										<input class="cb_prime hidden" type="radio" name="parentCategoryPrime" id="cb_prime{{ category.name }}">
 										<span class="title label strong inline cursor-pointer">
-											{{ category.name }} ({{ category.catid }} : {{ category.parent }} : {{ category.main_parent }})
-											<select>
-											{% for subcategory in master.category_data.data.category %}
-											{% if category.catid == subcategory.main_parent %}
-												<option>{{ subcategory.name }}</option>
-											{% endif %}
-											{% endfor %}
-											</select>
+											{%# {{ category.name }} ({{ category.catid }} : {{ category.parent }} : {{ category.main_parent }}) %}
+											{{ category.name }}
 										</span>
 									</label>
 								</li>
 								{% endif %}
 								{% endfor %}
 							</ul>
-							<ul class="filter-tabs space-min hidden">
-								<li>
-									<label class="pill inline">
-										<input type="checkbox" name="" class="hidden">
-										<span class="title p inline cursor-pointer">Cups</span>
-									</label>
-								</li>
-							</ul>
 						</div>
 						<div class="listing">
 							<ul>
 								{% for category in master.category_data.data.category %}
-								<input class="swimlane cb_slave hidden" type="checkbox" id="cb_slave{{ category.name }}">
+								{% if category.catid == category.main_parent %}
+								<!-- Parent Categories List -->
+								<input class="swimlane cb_slave hidden" type="radio" name="parentCategorySlave" id="cb_slave{{ category.name }}">
 								<li class="category-list carousel small-card">
-									<div class="title label strong text-neutral-3 space-150-left">{{ category.name }}({{ category.description }})</div>
+									<div class="title p strong text-neutral-3 space-50-top space-100-left">{{ category.name }}</div>
 									<ul class="carousel-list">
 										{% for product in master.product_data.data.variations %}
 											{% if product.category == category.name %}
@@ -73,11 +62,78 @@
 											{% endif %}
 										{% endfor %}
 									</ul>
+
+									<!-- Sub Counter -->
+									{% capture subs %}
+										{% for subcategory in master.category_data.data.category %}
+											{% if category.catid == subcategory.main_parent and category.name != subcategory.name %}{{subcategory.name}}, {% endif %}	
+										{% endfor %}
+									{% endcapture %}
+									{% assign subcount = subs | split: ", " %}
+									<!-- End: Sub Counter -->
+
+									<!-- Sub Categories -->
+									{% if subcount.size > 1 %}
+									<div class="sub-categories ">
+										<!-- Sub Cat Filter -->
+										<div class="filter radius-50 space-50 space-50-top">
+											<label class="p inline strong text-blue-dark space-50">Select {{ category.name }} Sub-categories:</label>
+											<ul class="filter-tabs space-50-top space-25-bottom space-50-left-right radius-50">
+												{% for subcategory in master.category_data.data.category %}
+												{% if category.catid == subcategory.main_parent and category.name != subcategory.name %}
+												<li>
+													<label class="pill inline" for="cb_prime{{ subcategory.name }}">
+														<input class="cb_prime hidden" type="checkbox" id="cb_prime{{ subcategory.name }}">
+														<span class="title label strong inline cursor-pointer">
+															{{ subcategory.name }}
+														</span>
+													</label>
+												</li>
+												{% endif %}
+												{% endfor %}
+											</ul>
+										</div>
+										<!-- END: Sub Cat Filter -->
+										<!-- Sub Cat Listing -->
+										<ul>
+											{% for subcategory in master.category_data.data.category %}
+											{% if category.catid == subcategory.main_parent and category.name != subcategory.name %}
+											<input class="swimlane cb_slave hidden" type="checkbox" id="cb_slave{{ subcategory.name }}">
+											<li class="category-list carousel small-card">
+												<div class="title p strong text-neutral-3 space-50-top space-100-left">{{ subcategory.name }}</div>
+												<ul class="carousel-list">
+													{% for product in master.product_data.data.variations %}
+														{% if product.category == subcategory.name %}
+														<li class="item carousel-list-item">
+															<div class="card">
+																<div class="thumbnail"></div>
+																<div class="title label no-wrap">{{ product.variation_name }}</div>
+																<div class="isvid small">{{ product.isvid }}</div>
+																<div class="spec">{{ product.brand }}</div>
+																<div class="spec">{{ product.category }}</div>
+																{% for attributes in product.attributes %}
+																	<div class="spec">{{ attributes.attr_name }} : {{ attributes.attr_value }}</div>
+																{% endfor %}
+																<div class="price">&#8377;.{{ product.price }}/-</div>
+															</div>
+														</li>
+														{% endif %}
+													{% endfor %}
+												</ul>
+											</li>
+											{% endif %}
+											{% endfor %}
+										</ul>
+										<!-- END: Sub Cat Listing -->
+									</div>
+									{% endif %}
+									<!-- END: Sub Categories -->
 								</li>
+								{% endif %}
 								{% endfor %}
 							</ul>
 						</div>
-						<div class="cta">
+						<div class="cta hidden">
 							<div class="cart row fill-white space-50">
 								<div class="total h4 strong font-h">Total: ₹ 4,82,529/-</div>
 								<div class="items p strong font-h text-neutral-5">Total Items: 20</div>
