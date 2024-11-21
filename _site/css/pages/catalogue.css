@@ -80,6 +80,7 @@
 	position: relative;
 	z-index: 5;
 	border-radius: var(--space-50);
+	overflow: clip;
 }
 
 #catalogue .filter {}

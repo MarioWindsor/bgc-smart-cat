@@ -48,7 +48,7 @@
 											{% if product.category == category.name %}
 											<li class="item carousel-list-item">
 												<div class="card">
-													<div class="thumbnail"></div>
+													<div class="thumbnail" style="background-image: url('https://bgc.sixorbit.com{{product.image}}');"></div>
 													<div class="title label no-wrap">{{ product.variation_name }}</div>
 													<div class="isvid small">{{ product.isvid }}</div>
 													<div class="spec">{{ product.brand }}</div>
@@ -106,7 +106,7 @@
 														{% if product.category == subcategory.name %}
 														<li class="item carousel-list-item">
 															<div class="card">
-																<div class="thumbnail"></div>
+																<div class="thumbnail" style="background-image: url('https://bgc.sixorbit.com{{product.image}}');"></div>
 																<div class="title label no-wrap">{{ product.variation_name }}</div>
 																<div class="isvid small">{{ product.isvid }}</div>
 																<div class="spec">{{ product.brand }}</div>
