@@ -152,7 +152,7 @@
 #catalogue .listing .category-list .carousel-list .item .card {
 /*	width: calc(var(--card) *0.5);*/
 /*	height: calc(var(--card) *0.65);*/
-	color: var(--blue);
+/*	color: var(--blue);*/
 	padding: var(--space-25);
 	background-color: var(--white);
 	border-radius: var(--space-50);
@@ -165,27 +165,28 @@
 	padding-top: 75%;
 	background-color: var(--neutral-2);
 	border-radius: var(--space-25);
+	border: solid 2px var(--blue-light-light);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
 }
 #catalogue .listing .category-list .carousel-list .item .card .title {
-	margin-top: var(--space-50);
-	padding: 0 var(--space-min);
-	font-size: var(--p);
-	color: var(--neutral-7);
+/*	margin-top: var(--space-50);*/
+/*	padding: 0 var(--space-min);*/
+/*	font-size: var(--p);*/
+/*	color: var(--neutral-7);*/
 }
 #catalogue .listing .category-list .carousel-list .item .card .spec {
-	margin-top: var(--space-min);
-	padding: 0 var(--space-min);
-	font-size: var(--label);
-	color: var(--neutral-5);
+/*	margin-top: var(--space-min);*/
+/*	padding: 0 var(--space-min);*/
+/*	font-size: var(--label);*/
+/*	color: var(--neutral-5);*/
 }
 #catalogue .listing .category-list .carousel-list .item .card .price {
-	margin-top: var(--space-min);
-	padding: 0 var(--space-min);
-	font-size: var(--label);
-	color: var(--blue);
+/*	margin-top: var(--space-min);*/
+/*	padding: 0 var(--space-min);*/
+/*	font-size: var(--label);*/
+/*	color: var(--blue);*/
 }
 
 

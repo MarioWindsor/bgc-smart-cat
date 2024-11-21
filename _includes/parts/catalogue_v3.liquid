@@ -49,14 +49,22 @@
 											<li class="item carousel-list-item">
 												<div class="card">
 													<div class="thumbnail" style="background-image: url('https://bgc.sixorbit.com{{product.image}}');"></div>
-													<div class="title label no-wrap">{{ product.variation_name }}</div>
-													<div class="isvid small">{{ product.isvid }}</div>
-													<div class="spec">{{ product.brand }}</div>
-													<div class="spec">{{ product.category }}</div>
-													{% for attributes in product.attributes %}
-														<div class="spec">{{ attributes.attr_name }} : {{ attributes.attr_value }}</div>
-													{% endfor %}
-													<div class="price">&#8377;.{{ product.price }}/-</div>
+													<div class="space-25" style="overflow: clip;">
+														<div class="isvid space-25-top small text-blue-light">{{ product.isvid }}</div>
+														{% assign prodname = product.variation_name | split: "-" %}
+														<div class="title p strong text-blue text-titlecase">{{ prodname.first | capitalize }}</div>
+														<div class="spec label text-blue-light space-min-top">Brand : {{ product.brand }}</div>
+														{% for attributes in product.attributes %}
+															<div class="spec label text-neutral-4">{{ attributes.attr_name | capitalize }} : {{ attributes.attr_value | capitalize }}</div>
+														{% endfor %}
+														{% if product.package_quantity > 0 %}
+														<div class="spec label text-neutral-4">Pack of : {{ product.package_quantity }}&nbsp;{{ product.c_package_measurement }}</div>
+														{% endif %}
+														{% if product.measured_qty > 0 %}
+														<div class="spec label text-neutral-4">{{ product.measured_unit | capitalize }} of : {{ product.measured_qty }}</div>
+														{% endif %}
+														<div class="price p text-blue space-min-top">&#8377;.{{ product.price | floor }}/-</div>
+													</div>
 												</div>
 											</li>
 											{% endif %}
@@ -107,14 +115,22 @@
 														<li class="item carousel-list-item">
 															<div class="card">
 																<div class="thumbnail" style="background-image: url('https://bgc.sixorbit.com{{product.image}}');"></div>
-																<div class="title label no-wrap">{{ product.variation_name }}</div>
-																<div class="isvid small">{{ product.isvid }}</div>
-																<div class="spec">{{ product.brand }}</div>
-																<div class="spec">{{ product.category }}</div>
-																{% for attributes in product.attributes %}
-																	<div class="spec">{{ attributes.attr_name }} : {{ attributes.attr_value }}</div>
-																{% endfor %}
-																<div class="price">&#8377;.{{ product.price }}/-</div>
+																<div class="space-25" style="overflow: clip;">
+																	<div class="isvid space-25-top small text-blue-light">{{ product.isvid }}</div>
+																	{% assign prodname = product.variation_name | split: "-" %}
+																	<div class="title p strong text-blue text-titlecase">{{ prodname.first | capitalize }}</div>
+																	<div class="spec label text-blue-light space-min-top">Brand : {{ product.brand }}</div>
+																	{% for attributes in product.attributes %}
+																		<div class="spec label text-neutral-4">{{ attributes.attr_name | capitalize }} : {{ attributes.attr_value | capitalize }}</div>
+																	{% endfor %}
+																	{% if product.package_quantity > 0 %}
+																	<div class="spec label text-neutral-4">Pack of : {{ product.package_quantity }}&nbsp;{{ product.c_package_measurement }}</div>
+																	{% endif %}
+																	{% if product.measured_qty > 0 %}
+																	<div class="spec label text-neutral-4">{{ product.measured_unit | capitalize }} of : {{ product.measured_qty }}</div>
+																	{% endif %}
+																	<div class="price p text-blue space-min-top">&#8377;.{{ product.price | floor }}/-</div>
+																</div>
 															</div>
 														</li>
 														{% endif %}
