@@ -24,6 +24,7 @@
 
 .carousel .carousel-list {
 	position: relative;
+	z-index: 1;
 	display: grid;
 	grid-gap: var(--space-50);
 	grid-auto-flow: column;
@@ -61,40 +62,45 @@
 /* -- Fade -- */
 .carousel.fade:before {
 	left: 0;
-	background-image: linear-gradient( to left, rgba(255,255,255,0) 20%, rgba(255,255,255,1) 80%);
-	opacity: 0.85;
+	background-image: linear-gradient( to left, rgba(255,255,255,0) 5%, rgba(255,255,255,1) 95%);
+	opacity: 0.90;
 }
 
 .carousel.fade:after {
 	right: 0;
-	background-image: linear-gradient( to right, rgba(255,255,255,0) 20%, rgba(255,255,255,1) 80%);
-	opacity: 0.85;
+	background-image: linear-gradient( to right, rgba(255,255,255,0) 5%, rgba(255,255,255,1) 95%);
+	opacity: 0.90;
 }
 
 .carousel.fade.dark-mode:before {
 	left: 0;
-	background-image: linear-gradient( to left, rgba(35, 31, 32, 0) 20%, rgba(35, 31, 32, 1) 80%);
+	background-image: linear-gradient( to left, rgba(35, 31, 32, 0) 5%, rgba(35, 31, 32, 1) 95%);
+	opacity: 0.90;
 }
 
 .carousel.fade.dark-mode:after {
 	right: 0;
-	background-image: linear-gradient( to right, rgba(35, 31, 32, 0) 20%, rgba(35, 31, 32,1) 80%);
+	background-image: linear-gradient( to right, rgba(35, 31, 32, 0) 5%, rgba(35, 31, 32,1) 95%);
+	opacity: 0.90;
 }
 
 
 /* -- Controls -- */
 .carousel .carousel-controls {
 	pointer-events: none;
+	position: absolute;
+	z-index: 2;
+	width: 100%;
 }
 
-.carousel .carousel-controls .scroll-left,
-.carousel .carousel-controls .scroll-right {
+.carousel .carousel-controls .scroll-button {
 	pointer-events: all;
 	padding: 0 var(--space-25);
+	transform: translateY(-100%);
+	cursor: pointer;
 }
 
-.carousel .carousel-controls .scroll-left *,
-.carousel .carousel-controls .scroll-right * {
+.carousel .carousel-controls .scroll-button * {
 	pointer-events: none;
 }
 

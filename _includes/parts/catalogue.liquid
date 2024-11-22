@@ -17,8 +17,7 @@
 					<div id="catalogue" class="catalogue fill-white">
 
 						<div class="filter radius-50 space-50 space-50-top">
-							<!-- <label class="button inline fill-blue">Choose Categories:</label> -->
-							<label class="p inline strong text-blue-dark space-50">Select Categories:</label>
+							<label class="h6 font-h strong inline text-orange space-50">Choose a Category:</label>
 							<ul class="filter-tabs space-50-top space-25-bottom space-50-left-right radius-50">
 								{% for category in master.category_data.data.category %}
 								{% if category.catid == category.main_parent %}
@@ -26,7 +25,6 @@
 									<label class="pill inline" for="cb_prime{{ category.name }}">
 										<input class="cb_prime hidden" type="radio" name="parentCategoryPrime" id="cb_prime{{ category.name }}">
 										<span class="title label strong inline cursor-pointer">
-											{%# {{ category.name }} ({{ category.catid }} : {{ category.parent }} : {{ category.main_parent }}) %}
 											{{ category.name }}
 										</span>
 									</label>
@@ -39,10 +37,23 @@
 							<ul>
 								{% for category in master.category_data.data.category %}
 								{% if category.catid == category.main_parent %}
+								<!-- Prod Counter -->
+								{% capture prods %}{% for prod in master.product_data.data.variations %}{% if prod.category == category.name %}{{prod.isvid}},{% endif %}{% endfor %}{% endcapture %}
+								{% assign prodcount = prods | split: "," %}
+								<!-- End: Prod Counter -->
 								<!-- Parent Categories List -->
 								<input class="swimlane cb_slave hidden" type="radio" name="parentCategorySlave" id="cb_slave{{ category.name }}">
 								<li class="category-list carousel small-card">
 									<div class="title p strong text-neutral-3 space-50-top space-100-left">{{ category.name }}</div>
+									{% if prodcount.size > 0 %}
+									<div class="carousel-controls row">
+										<div class="container">
+											<div class="columns small-12 text-right space-50-right">
+												<div class="scroll-button inline space-25 scroll-left" data-dir="left" tabindex="-1" style="margin-right: var(--space-25);"><span class="text-blue material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;">arrow_back</span></div>
+												<div class="scroll-button inline space-25 scroll-right" data-dir="right" tabindex="-1"><span class="text-blue material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;">arrow_forward</span></div>
+											</div>
+										</div>
+									</div>
 									<ul class="carousel-list">
 										{% for product in master.product_data.data.variations %}
 											{% if product.category == category.name %}
@@ -70,6 +81,7 @@
 											{% endif %}
 										{% endfor %}
 									</ul>
+									{% endif %}
 
 									<!-- Sub Counter -->
 									{% capture subs %}
@@ -85,7 +97,7 @@
 									<div class="sub-categories ">
 										<!-- Sub Cat Filter -->
 										<div class="filter radius-50 space-50 space-50-top">
-											<label class="p inline strong text-blue-dark space-50">Select {{ category.name }} Sub-categories:</label>
+											<label class="h6 font-h strong inline text-orange space-50-bottom space-50-left-right">Filter By:</label>
 											<ul class="filter-tabs space-50-top space-25-bottom space-50-left-right radius-50">
 												{% for subcategory in master.category_data.data.category %}
 												{% if category.catid == subcategory.main_parent and category.name != subcategory.name %}
@@ -109,6 +121,14 @@
 											<input class="swimlane cb_slave hidden" type="checkbox" id="cb_slave{{ subcategory.name }}">
 											<li class="category-list carousel small-card">
 												<div class="title p strong text-neutral-3 space-50-top space-100-left">{{ subcategory.name }}</div>
+												<div class="carousel-controls row">
+													<div class="container">
+														<div class="columns small-12 text-right space-50-right">
+															<div class="scroll-button inline space-25 scroll-left" data-dir="left" tabindex="-1" style="margin-right: var(--space-25);"><span class="text-blue material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;">arrow_back</span></div>
+															<div class="scroll-button inline space-25 scroll-right" data-dir="right" tabindex="-1"><span class="text-blue material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;">arrow_forward</span></div>
+														</div>
+													</div>
+												</div>
 												<ul class="carousel-list">
 													{% for product in master.product_data.data.variations %}
 														{% if product.category == subcategory.name %}
