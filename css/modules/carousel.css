@@ -29,12 +29,14 @@
 	grid-auto-flow: column;
 	grid-auto-columns: var(--card);
 	white-space: nowrap;
-	overflow-x: auto;
+	overflow-x: scroll; /* needs to be 'scroll' not 'auto' */
 	overflow-y: hidden;
 	font-size: 0;
 	-webkit-overflow-scrolling: touch;
 	padding: var(--space-50) calc((100vw - var(--container-width))/2 );
 	scroll-snap-type: x mandatory;
+	scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .carousel .carousel-list .carousel-list-item {

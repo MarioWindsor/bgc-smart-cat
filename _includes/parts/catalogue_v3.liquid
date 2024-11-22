@@ -58,10 +58,10 @@
 															<div class="spec label text-neutral-4">{{ attributes.attr_name | capitalize }} : {{ attributes.attr_value | capitalize }}</div>
 														{% endfor %}
 														{% if product.package_quantity > 0 %}
-														<div class="spec label text-neutral-4">Pack of : {{ product.package_quantity }}&nbsp;{{ product.c_package_measurement }}</div>
+														<div class="spec label text-neutral-4">Pack of : {{ product.package_quantity | floor }}&nbsp;{{ product.c_package_measurement }}</div>
 														{% endif %}
 														{% if product.measured_qty > 0 %}
-														<div class="spec label text-neutral-4">{{ product.measured_unit | capitalize }} of : {{ product.measured_qty }}</div>
+														<div class="spec label text-neutral-4">{{ product.measured_unit | capitalize }} of : {{ product.measured_qty | floor }}</div>
 														{% endif %}
 														<div class="price p text-blue space-min-top">&#8377;.{{ product.price | floor }}/-</div>
 													</div>
@@ -124,10 +124,10 @@
 																		<div class="spec label text-neutral-4">{{ attributes.attr_name | capitalize }} : {{ attributes.attr_value | capitalize }}</div>
 																	{% endfor %}
 																	{% if product.package_quantity > 0 %}
-																	<div class="spec label text-neutral-4">Pack of : {{ product.package_quantity }}&nbsp;{{ product.c_package_measurement }}</div>
+																	<div class="spec label text-neutral-4">Pack of : {{ product.package_quantity | floor }}&nbsp;{{ product.c_package_measurement }}</div>
 																	{% endif %}
 																	{% if product.measured_qty > 0 %}
-																	<div class="spec label text-neutral-4">{{ product.measured_unit | capitalize }} of : {{ product.measured_qty }}</div>
+																	<div class="spec label text-neutral-4">{{ product.measured_unit | capitalize }} of : {{ product.measured_qty | floor }}</div>
 																	{% endif %}
 																	<div class="price p text-blue space-min-top">&#8377;.{{ product.price | floor }}/-</div>
 																</div>

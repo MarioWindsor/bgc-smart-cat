@@ -122,6 +122,15 @@
 
 
 /*
+ * Overflow
+ */
+
+.overflow-clip { width: 100%; overflow: clip;  }
+.overflow-x-clip { width: 100%; overflow-x: clip;  }
+.overflow-y-clip { width: 100%; overflow-y: clip;  }
+
+
+/*
  * Position
  */
 
