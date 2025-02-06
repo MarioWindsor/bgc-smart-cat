@@ -1,0 +1,35 @@
+{% include 'parts/head.liquid' %}
+
+<style>
+	#app-section {
+		user-select: none;
+	}
+
+	#shopping-list {
+		list-style: none;
+	}
+	#shopping-list li {
+		display: inline-block;
+		margin: 5px;
+		padding: 10px;
+		background: rgba(255, 255, 255, 0.333);
+		cursor: pointer;
+	}
+</style>
+
+<!-- App Section -->
+<section id="app-section" class="app-section">
+	<div class="container">
+		<div class="row">
+			<div class="columns small-10 medium-6 large-4 fill-dark space-100">
+				<div class="h3 text-red">Fire Test</div>
+				<input type="text" id="input-field" class="input-field">
+				<button id="add-button" class="button fill-blue">Add Now</button>
+				<ul id="shopping-list"></ul>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: App Section -->
+
+{% include 'parts/foot.liquid' %}
