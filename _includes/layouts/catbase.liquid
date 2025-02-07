@@ -4,9 +4,16 @@
 <section id="app-section" class="app-section">
 	<div class="container">
 		<div class="row">
-			<div class="columns small-12 medium-8 large-6 fill-dark space-100">
+			<div class="columns small-12 medium-9 large-6 fill-dark space-100">
 				<div class="h3 text-red">CatBase Fire Test</div>
-				<ul id="cat-var-list"></ul>
+				<div class="search space-100-top-bottom" style="display: flex; align-items: center; column-gap: var(--space-100);">
+					<input type="text" id="search-input" class="input-field block">
+					<button id="search-button" class="button">Search</button>
+				</div>
+				<div>
+					<div class="h6 space-100-bottom" id="search-label"><!-- Searching For ... --></div>
+					<ul id="cat-var-list"></ul>
+				</div>
 			</div>
 		</div>
 	</div>
