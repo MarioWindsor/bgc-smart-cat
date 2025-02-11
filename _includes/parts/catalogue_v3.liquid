@@ -1,0 +1,186 @@
+
+
+
+<!-- Catalogue Section -->
+<section id="catalogue-section" class="catalogue-section space-250-top-bottom">
+	<div class="container">
+		<div class="row space-100-bottom">
+			<div class="columns text-center small-12 medium-10 medium-offset-1">
+				<div class="h1 font-h strong text-blue text-uppercase">Catalogue</div>
+				<div class="h4 font-h text-blue-dark">Curated AI-Catalogue for your Ho.Re.Ca needs!</div>
+				<div class="p text-blue space-25-top">Explore our Complete Catalogue.</div>
+			</div>
+		</div>
+		<div class="catalogue container">
+			<div class="cat-head">
+				<div class="toggle-home">
+					<label class="block">
+						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">home</span>
+						<button class="button fill-blue box-shadow-blue block" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-category-alt' style="line-height: inherit;"></i></button>
+					</label>
+				</div>
+				<div class="search form-box">
+					<div class="search-bar form-field">
+						<label class="block">
+							<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">Search</span>
+							<input id="search-input" type="text" name="" class="input-field block" placeholder="Find a Product/Category...">
+						</label>
+					</div>
+					<div class="search-button">
+						<label class="block">
+							<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Submit</span>
+							<button id="search-button" class="button fill-blue block box-shadow-blue" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-search' style="line-height: inherit;"></i></button>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="cat-filter hidden">
+				<div class="toggle-filter">
+					<label class="block">
+						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Filter</span>
+						<button class="button fill-blue box-shadow-blue block" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-filter' style="line-height: inherit;"></i></button>
+					</label>
+				</div>
+				<div class="box-shadow-blue radius-25 fill-white space-50">
+					<div class="p text-blue-light space-50-bottom">Categories</div>
+					<div class="p"></div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis neque ab fugiat sit asperiores fuga reiciendis tenetur, hic consectetur nulla quae dolor non dolores quisquam eaque, labore architecto voluptatem obcaecati?
+				</div>
+			</div>
+			<div class="cat-main space-25-top">
+				<div class="tab-page">
+					<div class="p text-blue-light space-25 space-50-bottom">Browse By ...</div>
+					<ul id="category-list" class="category-list">
+						{% for category in category_new.data.category %}
+						{% if category.catid == category.main_parent %}
+
+						<li class="card fill-white text-center radius-25 box-shadow-blue no-overflow" tabindex="0" data-catid="{{ category.catid }}" onclick="categoryLister(this.dataset.catid);">
+							<div class="img-cover" style="background-image: url({{ category.image }}); padding-top: 56.25%; background-color: var(--light);"></div>
+							<span class="block p font-h text-blue space-50-top-bottom">
+								{{ category.name }}
+								<!-- Sub Counter -->
+								{% capture subs %}
+									{% for subcategory in category_new.data.category %}
+										{% if category.catid == subcategory.main_parent and category.name != subcategory.name %}{{subcategory.name}}, {% endif %}	
+									{% endfor %}
+								{% endcapture %}
+								{% assign subcount = subs | split: ", " %}
+								<!-- End: Sub Counter -->
+
+								{% if subcount.size > 1 %}
+								<hr class="opacity-25">
+								<small class="small inline space-min fill-light radius-25">All</small>
+									{% for subcategory in category_new.data.category %}
+									{% if category.catid == subcategory.main_parent and category.name != subcategory.name %}
+									, <small class="small inline space-min fill-light radius-25">
+										{{ subcategory.name }} 
+									</small>
+									{% endif %}
+									{% endfor %}
+								{% endif %}
+							</span>
+
+						</li>
+						{% endif %}
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="tab-page">
+					<div id="catagory-items-list-label" class="p text-blue-light space-25 space-50-bottom">Items in ... "Category Name"</div>
+					<ul id="catagory-items-list" class="catagory-items-list"></ul>
+				</div>
+				<div class="tab-page">
+					<div id="search-list-label" class="p text-blue-light space-25 space-50-bottom">Items in ... "Pans"</div>
+					<ul id="search-list" class="search-list"></ul>
+				</div>
+				<div class="tab-page">
+					<div class="single-item"></div>
+				</div>
+			</div>
+			<div class="cat-quote hidden">
+				<div class="toggle-quote">
+					<label class="block">
+						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Quote</span>
+						<button class="button fill-blue box-shadow-blue block" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-cart' style="line-height: inherit;"></i></button>
+					</label>
+				</div>
+				<div class="box-shadow-blue radius-25 fill-white space-50">
+					<div class="p text-blue-light space-50-bottom">Quotation</div>
+					<div class="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis neque ab fugiat sit asperiores fuga reiciendis tenetur, hic consectetur nulla quae dolor non dolores quisquam eaque, labore architecto voluptatem obcaecati?</div>
+				</div>
+			</div>
+		</div>
+		<div class="row space-100-top">
+			<div class="columns small-12 large-6">
+				<div class="heading space-75-bottom">
+					<div class="h2 font-h space-50-bottom text-blue"><span class="strong text-blue-dark">Elevate your operation with tailored:</span> End-to-end Ho.Re.Ca Solutions</div>
+					<div class="p" style="width: 75%;">Complete the form to initiate the conversation and embark on a journey towards greater success.</div>
+					<div class="h4 font-h text-blue-dark-dark space-75-top">OR</div>
+					<div class="h5 font-h strong text-blue-dark-dark">Call our Help Desk <br>between 10am to 6pm IST</div>
+					<a href="tel:+9180-41784600" class="h2 font-h strong text-blue inline">080-41784600</a>
+				</div>
+			</div>
+			<div class="columns small-12 large-5 large-offset-1">
+				<div class="form-box form-dark fill-blue radius-25 space-50" style="box-shadow: 0 0 1px 1px rgba(0, 102, 255, 0.2), 0 0 var(--space-200) 0px rgba(0, 102, 255, 0.3);">
+					<form id="homeGeneralLeads" action="https://docs.google.com/forms/d/e/1FAIpQLSeG6nfZX6S_nq29su85Olfx_5UT31lj8Mj50WJIwbrVa1wPTw/formResponse" method="POST" enctype="multipart/form-data">
+					<div class="row">
+						<div class="columns small-12 space-25">
+							<div class="p">Best value in the industry.</div>
+							<div class="h4">Get a Custom Offer:</div>
+						</div>
+						<div class="form-field columns small-12 large-6 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Full Name <span class="text-yellow">*</span></span>
+								<input type="text" name="entry.1421501943" required class="input-field block">
+							</label>
+						</div>
+						<div class="form-field columns small-12 large-6 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Email ID <span class="text-yellow">*</span></span>
+								<input type="text" name="entry.839199106" required class="input-field block">
+							</label>
+						</div>
+						<div class="form-field columns small-12 large-6 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Phone Number <span class="text-yellow">*</span></span>
+								<input type="text" name="entry.636038964" required class="input-field block">
+							</label>
+						</div>
+						<div class="form-field columns small-12 large-6 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Industry</span>
+								<select name="entry.203903897" class="input-field block">
+									<option value="blank" disabled="disabled" selected="selected">Select</option>
+									<option value="Hotel">Hotel</option>
+									<option value="Restaurant">Restaurant</option>
+									<option value="Bakery">Bakery</option>
+									<option value="Catering">Catering</option>
+									<option value="Cloud Kitchen">Cloud Kitchen</option>
+									<option value="Others">Others</option>
+								</select>
+							</label>
+						</div>
+						<div class="form-field columns small-12 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Requirement</span>
+								<textarea class="input-field block" name="entry.1788879696"></textarea>
+							</label>
+						</div>
+						<div class="columns small-12 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Submit</span>
+								<button class="button fill-blue-dark-dark block" type="submit">Request a Quote</button>
+							</label>
+						</div>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End: Catalogue Section -->
+
+
+
+
+

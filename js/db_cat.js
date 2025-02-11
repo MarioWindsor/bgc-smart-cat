@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	const searchInput = document.getElementById("search-input");
 	const searchButton = document.getElementById("search-button");
-	const varList = document.getElementById("cat-var-list");
-	const searchLabel = document.getElementById("search-label");
+	const varList = document.getElementById("search-list");
+	const searchLabel = document.getElementById("search-list-label");
 
 	/* Inside Realtime Database Connection */
 
