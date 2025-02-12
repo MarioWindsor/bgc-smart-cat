@@ -46,17 +46,43 @@ document.addEventListener("DOMContentLoaded", function() {
 		const fuse = new Fuse(varDataArray, fuseOptions);
 
 		/*
-		 *	Search	
+		 *	Search (with Debounce)
 		 */
 
-		searchButton.addEventListener("click", function() {
+		// -- Define Debounce Function -->
+		function debounce(func, delay) {
+		  let timeoutId;
+
+		  return function(...args) {
+		    clearTimeout(timeoutId); // Clear previous timeout if any
+
+		    timeoutId = setTimeout(() => {
+		      func.apply(this, args); // Execute the function with correct context and arguments
+		    }, delay);
+		  };
+		}
+
+		// -- Search Input Function -->
+		function searchInputChange(event) {
+			// Perform your desired action here, e.g., fetching data, updating display, etc.
 			let searchVal = searchInput.value;
 			console.log(searchVal);
-			clearSearchInput();
+			// clearSearchInput();
 			clearVarList();
 			searchFunction(searchVal);
-		});
+			// console.log('Input changed:', event.target.value);
+		}
 
+		// -- Debounce Search Input Function -->
+		const debouncedInputChangeHandler = debounce(searchInputChange, 800); // 800ms delay
+
+		// -- Search Input Event Listener -->
+		searchInput.addEventListener('input', debouncedInputChangeHandler);
+
+		/* -- End: Debounce Search -- */
+
+
+		// -- FUSE : Fuzzy Search Function -->
 		function searchFunction(query) {
 
 			const searchQuery = query;
@@ -75,15 +101,32 @@ document.addEventListener("DOMContentLoaded", function() {
 
 				// Output Result Array
 				for (let i = 0; i < searchResult.length; i++) {
-				  const product = searchResult[i]; // Access the current product
+					const product = searchResult[i]; // Access the current product
 
-				  let variant = "[" + product.item.variation_number + "] | " +
-				    product.item.variation_name + " | " +
-				    product.item.brand + " | " +
-				    product.item.parent_category;
+					let itemNumber = product.item.variation_number;
+					let itemName = product.item.variation_name;
+					let itemNameSpaced = itemName.replace(/\./g, " ");
+					let itemImage = product.item.image;
+					let itemBrand = product.item.brand;
+					let itemCat = product.item.category;
+					let itemCatID = product.item.category_id;
+					let itemMainCat = product.item.main_category;
+					let itemMainCatID = product.item.main_category_id;
+					let itemAttr = Object.values(product.item.attributes);
 
-				  console.log(variant);
-				  appendItemToVarList(variant);
+					let resultItem = `<li class="item">
+						<div class="thumbnail img-cover" style="background-image: url('https://bgc.sixorbit.com/${itemImage}')"></div>
+						<div class="details label">
+							<div class="small text-neutral-3">ID: ${itemNumber} | Brand : ${itemBrand}</div>
+							<div class="name p font-h text-blue">${itemNameSpaced}</div>
+							<div class="attr small text-neutral-6">
+							${itemAttr.map(item => `<span>${item.attr_name} : ${item.attr_value}</span>`).join(" | ")}
+							</div>
+						</div>
+						<button class="button fill-blue box-shadow-blue block" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-plus' style="line-height: inherit;"></i></button>
+					</li>`;
+
+					appendItemToVarList(resultItem);
 				};
 			}
 		}
@@ -95,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		};
 
 		function appendItemToVarList(item) {
-			varList.innerHTML += `<li>${item}</li>`;
+			varList.innerHTML += item;
 		};
 
 		function clearVarList() {

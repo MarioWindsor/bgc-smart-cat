@@ -26,12 +26,18 @@
 							<input id="search-input" type="text" name="" class="input-field block" placeholder="Find a Product/Category...">
 						</label>
 					</div>
-					<div class="search-button">
+					<div class="search-button hidden">
 						<label class="block">
 							<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Submit</span>
 							<button id="search-button" class="button fill-blue block box-shadow-blue" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-search' style="line-height: inherit;"></i></button>
 						</label>
 					</div>
+				</div>
+				<div class="toggle-cart">
+					<label class="block">
+						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">home</span>
+						<button class="button fill-blue box-shadow-blue block" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-cart' style="line-height: inherit;"></i></button>
+					</label>
 				</div>
 			</div>
 			<div class="cat-filter hidden">
@@ -47,50 +53,29 @@
 				</div>
 			</div>
 			<div class="cat-main space-25-top">
-				<div class="tab-page">
+				<div class="tab-page hidden">
 					<div class="p text-blue-light space-25 space-50-bottom">Browse By ...</div>
-					<ul id="category-list" class="category-list">
+					<ul id="main-category-list" class="main-category-list">
 						{% for category in category_new.data.category %}
 						{% if category.catid == category.main_parent %}
 
-						<li class="card fill-white text-center radius-25 box-shadow-blue no-overflow" tabindex="0" data-catid="{{ category.catid }}" onclick="categoryLister(this.dataset.catid);">
+						<li class="card fill-white text-center radius-25 box-shadow-blue no-overflow cursor-pointer" tabindex="0" data-catid="{{ category.catid }}" data-name="{{ category.name }}">
 							<div class="img-cover" style="background-image: url({{ category.image }}); padding-top: 56.25%; background-color: var(--light);"></div>
 							<span class="block p font-h text-blue space-50-top-bottom">
 								{{ category.name }}
-								<!-- Sub Counter -->
-								{% capture subs %}
-									{% for subcategory in category_new.data.category %}
-										{% if category.catid == subcategory.main_parent and category.name != subcategory.name %}{{subcategory.name}}, {% endif %}	
-									{% endfor %}
-								{% endcapture %}
-								{% assign subcount = subs | split: ", " %}
-								<!-- End: Sub Counter -->
-
-								{% if subcount.size > 1 %}
-								<hr class="opacity-25">
-								<small class="small inline space-min fill-light radius-25">All</small>
-									{% for subcategory in category_new.data.category %}
-									{% if category.catid == subcategory.main_parent and category.name != subcategory.name %}
-									, <small class="small inline space-min fill-light radius-25">
-										{{ subcategory.name }} 
-									</small>
-									{% endif %}
-									{% endfor %}
-								{% endif %}
 							</span>
-
 						</li>
 						{% endif %}
 						{% endfor %}
 					</ul>
 				</div>
-				<div class="tab-page">
+				<div class="tab-page hidden">
 					<div id="catagory-items-list-label" class="p text-blue-light space-25 space-50-bottom">Items in ... "Category Name"</div>
 					<ul id="catagory-items-list" class="catagory-items-list"></ul>
 				</div>
 				<div class="tab-page">
-					<div id="search-list-label" class="p text-blue-light space-25 space-50-bottom">Items in ... "Pans"</div>
-					<ul id="search-list" class="search-list"></ul>
+					<div id="search-list-label" class="p text-blue-light space-25 space-50-bottom">&nbsp;</div>
+					<ul id="search-list" class="search-list item-list"></ul>
 				</div>
 				<div class="tab-page">
 					<div class="single-item"></div>

@@ -492,7 +492,7 @@ textarea,
 select {
 	height: var(--space-150);
 	padding: 11px var(--space-50);
-	font-size: 1.4rem;
+	font-size: var(--p);
 	line-height: var(--space-150);
 	color: var(--dark);
 	background-color: transparent;
