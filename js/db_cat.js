@@ -12,6 +12,27 @@ import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com
 // -- Categories DB -->
 import allCatsDB from '../media/data/category_new.json' with { type: 'json' };
 
+
+
+
+
+// -- Define Debounce Function -->
+function debounce(func, delay) {
+	let timeoutId;
+
+	return function(...args) {
+		clearTimeout(timeoutId); // Clear previous timeout if any
+
+		timeoutId = setTimeout(() => {
+			func.apply(this, args); // Execute the function with correct context and arguments
+		}, delay);
+	};
+}
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function() {
 
 	// -- Firebase Data -->
@@ -30,8 +51,38 @@ document.addEventListener("DOMContentLoaded", function() {
 	const searchButton = document.getElementById("search-button");
 	const varList = document.getElementById("search-list");
 	const searchLabel = document.getElementById("search-list-label");
+	const searchClear = document.getElementById("search-clear");
 
-	// -- Inside Realtime Database Connection -->
+	/* Update DOM Elements Functions */
+	function clearSearchInput() {
+		searchInput.value = "";
+	};
+
+	function clearSearchLabel() {
+		searchLabel.innerHTML = "";
+	};
+
+	function clearVarList() {
+		varList.innerHTML = "";
+	};
+
+	function appendItemToVarList(item) {
+		varList.innerHTML += item;
+	};
+
+
+	// -- X Out Search
+	searchClear.addEventListener('click', function(){
+		console.log("clear");
+		clearSearchInput();
+		clearSearchLabel();
+		clearVarList();
+	});
+
+
+
+
+	// -- Inside Firebase DB Connection -->
 	onValue(varInDB, function(snapshot) {
 		const varDataArray = Object.values(snapshot.val());
 
@@ -55,19 +106,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		/*
 		 *	Search Firebase DB (with Debounce)
 		 */
-
-		// -- Define Debounce Function -->
-		function debounce(func, delay) {
-		  let timeoutId;
-
-		  return function(...args) {
-		    clearTimeout(timeoutId); // Clear previous timeout if any
-
-		    timeoutId = setTimeout(() => {
-		      func.apply(this, args); // Execute the function with correct context and arguments
-		    }, delay);
-		  };
-		}
 
 		// -- Search Input Function -->
 		function searchInputChange(event) {
@@ -147,20 +185,13 @@ document.addEventListener("DOMContentLoaded", function() {
 				}
 			}
 		}
-
-		/* Update Serch List in DOM */
-
-		function clearSearchInput() {
-			searchInput.value = "";
-		};
-
-		function appendItemToVarList(item) {
-			varList.innerHTML += item;
-		};
-
-		function clearVarList() {
-			varList.innerHTML = "";
-		};
 	});
+
+
+
+
+
+
+	
 
 });

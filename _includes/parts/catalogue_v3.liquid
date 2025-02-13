@@ -16,81 +16,29 @@
 				<div class="toggle-home">
 					<label class="block">
 						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">home</span>
-						<button class="button fill-blue box-shadow-blue block" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-category-alt' style="line-height: inherit;"></i></button>
+						<button class="button fill-blue box-shadow-blue block" style="padding: 0; text-align: center;"><i class='h5 bx bx-category-alt' style="line-height: inherit;"></i></button>
 					</label>
 				</div>
 				<div class="search form-box">
-					<div class="search-bar form-field">
+					<div class="search-bar form-field position-relative">
 						<label class="block">
 							<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">Search</span>
 							<input id="search-input" type="text" name="" class="input-field block" placeholder="Find a Product/Category...">
 						</label>
+						<button class="button clear-button block text-blue" id="search-clear" style="padding: 0; text-align: center; position: absolute; right: 0; bottom: 0; z-index: 2; background-color: transparent;"><i class='h5 bx bx-x-circle' style="line-height: inherit;"></i></button>
 					</div>
-					<div class="search-button hidden">
-						<label class="block">
-							<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Submit</span>
-							<button id="search-button" class="button fill-blue block box-shadow-blue" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-search' style="line-height: inherit;"></i></button>
-						</label>
-					</div>
+					<div id="search-list-label" class="p text-blue-light space-25">&nbsp;</div>
 				</div>
 				<div class="toggle-cart">
 					<label class="block">
 						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">home</span>
-						<button class="button fill-blue box-shadow-blue block" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-cart' style="line-height: inherit;"></i></button>
+						<button class="button fill-blue box-shadow-blue block" style="padding: 0; text-align: center;"><i class='h5 bx bx-cart' style="line-height: inherit;"></i></button>
 					</label>
-				</div>
-			</div>
-			<div class="cat-filter hidden">
-				<div class="toggle-filter">
-					<label class="block">
-						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Filter</span>
-						<button class="button fill-blue box-shadow-blue block" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-filter' style="line-height: inherit;"></i></button>
-					</label>
-				</div>
-				<div class="box-shadow-blue radius-25 fill-white space-50">
-					<div class="p text-blue-light space-50-bottom">Categories</div>
-					<div class="p"></div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis neque ab fugiat sit asperiores fuga reiciendis tenetur, hic consectetur nulla quae dolor non dolores quisquam eaque, labore architecto voluptatem obcaecati?
 				</div>
 			</div>
 			<div class="cat-main space-25-top">
-				<div class="tab-page hidden">
-					<div class="p text-blue-light space-25 space-50-bottom">Browse By ...</div>
-					<ul id="main-category-list" class="main-category-list">
-						{% for category in category_new.data.category %}
-						{% if category.catid == category.main_parent %}
-
-						<li class="card fill-white text-center radius-25 box-shadow-blue no-overflow cursor-pointer" tabindex="0" data-catid="{{ category.catid }}" data-name="{{ category.name }}">
-							<div class="img-cover" style="background-image: url({{ category.image }}); padding-top: 56.25%; background-color: var(--light);"></div>
-							<span class="block p font-h text-blue space-50-top-bottom">
-								{{ category.name }}
-							</span>
-						</li>
-						{% endif %}
-						{% endfor %}
-					</ul>
-				</div>
-				<div class="tab-page hidden">
-					<div id="catagory-items-list-label" class="p text-blue-light space-25 space-50-bottom">Items in ... "Category Name"</div>
-					<ul id="catagory-items-list" class="catagory-items-list"></ul>
-				</div>
-				<div class="tab-page">
-					<div id="search-list-label" class="p text-blue-light space-25 space-50-bottom">&nbsp;</div>
-					<ul id="search-list" class="search-list item-list"></ul>
-				</div>
-				<div class="tab-page">
-					<div class="single-item"></div>
-				</div>
-			</div>
-			<div class="cat-quote hidden">
-				<div class="toggle-quote">
-					<label class="block">
-						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Quote</span>
-						<button class="button fill-blue box-shadow-blue block" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-cart' style="line-height: inherit;"></i></button>
-					</label>
-				</div>
-				<div class="box-shadow-blue radius-25 fill-white space-50">
-					<div class="p text-blue-light space-50-bottom">Quotation</div>
-					<div class="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis neque ab fugiat sit asperiores fuga reiciendis tenetur, hic consectetur nulla quae dolor non dolores quisquam eaque, labore architecto voluptatem obcaecati?</div>
+				<div class="search-list">
+					<ul id="search-list" class="item-list"></ul>
 				</div>
 			</div>
 		</div>

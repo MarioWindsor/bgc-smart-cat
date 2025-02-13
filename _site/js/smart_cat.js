@@ -1,46 +1,45 @@
+/*
+ *	Smart Catalogue : Refactored
+ */
+
+// -- FUZE Fuzzy Search Library -->
+import Fuse from 'https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.mjs'
+
+
+
+// -- Categories DB -->
 import allCatsDB from '../media/data/category_new.json' with { type: 'json' };
-const allCats = Object.values(allCatsDB.data.category);
+const allCatsData = Object.values(allCatsDB.data.category);
 
 
-const mainCats = document.getElementById('main-category-list'); // Replace 'yourDivId' with the actual id
-const mainCatsList = mainCats.getElementsByTagName('li');
 
-/* - On CLick Main Category - */
-for (let i = 0; i < mainCatsList.length; i++) {
-	mainCatsList[i].addEventListener('click', function() {
-		let activeCatId = this.dataset.catid;
-		let activeCatName = this.dataset.name;
-		console.log('Active Category:', activeCatId ," - ", activeCatName);
-		console.log('Sub Category:');
+// -- Products DB -->
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+const appSettings = {
+	databaseURL: "https://bgc-smart-cat-default-rtdb.asia-southeast1.firebasedatabase.app/"
+};
+const app = initializeApp(appSettings);
+const database = getDatabase(app);
+const allProdsDB = ref(database, "data/variations");
+let allProdsData;
 
-		clearSubCatList();
 
-		updateSubCatListLabel(activeCatName);
+document.addEventListener("DOMContentLoaded", function() {
+	
+	// Initialize DOM Elements
+	const searchInput = document.getElementById("search-input");
+	const searchClear = document.getElementById("search-clear");
+	const searchLabel = document.getElementById("search-list-label");
+	const searchProdList = document.getElementById("search-prod-list");
+	const searchCatList = document.getElementById("search-cat-list");
 
-		/* - List all Sub Category Names with activeCatId as parent category as - */
-		for (let j = allCats.length - 1; j >= 0; j--) {
-			if ( activeCatId == allCats[j].main_parent && activeCatId != allCats[j].catid ) {
-				let subCatId = allCats[j].catid
-				let subCatName = allCats[j].name
-				console.log(subCatId , " - " , subCatName);
-				appendSubCatList(subCatName);
-			}
-		}
 
+
+	// -- Wait for Firebase Connection
+	onValue(allProdsDB, function(snapshot) {
+			const allProdsData = Object.values(snapshot.val());
+			
 	});
-}
 
-const activeCatList = document.getElementById("catagory-items-list");
-const activeCatListLabel = document.getElementById("catagory-items-list-label");
-
-function clearSubCatList() {
-	activeCatList.innerHTML = "";
-};
-
-function appendSubCatList(item) {
-	activeCatList.innerHTML += `<li>${item}</li>`;
-};
-
-function updateSubCatListLabel(CatLabel) {
-	activeCatListLabel.innerHTML = "Items in ... " + CatLabel ;
-};
+});
