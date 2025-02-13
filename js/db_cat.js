@@ -112,6 +112,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			// Perform your desired action here, e.g., fetching data, updating display, etc.
 			let searchVal = searchInput.value;
 			// console.log(searchVal);
+			console.log(event);
 			// clearSearchInput();
 			clearVarList();
 			searchFunction(searchVal);

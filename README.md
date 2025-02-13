@@ -44,7 +44,5 @@ mongodb+srv://mario:mongo3716@bgc-cluster-01.p8sui.mongodb.net/
 
 # To-do List
 
-- Search X
-- Search Label
 - Search Categories
 - Category Listing
