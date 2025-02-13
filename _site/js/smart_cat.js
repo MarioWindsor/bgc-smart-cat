@@ -217,6 +217,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// -- Cat Home Function -->
 	function catHomeCatList() {
 		// console.log("Main Categories List");
+		searchLabel.innerHTML = "Browse by Category : [ All ]";
 
 		// -- List Main Cats
 		for (var i = allCatsData.length - 1; i >= 0; i--) {
