@@ -44,5 +44,10 @@ mongodb+srv://mario:mongo3716@bgc-cluster-01.p8sui.mongodb.net/
 
 # To-do List
 
-- Search Categories
-- Category Listing
+- [x] Search Categories
+- [x] Category Listing
+- [x] nested categories list
+- [x] item list - browse by category/sub category
+- [] single item detail view (optional)
+- [] add to cart
+- [] submit enquiry
