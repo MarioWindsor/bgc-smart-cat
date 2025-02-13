@@ -142,8 +142,9 @@ document.addEventListener("DOMContentLoaded", function() {
 					for (let k = 0; k < catResult.length; k++) {
 						const category = catResult[k]; // Access the current category
 						let itemName = category.item.name;
+						let itemCatID = category.item.catid;
 						// console.log(itemName);
-						let resultItem = `<li class="pill label box-shadow-blue" tabindex="0">${itemName}</li>`;
+						let resultItem = `<li class="pill label box-shadow-blue" tabindex="0" data-catid="${itemCatID}" data-name="${itemName}">${itemName}</li>`;
 
 						// -- Update Cat List
 						appendItemToSearchCatList(resultItem);
@@ -210,7 +211,92 @@ document.addEventListener("DOMContentLoaded", function() {
 
 			// -- Search Input Event Listener -->
 			searchInput.addEventListener('input', debouncedInputChangeHandler);
+
+
+
+
+			// -- Cat Pill Event Listener
+			searchCatList.addEventListener('click', function(){
+				const activeCat = event.target.closest('li.pill'); // Find the closest li.pill
+
+				if (activeCat) { // Check if an li.pill was clicked
+					const activeCatID = activeCat.dataset.catid;
+					const activeCatName = activeCat.dataset.name;
+
+					clearSearchInput();
+					clearSearchLabel();
+					clearSearchCatList();
+					clearSearchProdList();
+
+					// console.log("Active Category ID:", activeCatID);
+
+					activeCatList(activeCatID, activeCatName);
+				}
+			});
+
+			function activeCatList(activeCatID, activeCatName) {
+				// console.log(catId,":",catName);
+				searchLabel.innerHTML = "Browse by... " + activeCatName;
+
+				// -- List Sub Cats
+				for (let i = allCatsData.length - 1; i >= 0; i--) {
+					const subCat = allCatsData[i];
+					if ( activeCatID == subCat.main_parent && activeCatID != subCat.catid ) {
+						let subCatID = subCat.catid;
+						let subCatName = subCat.name;
+						// console.log(subCatName);
+						let resultCat = `<li class="pill label box-shadow-blue" tabindex="0" data-catid="${subCatID}" data-name="${subCatName}">${subCatName}</li>`;
+
+						// -- Update Cat List
+						appendItemToSearchCatList(resultCat);
+					}
+				}
+
+				// -- List Prods in Sub Cats
+				// console.log(allProdsData.length);
+				// console.log(activeCatID);
+				for (let l = 0; l < allProdsData.length; l++) {
+					// let prodSubCat = Object.values(allProdsData[l]);
+					let prodSubCat = allProdsData[l];
+					// console.log(prodSubCat.variation_name);
+					// console.log(l);
+
+					if ( activeCatID == prodSubCat.category_id) {
+						// console.log(prodSubCat.variation_name);
+
+						let itemNumber = prodSubCat.variation_number;
+						let itemName = prodSubCat.variation_name;
+						let itemNameSpaced = itemName.replace(/\./g, " ");
+						let itemImage = prodSubCat.image;
+						let itemBrand = prodSubCat.brand;
+						let itemCat = prodSubCat.category;
+						let itemCatID = prodSubCat.category_id;
+						let itemMainCat = prodSubCat.main_category;
+						let itemMainCatID = prodSubCat.main_category_id;
+						let itemAttr = Object.values(prodSubCat.attributes || {});
+
+						let prodSubCatList = `<li class="item">
+							<div class="thumbnail img-cover" style="background-image: url('https://bgc.sixorbit.com/${itemImage}')"></div>
+							<div class="details label">
+								<div class="small text-neutral-3">ID: ${itemNumber} | Brand : ${itemBrand}</div>
+								<div class="name p font-h text-blue">${itemNameSpaced}</div>
+								<div class="attr small text-neutral-6">
+								${itemAttr
+								  .filter(item => item.attr_value.length > 0)
+								  .map(item => `<span>${item.attr_name} : ${item.attr_value}</span>`)
+								  .join(" | ")}
+								</div>
+							</div>
+							<button class="button fill-blue box-shadow-blue block" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-plus' style="line-height: inherit;"></i></button>
+						</li>`;
+
+						// -- Update Prod List
+						appendItemToSearchProdList(prodSubCatList);
+					}
+				}
+			}
 	});
+
 
 
 
@@ -220,12 +306,13 @@ document.addEventListener("DOMContentLoaded", function() {
 		searchLabel.innerHTML = "Browse by Category : [ All ]";
 
 		// -- List Main Cats
-		for (var i = allCatsData.length - 1; i >= 0; i--) {
+		for (let i = 0; i < allCatsData.length; i++) {
 			const mainCat = allCatsData[i];
 			if ( mainCat.catid == mainCat.main_parent) {
+				let mainCatID = mainCat.catid;
 				let mainCatName = mainCat.name;
 				// console.log(mainCatName);
-				let resultCat = `<li class="pill label box-shadow-blue" tabindex="0">${mainCatName}</li>`;
+				let resultCat = `<li class="pill label box-shadow-blue" tabindex="0" data-catid="${mainCatID}" data-name="${mainCatName}">${mainCatName}</li>`;
 
 				// -- Update Cat List
 				appendItemToSearchCatList(resultCat);
@@ -233,12 +320,15 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	}
 
+	// -- Cat Home Event Listener -->
 	catHome.addEventListener('click', function(){
 		// console.log("Home");
 		clearSearchInput();
 		clearSearchLabel();
 		clearSearchCatList();
 		clearSearchProdList();
+
 		catHomeCatList();
 	});
+
 });
