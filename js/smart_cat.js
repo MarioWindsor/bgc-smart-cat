@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const searchLabel = document.getElementById("search-list-label");
 	const searchCatList = document.getElementById("search-cat-list");
 	const searchProdList = document.getElementById("search-prod-list");
+	const catHome = document.getElementById("cat-home");
 
 
 
@@ -106,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// -- X Out Search
 	searchClear.addEventListener('click', function(){
-		console.log("Clear Search");
+		// console.log("Clear Search");
 		clearSearchInput();
 		clearSearchLabel();
 		clearSearchCatList();
@@ -119,10 +120,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	onValue(allProdsDB, function(snapshot) {
 			const allProdsData = Object.values(snapshot.val());
 
-
-						
-
-
 			// -- Search Cats & Prods -->
 			const fuseProd = new Fuse(allProdsData, fuseProdOptions);
 			function searchCatsAndProds(inv) {
@@ -130,11 +127,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 				// Get Result Array (with a max limit) for better performance
 				const catResult = Object.values(fuseCat.search(searchQuery, {limit: 20}));
-				console.log("Cats :", catResult);
+				// console.log("Cats :", catResult);
 
 				// Get Result Array (with a max limit) for better performance
 				const prodResult = Object.values(fuseProd.search(searchQuery, {limit: 20}));
-				console.log("Prods :", prodResult);
+				// console.log("Prods :", prodResult);
 
 				if ( catResult.length == 0 && prodResult.length == 0 ) {
 					searchLabel.innerHTML = "No Results for... "+ searchQuery;
@@ -145,13 +142,12 @@ document.addEventListener("DOMContentLoaded", function() {
 					for (let k = 0; k < catResult.length; k++) {
 						const category = catResult[k]; // Access the current category
 						let itemName = category.item.name;
-						console.log (itemName);
+						// console.log(itemName);
 						let resultItem = `<li class="pill label box-shadow-blue" tabindex="0">${itemName}</li>`;
 
 						// -- Update Cat List
 						appendItemToSearchCatList(resultItem);
 					}
-
 
 					// -- Output For Prods Array -->
 					for (let i = 0; i < prodResult.length; i++) {
@@ -190,7 +186,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 
 
-
 			
 			// -- Search Input Function -->
 			function searchInputChange(event) {
@@ -215,6 +210,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
 			// -- Search Input Event Listener -->
 			searchInput.addEventListener('input', debouncedInputChangeHandler);
-		
+	});
+
+
+
+	// -- Cat Home Function -->
+	function catHomeCatList() {
+		// console.log("Main Categories List");
+
+		// -- List Main Cats
+		for (var i = allCatsData.length - 1; i >= 0; i--) {
+			const mainCat = allCatsData[i];
+			if ( mainCat.catid == mainCat.main_parent) {
+				let mainCatName = mainCat.name;
+				// console.log(mainCatName);
+				let resultCat = `<li class="pill label box-shadow-blue" tabindex="0">${mainCatName}</li>`;
+
+				// -- Update Cat List
+				appendItemToSearchCatList(resultCat);
+			}
+		}
+	}
+
+	catHome.addEventListener('click', function(){
+		// console.log("Home");
+		clearSearchInput();
+		clearSearchLabel();
+		clearSearchCatList();
+		clearSearchProdList();
+		catHomeCatList();
 	});
 });
