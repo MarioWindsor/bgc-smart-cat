@@ -109,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		console.log("Clear Search");
 		clearSearchInput();
 		clearSearchLabel();
+		clearSearchCatList();
 		clearSearchProdList();
 	});
 
@@ -145,9 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
 						const category = catResult[k]; // Access the current category
 						let itemName = category.item.name;
 						console.log (itemName);
-						let resultItem = `<li class="pill">
-							<div class="small text-blue-dark fill-blue-light radius-25">${itemName}</div>
-						</li>`;
+						let resultItem = `<li class="pill label box-shadow-blue" tabindex="0">${itemName}</li>`;
 
 						// -- Update Cat List
 						appendItemToSearchCatList(resultItem);

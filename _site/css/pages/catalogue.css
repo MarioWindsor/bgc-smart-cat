@@ -46,6 +46,22 @@
 
 .catalogue-section .catalogue .cat-main {}
 
+.catalogue-section .catalogue .cat-main .pill-list {
+	list-style-type: none;
+	display: flex;
+	gap: calc(var(--space-25)*1.5);
+	row-gap: calc(var(--space-25)*1.5);
+	flex-wrap: wrap;
+}
+.catalogue-section .catalogue .cat-main .pill-list .pill {
+	margin: 0;
+	padding: 0 var(--space-50);
+	color: var(--blue-dark-dark);
+	line-height: var(--space-100);
+	border-radius: var(--space-100);
+	background-color: var(--blue-light-light);
+	cursor: pointer;
+}
 
 .catalogue-section .catalogue .cat-main .item-list {
 	list-style-type: none;
