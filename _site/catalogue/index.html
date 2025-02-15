@@ -155,7 +155,7 @@
 			<div class="cat-head">
 				<div class="toggle-home">
 					<label class="block">
-						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">home</span>
+						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Home</span>
 						<button id="cat-home" class="button fill-blue box-shadow-blue block" style="padding: 0; text-align: center;"><i class='h5 bx bx-category-alt' style="line-height: inherit;"></i></button>
 					</label>
 				</div>
@@ -171,8 +171,9 @@
 				</div>
 				<div class="toggle-cart">
 					<span class="block">
-						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">home</span>
+						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Cart</span>
 						<label for="toggle-cart" class="button fill-blue box-shadow-blue block" style="padding: 0; text-align: center;"><i class='h5 bx bx-cart' style="line-height: inherit;"></i></label>
+						<span id="cart-counter" class="cart-counter no-pointer"></span>
 					</span>
 				</div>
 			</div>
@@ -182,8 +183,8 @@
 					<ul id="cat-list" class="pill-list"></ul>
 					<ul id="prod-list" class="item-list"></ul>
 				</div>
-				<div class="cart">
-					<div class="title label text-uppercase neutral">Items in cart:</div>
+				<div class="cart box-shadow-blue radius-25">
+					<div id="cart-label" class="p text-blue space-25">Items in cart... 0</div>
 					<ol id="cart-list" class="cart-list small text-blue-dark"></ol>
 				</div>
 			</div>

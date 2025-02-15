@@ -75,6 +75,10 @@ document.addEventListener("DOMContentLoaded", function() {
 	const catList = document.getElementById("cat-list");
 	const prodList = document.getElementById("prod-list");
 	const catHome = document.getElementById("cat-home");
+	const toggleCart = document.getElementById("toggle-cart");
+	const cartList = document.getElementById("cart-list");
+	const cartLabel = document.getElementById("cart-label");
+	const cartCounter = document.getElementById("cart-counter");
 
 
 
@@ -134,8 +138,10 @@ document.addEventListener("DOMContentLoaded", function() {
 			// console.log("Prods :", prodResult);
 
 			if ( catResult.length == 0 && prodResult.length == 0 ) {
+				hideCart(); // Hide Cart
 				searchLabel.innerHTML = "No Results for... "+ searchQuery;
 			} else {
+				hideCart(); // Hide Cart
 				searchLabel.innerHTML = "Results for... "+ searchQuery;
 
 				// -- Output For Cat Array -->
@@ -302,6 +308,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// -- Cat Home Function -->
 	function catHomeCatList() {
+		hideCart(); // Hide Cart
+
 		// console.log("Main Categories List");
 		searchLabel.innerHTML = "Browse by Category : [ All ]";
 
@@ -336,7 +344,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// -- Add to Cart Functionality -->
 	
-	const cartList = document.getElementById("cart-list");
 	let allCartItems = []; // Array to store selected product objects
 
 	// Detect Add to Cart
@@ -368,10 +375,19 @@ document.addEventListener("DOMContentLoaded", function() {
 			for (let i = 0; i < allCartItems.length; i++) {
 				const cartItemID = allCartItems[i].id
 				const cartItemName = allCartItems[i].name
-				const cartItem =  `<li class="cart-item" data-id="${cartItemID}"><span>
-				<div class="small inline">ID: ${cartItemID}</div><div class="name label strong font-h">${cartItemName}</div></span></li>`;
+				const cartItem =  `<li class="cart-item" data-id="${cartItemID}">
+				<button class="button remove-from-cart text-blue"><i class='h5 bx bx-x-circle' style="line-height: inherit;"></i></button>
+				<span class="info">				
+				<div class="small inline">ID: ${cartItemID}</div>
+				<div class="name p strong font-h">
+					${cartItemName}</div></span></li>`;
 				appendCart(cartItem);
+				cartLabel.innerHTML = "Items in cart... "+ allCartItems.length;
+				cartCounter.innerHTML = allCartItems.length;
 			}
+		} else {
+			cartLabel.innerHTML = "Items in cart... 0";
+			cartCounter.innerHTML = "";
 		}
 	}
 
@@ -384,8 +400,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	// -- Detect Remove From Cart -->
 	cartList.addEventListener('click', function(){
 		const activeCart = event.target.closest('li.cart-item'); // Find the closest add-item button
+		const removeButton = event.target.closest('li.cart-item .remove-from-cart'); // Find the closest add-item button
 		
-		if (activeCart) { // Check if an add-item was clicked
+		if (removeButton) { // Check if an add-item was clicked
 			const activeCartID = activeCart.dataset.id;
 
 			// Remove from allCartItems array:
@@ -398,5 +415,12 @@ document.addEventListener("DOMContentLoaded", function() {
 			console.log(activeCartID);
 		}
 	});
+
+	// Toggle Cart
+	function hideCart() {
+		if (toggleCart.checked == true) { // Check if the element exists
+		  toggleCart.checked = false;
+		}
+	}
 
 });

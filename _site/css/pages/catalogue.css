@@ -41,12 +41,23 @@
 	padding: 0 1px;
 }
 
+.catalogue-section .catalogue .cat-head .toggle-cart { position: relative; }
+.catalogue-section .catalogue .cat-head .toggle-cart .cart-counter:not(:empty) {
+	position: absolute;
+	z-index: 2;
+	top: var(--space-25);
+	right: var(--space-25);
+	background-color: var(--red);
+	color: var(--white);
+	font-size: var(--label);
+	border-radius: var(--space-25);
+	padding: var(--space-min);
+}
+
 
 /* Cat Main  */
 
-.catalogue-section .catalogue .cat-main {
-	display: flex;
-}
+.catalogue-section .catalogue .cat-main {}
 
 
 /* Browse Categories & Products */
@@ -56,7 +67,14 @@
 }
 
 .catalogue-section .catalogue #toggle-cart:checked + .cat-main .browse {
-	width: 60%;
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 }
 
 .catalogue-section .catalogue .cat-main .browse .pill-list {
@@ -115,40 +133,61 @@
 }
 
 /* Cart  */
-.catalogue-section .catalogue .cat-main .cart {
-	width: 0;
-	padding: 0;
+.catalogue-section .catalogue #toggle-cart:not(:checked) + .cat-main .cart {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
 	overflow: hidden;
-	text-wrap: nowrap;
-	opacity: 0;
-	filter: blur(10px);
+	padding: 0;
+	position: absolute;
+	width: 1px;
 	transition: .4s ease-out;
 }
 .catalogue-section .catalogue #toggle-cart:checked + .cat-main .cart {
-	width: 40%;
-	opacity: 100%;
-	padding-left: var(--space-100);
-	filter: blur(0);
+	clip: auto;
+	height: auto;
+	margin: 0;
+	padding: var(--space-50);
+	overflow: auto;
+	position: relative;
+	width: 100%;
 }
 .catalogue-section .catalogue .cat-main .cart .cart-list {
-/*	list-style-type: none;*/
+	list-style-type: none;
 }
 .catalogue-section .catalogue .cat-main .cart .cart-list li {
-	cursor: pointer;
 	border-bottom: solid var(--blue-light-light) 1px;
 	margin: 0;
-	padding: var(--space-25);
+	padding: var(--space-25) 0;
+	text-wrap: nowrap;
+	overflow: hidden;
 }
 
 .catalogue-section .catalogue .cat-main .cart .cart-list li:last-child {
 	border-bottom: 0;
 }
 
-.catalogue-section .catalogue .cat-main .cart .cart-list li * {
+.catalogue-section .catalogue .cat-main .cart .cart-list li .remove-from-cart {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0;
+	text-align: center;
+	background-color: transparent;
+	width: var(--space-150);
+}
+.catalogue-section .catalogue .cat-main .cart .cart-list li .remove-from-cart * {
+	pointer-events: none;
+}
+
+.catalogue-section .catalogue .cat-main .cart .cart-list li .info {
+	display: inline-block;
+	vertical-align: middle;
 	pointer-events: none;
 }
 .catalogue-section .catalogue .cat-main .cart .cart-list li .name {
-	overflow: hidden;
-	text-overflow: ellipsis;
+/*	overflow: hidden;*/
+/*	text-wrap: nowrap;*/
+/*	text-overflow: ellipsis;*/
 }
 	
