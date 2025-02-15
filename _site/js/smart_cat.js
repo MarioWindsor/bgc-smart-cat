@@ -72,8 +72,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	const searchInput = document.getElementById("search-input");
 	const searchClear = document.getElementById("search-clear");
 	const searchLabel = document.getElementById("search-list-label");
-	const searchCatList = document.getElementById("search-cat-list");
-	const searchProdList = document.getElementById("search-prod-list");
+	const catList = document.getElementById("cat-list");
+	const prodList = document.getElementById("prod-list");
 	const catHome = document.getElementById("cat-home");
 
 
@@ -87,20 +87,20 @@ document.addEventListener("DOMContentLoaded", function() {
 		searchLabel.innerHTML = "";
 	};
 
-	function clearSearchCatList() {
-		searchCatList.innerHTML = "";
+	function clearCatList() {
+		catList.innerHTML = "";
 	};
 
-	function appendItemToSearchCatList(item) {
-		searchCatList.innerHTML += item;
+	function appendItemToCatList(item) {
+		catList.innerHTML += item;
 	};
 
-	function clearSearchProdList() {
-		searchProdList.innerHTML = "";
+	function clearProdList() {
+		prodList.innerHTML = "";
 	};
 
-	function appendItemToSearchProdList(item) {
-		searchProdList.innerHTML += item;
+	function appendItemToProdList(item) {
+		prodList.innerHTML += item;
 	};
 
 
@@ -110,191 +110,191 @@ document.addEventListener("DOMContentLoaded", function() {
 		// console.log("Clear Search");
 		clearSearchInput();
 		clearSearchLabel();
-		clearSearchCatList();
-		clearSearchProdList();
+		clearCatList();
+		clearProdList();
 	});
 
 
 
 	// ~ ~ Wait for Firebase Connection ~ ~ //
 	onValue(allProdsDB, function(snapshot) {
-			const allProdsData = Object.values(snapshot.val());
+		const allProdsData = Object.values(snapshot.val());
 
-			// -- Search Cats & Prods -->
-			const fuseProd = new Fuse(allProdsData, fuseProdOptions);
-			function searchCatsAndProds(inv) {
-				let searchQuery = inv;
+		// -- Search Cats & Prods -->
+		const fuseProd = new Fuse(allProdsData, fuseProdOptions);
+		function searchCatsAndProds(inv) {
+			let searchQuery = inv;
 
-				// Get Result Array (with a max limit) for better performance
-				const catResult = Object.values(fuseCat.search(searchQuery, {limit: 20}));
-				// console.log("Cats :", catResult);
+			// Get Result Array (with a max limit) for better performance
+			const catResult = Object.values(fuseCat.search(searchQuery, {limit: 20}));
+			// console.log("Cats :", catResult);
 
-				// Get Result Array (with a max limit) for better performance
-				const prodResult = Object.values(fuseProd.search(searchQuery, {limit: 20}));
-				// console.log("Prods :", prodResult);
+			// Get Result Array (with a max limit) for better performance
+			const prodResult = Object.values(fuseProd.search(searchQuery, {limit: 20}));
+			// console.log("Prods :", prodResult);
 
-				if ( catResult.length == 0 && prodResult.length == 0 ) {
-					searchLabel.innerHTML = "No Results for... "+ searchQuery;
-				} else {
-					searchLabel.innerHTML = "Results for... "+ searchQuery;
+			if ( catResult.length == 0 && prodResult.length == 0 ) {
+				searchLabel.innerHTML = "No Results for... "+ searchQuery;
+			} else {
+				searchLabel.innerHTML = "Results for... "+ searchQuery;
 
-					// -- Output For Cat Array -->
-					for (let k = 0; k < catResult.length; k++) {
-						const category = catResult[k]; // Access the current category
-						let itemName = category.item.name;
-						let itemCatID = category.item.catid;
-						// console.log(itemName);
-						let resultItem = `<li class="pill label box-shadow-blue" tabindex="0" data-catid="${itemCatID}" data-name="${itemName}">${itemName}</li>`;
+				// -- Output For Cat Array -->
+				for (let k = 0; k < catResult.length; k++) {
+					const category = catResult[k]; // Access the current category
+					let itemName = category.item.name;
+					let itemCatID = category.item.catid;
+					// console.log(itemName);
+					let resultItem = `<li class="pill label box-shadow-blue" tabindex="0" data-catid="${itemCatID}" data-name="${itemName}">${itemName}</li>`;
 
-						// -- Update Cat List
-						appendItemToSearchCatList(resultItem);
-					}
+					// -- Update Cat List
+					appendItemToCatList(resultItem);
+				}
 
-					// -- Output For Prods Array -->
-					for (let i = 0; i < prodResult.length; i++) {
-						const product = prodResult[i]; // Access the current product
+				// -- Output For Prods Array -->
+				for (let i = 0; i < prodResult.length; i++) {
+					const product = prodResult[i]; // Access the current product
 
-						let itemNumber = product.item.variation_number;
-						let itemName = product.item.variation_name;
-						let itemNameSpaced = itemName.replace(/\./g, " ");
-						let itemImage = product.item.image;
-						let itemBrand = product.item.brand;
-						let itemCat = product.item.category;
-						let itemCatID = product.item.category_id;
-						let itemMainCat = product.item.main_category;
-						let itemMainCatID = product.item.main_category_id;
-						let itemAttr = Object.values(product.item.attributes || {});
+					let itemNumber = product.item.variation_number;
+					let itemName = product.item.variation_name;
+					let itemNameSpaced = itemName.replace(/\./g, " ");
+					let itemImage = product.item.image;
+					let itemBrand = product.item.brand;
+					let itemCat = product.item.category;
+					let itemCatID = product.item.category_id;
+					let itemMainCat = product.item.main_category;
+					let itemMainCatID = product.item.main_category_id;
+					let itemAttr = Object.values(product.item.attributes || {});
 
-						let resultItem = `<li class="item">
-							<div class="thumbnail img-cover" style="background-image: url('https://bgc.sixorbit.com/${itemImage}')"></div>
-							<div class="details label">
-								<div class="small text-neutral-3">ID: ${itemNumber} | Brand : ${itemBrand}</div>
-								<div class="name p font-h text-blue">${itemNameSpaced}</div>
-								<div class="attr small text-neutral-6">
-								${itemAttr
-								  .filter(item => item.attr_value.length > 0)
-								  .map(item => `<span>${item.attr_name} : ${item.attr_value}</span>`)
-								  .join(" | ")}
-								</div>
+					let resultItem = `<li class="item">
+						<div class="thumbnail img-cover" style="background-image: url('https://bgc.sixorbit.com/${itemImage}')"></div>
+						<div class="details label">
+							<div class="small text-neutral-3">ID: ${itemNumber} | Brand : ${itemBrand}</div>
+							<div class="name p font-h text-blue">${itemNameSpaced}</div>
+							<div class="attr small text-neutral-6">
+							${itemAttr
+							  .filter(item => item.attr_value.length > 0)
+							  .map(item => `<span>${item.attr_name} : ${item.attr_value}</span>`)
+							  .join(" | ")}
 							</div>
-							<button class="button fill-blue box-shadow-blue block" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-plus' style="line-height: inherit;"></i></button>
-						</li>`;
+						</div>
+						<button class="add-item button fill-blue box-shadow-blue block" data-id="${itemNumber}" data-name="${itemNameSpaced}" style="padding: 0; text-align: center;"><i class='h5 bx bx-plus' style="line-height: inherit;"></i></button>
+					</li>`;
 
-						// -- Update Prod List
-						appendItemToSearchProdList(resultItem);
-					}
+					// -- Update Prod List
+					appendItemToProdList(resultItem);
+				}
+			}
+		}
+
+
+		
+		// -- Search Input Function -->
+		function searchInputChange(event) {
+			// Perform your desired action here, e.g., fetching data, updating display, etc.
+			let searchVal = searchInput.value;
+
+			if ( searchVal.length == 0 ) {
+				clearSearchLabel();
+				clearCatList();
+				clearProdList();
+			} else {
+				clearSearchLabel();
+				clearCatList();
+				clearProdList();
+				searchCatsAndProds(searchVal);
+			}
+
+		}
+		
+		// -- Debounce Search Input Function -->
+		const debouncedInputChangeHandler = debounce(searchInputChange, 850); // 1000ms delay
+
+		// -- Search Input Event Listener -->
+		searchInput.addEventListener('input', debouncedInputChangeHandler);
+
+
+
+
+		// -- Cat Pill Event Listener
+		catList.addEventListener('click', function(){
+			const activeCat = event.target.closest('li.pill'); // Find the closest li.pill
+
+			if (activeCat) { // Check if an li.pill was clicked
+				const activeCatID = activeCat.dataset.catid;
+				const activeCatName = activeCat.dataset.name;
+
+				clearSearchInput();
+				clearSearchLabel();
+				clearCatList();
+				clearProdList();
+
+				// console.log("Active Category ID:", activeCatID);
+
+				activeCatList(activeCatID, activeCatName);
+			}
+		});
+
+		function activeCatList(activeCatID, activeCatName) {
+			// console.log(catId,":",catName);
+			searchLabel.innerHTML = "Browse by... " + activeCatName;
+
+			// -- List Sub Cats
+			for (let i = allCatsData.length - 1; i >= 0; i--) {
+				const subCat = allCatsData[i];
+				if ( activeCatID == subCat.main_parent && activeCatID != subCat.catid ) {
+					let subCatID = subCat.catid;
+					let subCatName = subCat.name;
+					// console.log(subCatName);
+					let resultCat = `<li class="pill label box-shadow-blue" tabindex="0" data-catid="${subCatID}" data-name="${subCatName}">${subCatName}</li>`;
+
+					// -- Update Cat List
+					appendItemToCatList(resultCat);
 				}
 			}
 
+			// -- List Prods in Sub Cats
+			// console.log(allProdsData.length);
+			// console.log(activeCatID);
+			for (let l = 0; l < allProdsData.length; l++) {
+				// let prodSubCat = Object.values(allProdsData[l]);
+				let prodSubCat = allProdsData[l];
+				// console.log(prodSubCat.variation_name);
+				// console.log(l);
 
-			
-			// -- Search Input Function -->
-			function searchInputChange(event) {
-				// Perform your desired action here, e.g., fetching data, updating display, etc.
-				let searchVal = searchInput.value;
-
-				if ( searchVal.length == 0 ) {
-					clearSearchLabel();
-					clearSearchCatList();
-					clearSearchProdList();
-				} else {
-					clearSearchLabel();
-					clearSearchCatList();
-					clearSearchProdList();
-					searchCatsAndProds(searchVal);
-				}
-
-			}
-			
-			// -- Debounce Search Input Function -->
-			const debouncedInputChangeHandler = debounce(searchInputChange, 850); // 1000ms delay
-
-			// -- Search Input Event Listener -->
-			searchInput.addEventListener('input', debouncedInputChangeHandler);
-
-
-
-
-			// -- Cat Pill Event Listener
-			searchCatList.addEventListener('click', function(){
-				const activeCat = event.target.closest('li.pill'); // Find the closest li.pill
-
-				if (activeCat) { // Check if an li.pill was clicked
-					const activeCatID = activeCat.dataset.catid;
-					const activeCatName = activeCat.dataset.name;
-
-					clearSearchInput();
-					clearSearchLabel();
-					clearSearchCatList();
-					clearSearchProdList();
-
-					// console.log("Active Category ID:", activeCatID);
-
-					activeCatList(activeCatID, activeCatName);
-				}
-			});
-
-			function activeCatList(activeCatID, activeCatName) {
-				// console.log(catId,":",catName);
-				searchLabel.innerHTML = "Browse by... " + activeCatName;
-
-				// -- List Sub Cats
-				for (let i = allCatsData.length - 1; i >= 0; i--) {
-					const subCat = allCatsData[i];
-					if ( activeCatID == subCat.main_parent && activeCatID != subCat.catid ) {
-						let subCatID = subCat.catid;
-						let subCatName = subCat.name;
-						// console.log(subCatName);
-						let resultCat = `<li class="pill label box-shadow-blue" tabindex="0" data-catid="${subCatID}" data-name="${subCatName}">${subCatName}</li>`;
-
-						// -- Update Cat List
-						appendItemToSearchCatList(resultCat);
-					}
-				}
-
-				// -- List Prods in Sub Cats
-				// console.log(allProdsData.length);
-				// console.log(activeCatID);
-				for (let l = 0; l < allProdsData.length; l++) {
-					// let prodSubCat = Object.values(allProdsData[l]);
-					let prodSubCat = allProdsData[l];
+				if ( activeCatID == prodSubCat.category_id) {
 					// console.log(prodSubCat.variation_name);
-					// console.log(l);
 
-					if ( activeCatID == prodSubCat.category_id) {
-						// console.log(prodSubCat.variation_name);
+					let itemNumber = prodSubCat.variation_number;
+					let itemName = prodSubCat.variation_name;
+					let itemNameSpaced = itemName.replace(/\./g, " ");
+					let itemImage = prodSubCat.image;
+					let itemBrand = prodSubCat.brand;
+					let itemCat = prodSubCat.category;
+					let itemCatID = prodSubCat.category_id;
+					let itemMainCat = prodSubCat.main_category;
+					let itemMainCatID = prodSubCat.main_category_id;
+					let itemAttr = Object.values(prodSubCat.attributes || {});
 
-						let itemNumber = prodSubCat.variation_number;
-						let itemName = prodSubCat.variation_name;
-						let itemNameSpaced = itemName.replace(/\./g, " ");
-						let itemImage = prodSubCat.image;
-						let itemBrand = prodSubCat.brand;
-						let itemCat = prodSubCat.category;
-						let itemCatID = prodSubCat.category_id;
-						let itemMainCat = prodSubCat.main_category;
-						let itemMainCatID = prodSubCat.main_category_id;
-						let itemAttr = Object.values(prodSubCat.attributes || {});
-
-						let prodSubCatList = `<li class="item">
-							<div class="thumbnail img-cover" style="background-image: url('https://bgc.sixorbit.com/${itemImage}')"></div>
-							<div class="details label">
-								<div class="small text-neutral-3">ID: ${itemNumber} | Brand : ${itemBrand}</div>
-								<div class="name p font-h text-blue">${itemNameSpaced}</div>
-								<div class="attr small text-neutral-6">
-								${itemAttr
-								  .filter(item => item.attr_value.length > 0)
-								  .map(item => `<span>${item.attr_name} : ${item.attr_value}</span>`)
-								  .join(" | ")}
-								</div>
+					let prodSubCatList = `<li class="item">
+						<div class="thumbnail img-cover" style="background-image: url('https://bgc.sixorbit.com/${itemImage}')"></div>
+						<div class="details label">
+							<div class="small text-neutral-3">ID: ${itemNumber} | Brand : ${itemBrand}</div>
+							<div class="name p font-h text-blue">${itemNameSpaced}</div>
+							<div class="attr small text-neutral-6">
+							${itemAttr
+							  .filter(item => item.attr_value.length > 0)
+							  .map(item => `<span>${item.attr_name} : ${item.attr_value}</span>`)
+							  .join(" | ")}
 							</div>
-							<button class="button fill-blue box-shadow-blue block" type="submit" style="padding: 0; text-align: center;"><i class='h5 bx bx-plus' style="line-height: inherit;"></i></button>
-						</li>`;
+						</div>
+						<button class="add-item button fill-blue box-shadow-blue block" data-id="${itemNumber}" data-name="${itemNameSpaced}" style="padding: 0; text-align: center;"><i class='h5 bx bx-plus' style="line-height: inherit;"></i></button>
+					</li>`;
 
-						// -- Update Prod List
-						appendItemToSearchProdList(prodSubCatList);
-					}
+					// -- Update Prod List
+					appendItemToProdList(prodSubCatList);
 				}
 			}
+		}
 	});
 
 
@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", function() {
 				let resultCat = `<li class="pill label box-shadow-blue" tabindex="0" data-catid="${mainCatID}" data-name="${mainCatName}">${mainCatName}</li>`;
 
 				// -- Update Cat List
-				appendItemToSearchCatList(resultCat);
+				appendItemToCatList(resultCat);
 			}
 		}
 	}
@@ -325,10 +325,78 @@ document.addEventListener("DOMContentLoaded", function() {
 		// console.log("Home");
 		clearSearchInput();
 		clearSearchLabel();
-		clearSearchCatList();
-		clearSearchProdList();
+		clearCatList();
+		clearProdList();
 
 		catHomeCatList();
+	});
+
+
+
+
+	// -- Add to Cart Functionality -->
+	
+	const cartList = document.getElementById("cart-list");
+	let allCartItems = []; // Array to store selected product objects
+
+	// Detect Add to Cart
+	prodList.addEventListener('click', function(){
+		const activeProd = event.target.closest('li.item .add-item'); // Find the closest add-item button
+		
+		if (activeProd) { // Check if an add-item was clicked
+			const activeProdID = activeProd.dataset.id;
+			const activeProdName = activeProd.dataset.name;
+
+			// Check if the product is already in the array (to avoid duplicates on single clicks)
+			const productExists = allCartItems.some(product => product.id === activeProdID);
+
+			if (!productExists) {
+				const productObject = {
+					id: activeProdID,
+					name: activeProdName
+				};
+				allCartItems.push(productObject);
+				cartList.innerHTML = ""; // Clear Cart List
+				updateCart(); // Update Cart List
+			}
+		}
+	});
+
+	// Update Cart
+	function updateCart() {
+		if (allCartItems.length != 0) {
+			for (let i = 0; i < allCartItems.length; i++) {
+				const cartItemID = allCartItems[i].id
+				const cartItemName = allCartItems[i].name
+				const cartItem =  `<li class="cart-item" data-id="${cartItemID}"><span>
+				<div class="small inline">ID: ${cartItemID}</div><div class="name label strong font-h">${cartItemName}</div></span></li>`;
+				appendCart(cartItem);
+			}
+		}
+	}
+
+	// Append Items to Cart List
+	function appendCart(item) {
+		cartList.innerHTML += item;
+	};
+
+
+	// -- Detect Remove From Cart -->
+	cartList.addEventListener('click', function(){
+		const activeCart = event.target.closest('li.cart-item'); // Find the closest add-item button
+		
+		if (activeCart) { // Check if an add-item was clicked
+			const activeCartID = activeCart.dataset.id;
+
+			// Remove from allCartItems array:
+			allCartItems = allCartItems.filter(item => item.id !== activeCartID);
+
+			// Update the displayed cart list:
+			cartList.innerHTML = ""; // Clear the cart list
+			updateCart();           // Re-render the cart with the updated items
+
+			console.log(activeCartID);
+		}
 	});
 
 });

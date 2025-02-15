@@ -30,16 +30,21 @@
 					<div id="search-list-label" class="p text-blue-light space-25"></div>
 				</div>
 				<div class="toggle-cart">
-					<label class="block">
+					<span class="block">
 						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">home</span>
-						<button class="button fill-blue box-shadow-blue block" style="padding: 0; text-align: center;"><i class='h5 bx bx-cart' style="line-height: inherit;"></i></button>
-					</label>
+						<label for="toggle-cart" class="button fill-blue box-shadow-blue block" style="padding: 0; text-align: center;"><i class='h5 bx bx-cart' style="line-height: inherit;"></i></label>
+					</span>
 				</div>
 			</div>
+			<input type="checkbox" id="toggle-cart" class="hidden">
 			<div class="cat-main space-25-top">
-				<div class="search-list">
-					<ul id="search-cat-list" class="pill-list"></ul>
-					<ul id="search-prod-list" class="item-list"></ul>
+				<div class="browse">
+					<ul id="cat-list" class="pill-list"></ul>
+					<ul id="prod-list" class="item-list"></ul>
+				</div>
+				<div class="cart">
+					<div class="title label text-uppercase neutral">Items in cart:</div>
+					<ol id="cart-list" class="cart-list small text-blue-dark"></ol>
 				</div>
 			</div>
 		</div>
