@@ -37,7 +37,7 @@
 	}
 }
 @media( min-width: 1040px ) {
-	.intro-section .intro .logo {
+	/*.intro-section .intro .logo {
 		cursor: pointer;
 		background-size: contain;
 		background-repeat: no-repeat;
@@ -59,7 +59,7 @@
 		0%		{ opacity: 1; }
 		75%		{ opacity: 1; }
 		100%	{ opacity: 0; }
-	}
+	}*/
 	
 	.intro-section .intro-video {
 		position: absolute;

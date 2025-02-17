@@ -16,6 +16,24 @@
 
 /* Cat Head  */
 
+.catalogue-section .catalogue .cat-head .toggle-home { position: relative; }
+.catalogue-section .catalogue .cat-head .toggle-home:before {
+	content: '';
+	display: block;
+	width: 65px;
+	height: 65px;
+	position: absolute;
+	z-index: 1;
+	top: var(--space-75);
+	left: var(--space-150);
+/*	background-color: red;*/
+	transform: translate(-100%, -100%);
+	background-size: contain;
+	background-position: bottom right;
+	background-repeat: no-repeat;
+	background-image: url('/media/try-me.png');
+}
+
 .catalogue-section .catalogue .cat-head {
 	z-index: 8;
 	display: flex;
