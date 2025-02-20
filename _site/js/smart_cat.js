@@ -79,6 +79,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	const cartList = document.getElementById("cart-list");
 	const cartLabel = document.getElementById("cart-label");
 	const cartCounter = document.getElementById("cart-counter");
+	const cartCTA = document.getElementById("cart-cta");
+	const loadingIndicator = document.getElementById("loading-indicator");
+	const loadingOverlay = document.getElementById("loading-overlay");
 
 
 
@@ -106,6 +109,24 @@ document.addEventListener("DOMContentLoaded", function() {
 	function appendItemToProdList(item) {
 		prodList.innerHTML += item;
 	};
+
+	function showCartCTA() {
+		cartCTA.style.display = "block";
+	}
+	function hideCartCTA() {
+		cartCTA.style.display = "none";
+	}
+
+	// Functions to show and hide the loading indicator
+	function showLoading() {
+		loadingIndicator.style.display = "block";  // Show the spinner
+		loadingOverlay.style.display = "block"; // Show the overlay
+	}
+
+	function hideLoading() {
+		loadingIndicator.style.display = "none"; // Hide the spinner
+		loadingOverlay.style.display = "none"; // Hide the overlay
+	}
 
 
 
@@ -190,6 +211,9 @@ document.addEventListener("DOMContentLoaded", function() {
 					appendItemToProdList(resultItem);
 				}
 			}
+
+			hideLoading();
+
 		}
 
 
@@ -204,10 +228,17 @@ document.addEventListener("DOMContentLoaded", function() {
 				clearCatList();
 				clearProdList();
 			} else {
-				clearSearchLabel();
-				clearCatList();
-				clearProdList();
-				searchCatsAndProds(searchVal);
+				// Call showLoading() *before* you start fetching data
+				showLoading();
+
+				// Simulate data fetching (replace with your actual code)
+				setTimeout(() => {
+					clearSearchLabel();
+					clearCatList();
+					clearProdList();
+					searchCatsAndProds(searchVal);
+				}, 2000); // 2 seconds delay (adjust as needed)
+				
 			}
 
 		}
@@ -229,14 +260,20 @@ document.addEventListener("DOMContentLoaded", function() {
 				const activeCatID = activeCat.dataset.catid;
 				const activeCatName = activeCat.dataset.name;
 
-				clearSearchInput();
-				clearSearchLabel();
-				clearCatList();
-				clearProdList();
+				// Call showLoading() *before* you start fetching data
+				showLoading();
 
-				// console.log("Active Category ID:", activeCatID);
+				// Simulate data fetching (replace with your actual code)
+				setTimeout(() => {
+					clearSearchInput();
+					clearSearchLabel();
+					clearCatList();
+					clearProdList();
 
-				activeCatList(activeCatID, activeCatName);
+					// console.log("Active Category ID:", activeCatID);
+
+					activeCatList(activeCatID, activeCatName);
+				}, 2000); // 2 seconds delay (adjust as needed)
 			}
 		});
 
@@ -300,6 +337,9 @@ document.addEventListener("DOMContentLoaded", function() {
 					appendItemToProdList(prodSubCatList);
 				}
 			}
+
+			hideLoading();
+
 		}
 	});
 
@@ -384,10 +424,14 @@ document.addEventListener("DOMContentLoaded", function() {
 				appendCart(cartItem);
 				cartLabel.innerHTML = "Items in cart... "+ allCartItems.length;
 				cartCounter.innerHTML = allCartItems.length;
+				
+				showCartCTA();
 			}
 		} else {
 			cartLabel.innerHTML = "Items in cart... 0";
 			cartCounter.innerHTML = "";
+
+			hideCartCTA();
 		}
 	}
 

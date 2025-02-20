@@ -151,7 +151,17 @@
 				<div class="p text-blue space-25-top">Explore our Complete Catalogue.</div>
 			</div>
 		</div>
-		<div class="catalogue container">
+		<div id="catalogue" class="catalogue container">
+			<div id="loading-overlay"></div>
+			<div id="loading-indicator">
+				<div class="spinner">
+				  <div class="dot1"></div>
+				  <div class="dot2"></div>
+				</div>
+				<div class="spinner-border text-primary" role="status">
+					<span class="visually-hidden h6 strong font-h">Loading...</span>
+				</div>
+			</div>
 			<div class="cat-head">
 				<div class="toggle-home">
 					<label class="block">
@@ -186,6 +196,10 @@
 				<div class="cart box-shadow-blue radius-25">
 					<div id="cart-label" class="p text-blue space-25">Items in cart... 0</div>
 					<ol id="cart-list" class="cart-list small text-blue-dark"></ol>
+					<div id="cart-cta" class="cart-cta text-center space-50-top" style="display: none;">
+						<a href="#catalogueQuote" class="button inline fill-blue">Get a Quote, Now</a><br>
+						<span class="inline h6 text-blue font-h space-50-top">Enter Your Details Below to get a Custom Offer 👇</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -201,7 +215,7 @@
 			</div>
 			<div class="columns small-12 large-5 large-offset-1">
 				<div class="form-box form-dark fill-blue radius-25 space-50" style="box-shadow: 0 0 1px 1px rgba(0, 102, 255, 0.2), 0 0 var(--space-200) 0px rgba(0, 102, 255, 0.3);">
-					<form id="homeGeneralLeads" action="https://docs.google.com/forms/d/e/1FAIpQLSeG6nfZX6S_nq29su85Olfx_5UT31lj8Mj50WJIwbrVa1wPTw/formResponse" method="POST" enctype="multipart/form-data">
+					<form id="catalogueQuote" action="https://docs.google.com/forms/d/e/1FAIpQLSeG6nfZX6S_nq29su85Olfx_5UT31lj8Mj50WJIwbrVa1wPTw/formResponse" method="POST" enctype="multipart/form-data">
 					<div class="row">
 						<div class="columns small-12 space-25">
 							<div class="p">Best value in the industry.</div>
@@ -330,10 +344,8 @@
 
 <script type="text/javascript" src="/js/video_embed.js"></script>
 <script type="text/javascript" src="/js/carousel.js"></script>
-<!-- <script type="module" src="/js/db_cat.js"></script> -->
+<script type="text/javascript" src="/js/lead_form.js"></script>
 <script type="module" src="/js/smart_cat.js"></script>
-<!-- <script type="module" src="/js/db.js"></script> -->
-<!-- <script type="module" src="/js/functions.js"></script> -->
 
 <script type="text/javascript">
 	/* -- Smooth Scolling -- */

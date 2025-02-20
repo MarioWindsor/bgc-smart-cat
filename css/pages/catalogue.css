@@ -33,6 +33,7 @@
 	background-repeat: no-repeat;
 	background-image: url('/media/try-me.png');
 }
+.catalogue-section .catalogue:focus-within .cat-head .toggle-home:before { display: none; }
 
 .catalogue-section .catalogue .cat-head {
 	z-index: 8;
@@ -207,5 +208,95 @@
 /*	overflow: hidden;*/
 /*	text-wrap: nowrap;*/
 /*	text-overflow: ellipsis;*/
+}
+
+/* -- Catalogue Loading -- */
+
+/* Optional: Styles for the semi-transparent overlay */
+.catalogue-section .catalogue #loading-overlay {
+	display: none;
+	color: var(--blue);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black */
+	z-index: 1000; /* Ensures it's on top of other elements */
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+}
+
+/* Styles for the loading indicator */
+.catalogue-section .catalogue #loading-indicator {
+	/* Center the spinner */
+	display: none;
+	color: var(--blue-dark-dark);
+	position: fixed; /* Stays in the same position even when scrolling */
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	transform: translate(-50%, -50%); /* Centers it perfectly */
+	z-index: 1001; /* Ensures it's on top of other elements */
+}
+
+.catalogue-section .catalogue #loading-indicator .spinner-border{
+	width: 10rem;
+	height: 10rem;
+}
+
+.catalogue-section .catalogue #loading-indicator .spinner {
+	margin: var(--space-100) auto;
+	width: var(--space-200);
+	height: var(--space-200);
+	position: relative;
+	text-align: center;
+	
+	-webkit-animation: sk-rotate 2.0s infinite linear;
+	animation: sk-rotate 2.0s infinite linear;
+}
+
+.catalogue-section .catalogue #loading-indicator .spinner .dot1, .dot2 {
+	width: 60%;
+	height: 60%;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	background: transparent;
+	border: solid 3px;
+	border-color: var(--orange);
+/*	border-radius: 100%;*/
+	border-radius: var(--space-25);
+
+	-webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+	animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.catalogue-section .catalogue #loading-indicator .spinner .dot2 {
+	top: auto;
+	bottom: 0;
+	border-color: var(--blue);
+
+	-webkit-animation-delay: -1.0s;
+	animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+@-webkit-keyframes sk-bounce {
+	0%, 100% { -webkit-transform: scale(0.0) }
+	50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+	0%, 100% { 
+		transform: scale(0.0);
+		-webkit-transform: scale(0.0);
+	} 50% { 
+		transform: scale(1.0);
+		-webkit-transform: scale(1.0);
+	}
 }
 	
