@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    const apiEndpoint = "http://bgc.sixorbit.com/?urlq=service&version=5.0&key=123&task=enquiry/enquiry_submit&user_id=410002480&access_token=6039799143063139076";
+    console.log('LEAD FORM : READY');
+
+    const apiEndpoint = "http://bgc.sixorbit.com/?urlq=service&version=5.0&key=123&task=enquiry/enquiry_submit&user_id=410002480&access_token=6381229986870896132";
 
     const data = {
       "smstid" : "",
       "mail" : "1",
       "no_of_bathroom" : "",
-      "terms_conditions" : [
-      ],
-      "image_array" : [
-      ],
+      "terms_conditions" : [],
+      "image_array" : [],
       "enquiry_remarks" : "",
       "docprefix" : "",
       "cuid" : "410271581",
@@ -45,7 +45,8 @@ document.addEventListener("DOMContentLoaded", function() {
         method: "POST",
         body: data,
         headers: {
-        "Content-Type" : "application/form-data"
+        // "Content-Type" : "application/form-data"
+        "Content-Type" : "application/json"
       }
     })
     .then(response => {
