@@ -46,9 +46,9 @@ document.addEventListener("DOMContentLoaded", function() {
 		body: data,
 		headers: {
 		"Content-Type" : "application/json",
-		'Access-Control-Allow-Origin': 'bgc.sixorbit.com',
-		'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
-		'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers, X-Requested-With'
+		"Access-Control-Allow-Origin": "bgc.sixorbit.com",
+		"Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
+		"Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers, X-Requested-With"
 	  }
 	})
 	.then(response => {
