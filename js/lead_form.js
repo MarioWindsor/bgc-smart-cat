@@ -45,11 +45,10 @@ document.addEventListener("DOMContentLoaded", function() {
 		method: "POST",
 		body: data,
 		headers: {
-		// "Content-Type" : "application/form-data"
 		"Content-Type" : "application/json",
-		'Access-Control-Allow-Origin': '*', // Replace with your website's domain if needed
-		'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-		'Access-Control-Allow-Headers': 'Content-Type, Authorization'
+		'Access-Control-Allow-Origin': 'bgc.sixorbit.com',
+		'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
+		'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers, X-Requested-With'
 	  }
 	})
 	.then(response => {
