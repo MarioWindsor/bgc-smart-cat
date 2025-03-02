@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	console.log('LEAD FORM : READY');
 
-	const apiEndpoint = "http://bgc.sixorbit.com/?urlq=service&version=5.0&key=123&task=enquiry/enquiry_submit&user_id=410002480&access_token=6381229986870896132";
+	const apiEndpoint = "http://bgc.sixorbit.com/?urlq=service&version=5.0&key=123&task=enquiry/enquiry_submit&user_id=410002480&access_token=5384832825945924612";
 
 	const data = {
 	  "smstid" : "",
