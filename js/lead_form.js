@@ -46,12 +46,15 @@ document.addEventListener("DOMContentLoaded", function() {
 	fetch(apiEndpoint, {
 		method: "POST",
 		mode: "no-cors",
-		key: 123,
 		// body: data,
 		body: JSON.stringify(data),
 		headers: {
 		// "Content-Type" : "application/json",
 		"Content-Type" : "application/x-www-form-urlencoded",
+		"key" : "123",
+		"user_id" : "410002480",
+		"access_token" : "6381229986870896132",
+		// "Access-Control-Allow-Origin": "bgc.sixorbit.com",
 		// "Access-Control-Allow-Origin": "bgc.sixorbit.com",
 		// "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
 		// "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers, X-Requested-With"
