@@ -54,18 +54,18 @@ document.addEventListener("DOMContentLoaded", function() {
 		// "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers, X-Requested-With"
 	  }
 	})
-	// .then(response => {
-	// 	if (!response.ok) {
-	// 		return response.text().then(err => {throw new Error(err)});
-	// 	}
-	// 	return response.json(); // Or response.text() if the API doesn't return JSON
-	// })
-	// .then(responseData => {
-	// 	console.log("Success:", responseData);
-	// })
-	// .catch(error => {
-	// 	console.error("Error:", error);
-	// });
+	.then(response => {
+	  if (!response.ok) {
+	    throw new Error(`HTTP error! status: ${response.status}`);
+	  }
+	  return response.json(); // Or response.text() if the API doesn't return JSON
+	})
+	.then(responseData => {
+	  console.log('Success:', responseData);
+	})
+	.catch(error => {
+	  console.error('Error:', error);
+	});
 	
 });
 
