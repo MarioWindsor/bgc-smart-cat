@@ -58,7 +58,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	  if (!response.ok) {
 	    throw new Error(`HTTP error! status: ${response.status}`);
 	  }
-	  return response.json(); // Or response.text() if the API doesn't return JSON
+	  // return response.json(); // Or response.text() if the API doesn't return JSON
+	  return response.text(); // Or response.text() if the API doesn't return JSON
 	})
 	.then(responseData => {
 	  console.log('Success:', responseData);
