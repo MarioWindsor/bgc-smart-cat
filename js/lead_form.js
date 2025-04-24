@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		  "trooid" : "0"
 		}
 	  ],
-	  "etid" : "",
+	  // "etid" : "",
 	  // "id" : "410000144",
 	  // "sms" : "1",
 	  // "baid" : "410328528",
