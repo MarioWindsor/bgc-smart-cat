@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	console.log('LEAD FORM : READY');
 
 	// const apiEndpoint = "https://bgc.sixorbit.com/?urlq=service&version=5.0&key=123&task=enquiry/enquiry_submit&user_id=410002480&access_token=5384832825945924612";
-	const apiEndpoint = "https://go.x2u.in/proxy?email=mario.windsor@gmail.com&apiKey=c417396c&url=https://bgc.sixorbit.com/?urlq=service&version=5.0&key=123&task=enquiry/enquiry_submit&user_id=410002480&access_token=5384832825945924612";
+	const apiEndpoint = "https://bgc.sixorbit.com/?urlq=service&version=5.0&key=123&task=enquiry/enquiry_submit&user_id=410002480&access_token=6381229986870896132";
+	// const apiEndpoint = "https://go.x2u.in/proxy?email=mario.windsor@gmail.com&apiKey=c417396c&url=https://bgc.sixorbit.com/?urlq=service&version=5.0&key=123&task=enquiry/enquiry_submit&user_id=410002480&access_token=5384832825945924612";
 
 	const data = {
 	  "smstid" : "",
@@ -45,10 +46,12 @@ document.addEventListener("DOMContentLoaded", function() {
 	fetch(apiEndpoint, {
 		method: "POST",
 		mode: "no-cors",
+		key: 123,
 		// body: data,
 		body: JSON.stringify(data),
 		headers: {
-		"Content-Type" : "application/json",
+		// "Content-Type" : "application/json",
+		"Content-Type" : "application/x-www-form-urlencoded",
 		// "Access-Control-Allow-Origin": "bgc.sixorbit.com",
 		// "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, DELETE",
 		// "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers, X-Requested-With"
