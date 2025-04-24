@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	console.log('LEAD FORM : READY');
 
-	const apiEndpoint = "https://bgc.sixorbit.com/?urlq=service&version=5.0&key=123&task=enquiry/enquiry_submit&user_id=410002480&access_token=5384832825945924612";
+	// const apiEndpoint = "https://bgc.sixorbit.com/?urlq=service&version=5.0&key=123&task=enquiry/enquiry_submit&user_id=410002480&access_token=5384832825945924612";
+	const apiEndpoint = "https://go.x2u.in/proxy?email=mario.windsor@gmail.com&apiKey=c417396c&url=https://bgc.sixorbit.com/?urlq=service&version=5.0&key=123&task=enquiry/enquiry_submit&user_id=410002480&access_token=5384832825945924612";
 
 	const data = {
 	  "smstid" : "",
@@ -29,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	  "id" : "410000144",
 	  "sms" : "1",
 	  "baid" : "410328528",
-	  "date" : "12-11-2024",
+	  "date" : "25-04-2025",
 	  "doseries" : "317",
 	  "subject" : "",
 	  "uid" : "",
