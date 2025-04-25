@@ -43,16 +43,14 @@ document.addEventListener("DOMContentLoaded", function() {
 		"qocatid" : ""
 	};
 
-	const strData = data.toString();
-	console.log(strData);
+	console.log(JSON.stringify(data));
 
 	fetch(apiEndpoint, {
 		method: "POST",
-		// body: JSON.stringify(data),
-		body: data.toString(),
+		body: JSON.stringify(data),
 		headers: {
-		// "Content-Type" : "application/json",
-		"Content-Type" : "application/x-www-form-urlencoded",
+		"Content-Type" : "application/json",
+		"Accept": "application/json"
 	  }
 	})
 	.then(response => {
