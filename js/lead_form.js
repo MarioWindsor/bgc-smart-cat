@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const apiEndpoint = "https://go.x2u.in/proxy?email=mario.windsor@gmail.com&apiKey=c417396c&url=https://bgc.sixorbit.com/?urlq=service&version=5.9&key=123&task=enquiry/enquiry_submit&user_id=410002480&access_token=6381229986870896132";
 
 	const data = {
+		"version" : "5.0",
 		"smstid" : "",
 		"mail" : "1",
 		"no_of_bathroom" : "",
