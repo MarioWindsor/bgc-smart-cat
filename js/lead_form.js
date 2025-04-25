@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		body: JSON.stringify(data),
 		headers: {
 		"Content-Type" : "application/json",
+		"Accept": "application/json"
 	  }
 	})
 	.then(response => {
