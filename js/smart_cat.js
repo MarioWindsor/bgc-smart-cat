@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const cartCTA = document.getElementById("cart-cta");
 	const loadingIndicator = document.getElementById("loading-indicator");
 	const loadingOverlay = document.getElementById("loading-overlay");
+	const formCartItems = document.getElementById("form-cart-items");
 
 
 
@@ -405,6 +406,9 @@ document.addEventListener("DOMContentLoaded", function() {
 				allCartItems.push(productObject);
 				cartList.innerHTML = ""; // Clear Cart List
 				updateCart(); // Update Cart List
+
+				updateFormCartItems(); // Update Form Cart List
+
 			}
 		}
 	});
@@ -424,10 +428,6 @@ document.addEventListener("DOMContentLoaded", function() {
 				appendCart(cartItem);
 				cartLabel.innerHTML = "Items in cart... "+ allCartItems.length;
 				cartCounter.innerHTML = allCartItems.length;
-
-				// updateFormCartItems();
-
-				console.log(cartItemID +"("+ cartItemName +")");
 				
 				showCartCTA();
 			}
@@ -460,7 +460,9 @@ document.addEventListener("DOMContentLoaded", function() {
 			cartList.innerHTML = ""; // Clear the cart list
 			updateCart();           // Re-render the cart with the updated items
 
-			console.log(activeCartID);
+			updateFormCartItems()   // Re-render the Form Cart Items with the updated items
+
+			// console.log(activeCartID);
 		}
 	});
 
@@ -472,14 +474,25 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 
 
-	// Form Cart Item
-	const formCartItems = document.getElementById("form-cart-items");
-	
-	// function updateFormCartItems(formItems) {
-	// 	formCartItems.innerHTML = items;
-	// 	console.log(formCartItems.value);
-	// 	console.log(formCartItems.innerHTML);
-	// }
+	// Update Form Cart Item
+	function updateFormCartItems() {
+		formCartItems.innerHTML = "";
+		if (allCartItems.length != 0) {
+
+			for (let i = 0; i < allCartItems.length; i++) {
+				const cartItemID = allCartItems[i].id
+				const cartItemName = allCartItems[i].name
+				// console.log(cartItemID);
+				if ( i == 0) {
+					formCartItems.innerHTML += cartItemID;
+				} else {
+					formCartItems.innerHTML += " , " + cartItemID;
+				}
+			}
+		} else {
+			formCartItems.innerHTML = "No Items in cart, please search and add from catalogue above";
+		}
+	}
 
 
 
