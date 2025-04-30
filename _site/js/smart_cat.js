@@ -424,6 +424,10 @@ document.addEventListener("DOMContentLoaded", function() {
 				appendCart(cartItem);
 				cartLabel.innerHTML = "Items in cart... "+ allCartItems.length;
 				cartCounter.innerHTML = allCartItems.length;
+
+				// updateFormCartItems();
+
+				console.log(cartItemID +"("+ cartItemName +")");
 				
 				showCartCTA();
 			}
@@ -466,5 +470,17 @@ document.addEventListener("DOMContentLoaded", function() {
 		  toggleCart.checked = false;
 		}
 	}
+
+
+	// Form Cart Item
+	const formCartItems = document.getElementById("form-cart-items");
+	
+	// function updateFormCartItems(formItems) {
+	// 	formCartItems.innerHTML = items;
+	// 	console.log(formCartItems.value);
+	// 	console.log(formCartItems.innerHTML);
+	// }
+
+
 
 });

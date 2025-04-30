@@ -133,7 +133,10 @@
 	}
 
 
-
+/* CSS Inspector Box */
+/* *, *:before, *:after { outline: 1px solid limegreen; } */
+/* CSS Inspector Layer */
+/* *, *:before, *:after { background-color: hsla(0, 100%, 50%, 0.1); } */
 
 
 /* CSS to apply easing effect */ 

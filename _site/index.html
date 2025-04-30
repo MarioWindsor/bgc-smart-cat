@@ -218,10 +218,10 @@
 		<!-- Catalogue Section -->
 		
 
-
 <!-- Catalogue Section -->
 <section id="catalogue-section" class="catalogue-section space-250-top-bottom">
 	<div class="container">
+		<!-- Catalogue Header -->
 		<div class="row space-100-bottom">
 			<div class="columns text-center small-12">
 				<div class="h1 font-h strong text-blue text-uppercase">Catalogue</div>
@@ -229,6 +229,8 @@
 				<div class="p text-blue space-25-top">Explore our Complete Catalogue.</div>
 			</div>
 		</div>
+		<!-- END: Catalogue Header -->
+		<!-- Catalogue -->
 		<div id="catalogue" class="catalogue container">
 			<div id="loading-overlay"></div>
 			<div id="loading-indicator">
@@ -281,6 +283,8 @@
 				</div>
 			</div>
 		</div>
+		<!-- END: Catalogue -->
+		<!-- Catalogue Form -->
 		<div class="row space-100-top">
 			<div class="columns small-12 large-6">
 				<div class="heading space-75-bottom">
@@ -331,10 +335,10 @@
 								</select>
 							</label>
 						</div>
-						<div class="form-field columns small-12 space-25">
+						<div class="form-field columns small-12 space-25 no-pointer">
 							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Requirement</span>
-								<textarea class="input-field block" name="entry.1788879696"></textarea>
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Cart Items (Choose From Catalogue)</span>
+								<textarea id="form-cart-items" class="input-field block" disabled name="entry.1788879696" style="font-size: var(--small); line-height: 1.25;"></textarea>
 							</label>
 						</div>
 						<div class="columns small-12 space-25">
@@ -348,12 +352,10 @@
 				</div>
 			</div>
 		</div>
+		<!-- END: Catalogue Form -->
 	</div>
 </section>
 <!-- End: Catalogue Section -->
-
-
-
 
 
 
@@ -889,7 +891,7 @@
 							<div class="h3 font-h strong text-orange-dark-dark space-50-top">Precision-Engineered Custom Kitchen Solutions</div>
 							<div class="h5 font-h text-orange-dark-dark space-min-top">Custom Kitchen Equipment and Fabrication</div>
 							<div class="p space-50-top-bottom">Transform your commercial kitchen spaces with our extensive range of top-tier kitchenware, bar equipment, and specialised fabrication solutions. Our commitment goes beyond the ordinary – ensuring that every element is meticulously crafted to suit your needs, where every detail matters, and excellence is guaranteed.</div>
-							<a href="" class="button fill-orange inline">Learn More</a>
+							<a href="https://elina.so/" target="_blank" class="button fill-orange inline">Learn More</a>
 						</div>
 					</div>
 				</div>
@@ -1403,7 +1405,7 @@
 						<!-- <a target="_blank" href="" class="link social p inline text-blue-light space-25-bottom" style="background-image: url('/media/icon-twitter.png');">Twitter - X</a> -->
 						<!-- <a target="_blank" href="" class="link social p inline text-blue-light space-25-bottom" style="background-image: url('/media/icon-youtube.png');">YouTube</a> -->
 						<div class="h4 font-h strong space-50-top space-25-bottom">Location</div>
-						<a target="_blank" href="https://maps.app.goo.gl/VEVbq6kHabw4rLna7" class="link p inline text-blue-light space-25-bottom">A M Industrial Estate, 7th Mile Hosur Rd, Garvebhavi Palya, Bengaluru, Karnataka 560068</a><br>
+						<a target="_blank" href="https://maps.app.goo.gl/VEVbq6kHabw4rLna7" class="link p inline text-blue-light space-25-bottom">A M Industrial Estate, 7th Mile Hosur Rd, Garvebhavi Palya, Bengaluru, Karnataka 560068<br><span class="small text-blue-dark text-uppercase">Click to Open in Google Maps</span></a><br>
 					</div>
 				</div>
 			</div>
@@ -1503,7 +1505,7 @@
 
 <script type="text/javascript" src="/js/video_embed.js"></script>
 <script type="text/javascript" src="/js/carousel.js"></script>
-<script type="text/javascript" src="/js/lead_form.js"></script>
+<!-- <script type="text/javascript" src="/js/lead_form.js"></script> -->
 <script type="module" src="/js/smart_cat.js"></script>
 
 <script type="text/javascript">

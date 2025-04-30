@@ -140,10 +140,10 @@
 	
 	
 
-
 <!-- Catalogue Section -->
 <section id="catalogue-section" class="catalogue-section space-250-top-bottom">
 	<div class="container">
+		<!-- Catalogue Header -->
 		<div class="row space-100-bottom">
 			<div class="columns text-center small-12">
 				<div class="h1 font-h strong text-blue text-uppercase">Catalogue</div>
@@ -151,6 +151,8 @@
 				<div class="p text-blue space-25-top">Explore our Complete Catalogue.</div>
 			</div>
 		</div>
+		<!-- END: Catalogue Header -->
+		<!-- Catalogue -->
 		<div id="catalogue" class="catalogue container">
 			<div id="loading-overlay"></div>
 			<div id="loading-indicator">
@@ -203,6 +205,8 @@
 				</div>
 			</div>
 		</div>
+		<!-- END: Catalogue -->
+		<!-- Catalogue Form -->
 		<div class="row space-100-top">
 			<div class="columns small-12 large-6">
 				<div class="heading space-75-bottom">
@@ -253,10 +257,10 @@
 								</select>
 							</label>
 						</div>
-						<div class="form-field columns small-12 space-25">
+						<div class="form-field columns small-12 space-25 no-pointer">
 							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Requirement</span>
-								<textarea class="input-field block" name="entry.1788879696"></textarea>
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Cart Items (Choose From Catalogue)</span>
+								<textarea id="form-cart-items" class="input-field block" disabled name="entry.1788879696" style="font-size: var(--small); line-height: 1.25;"></textarea>
 							</label>
 						</div>
 						<div class="columns small-12 space-25">
@@ -270,12 +274,10 @@
 				</div>
 			</div>
 		</div>
+		<!-- END: Catalogue Form -->
 	</div>
 </section>
 <!-- End: Catalogue Section -->
-
-
-
 
 
 
@@ -344,7 +346,7 @@
 
 <script type="text/javascript" src="/js/video_embed.js"></script>
 <script type="text/javascript" src="/js/carousel.js"></script>
-<script type="text/javascript" src="/js/lead_form.js"></script>
+<!-- <script type="text/javascript" src="/js/lead_form.js"></script> -->
 <script type="module" src="/js/smart_cat.js"></script>
 
 <script type="text/javascript">
