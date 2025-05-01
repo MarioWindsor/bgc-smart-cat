@@ -595,7 +595,8 @@ select {
 /* -- Form Box -- */
 .form-box .form-label {
 	transform-origin: bottom left;
-	transform: translate(0,10px);
+/*	transform: translate(0,10px);*/
+	transform: translate(0, calc( var(--space-50) * 0.75 ));
 }
 
 .form-box .thank-you {

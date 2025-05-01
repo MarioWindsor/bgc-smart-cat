@@ -357,8 +357,8 @@
 							</div>
 							<div class="columns small-12 space-25">
 								<label class="block">
-									<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Submit</span>
-									<button class="button fill-blue-dark-dark block" type="submit">Request a Quote</button>
+									<span id="form-submit-label" class="block label form-label text-uppercase text-center cursor-pointer space-min space-25-bottom invisible">Submit</span>
+									<button id="form-submit-button" class="button fill-blue-dark-dark block" type="submit">Request a Quote</button>
 								</label>
 							</div>
 						</div>
@@ -370,6 +370,14 @@
 							const form = document.getElementById('catalogueQuote');
 							const formData = new FormData(form);
 
+							const cartItemsField = document.getElementById('form-cart-items'); // Get a reference to the textarea
+							const formSubmitButton = document.getElementById('form-submit-button'); // Get a reference to the textarea
+							const formSubmitLabel = document.getElementById('form-submit-label'); // Get a reference to the textarea
+
+							// Disable the submit button and change its text immediately
+							// formSubmitButton.disabled = true;
+							// formSubmitButton.textContent = 'Submitting...';
+
 							fetch('https://docs.google.com/forms/d/e/1FAIpQLScSdYMiiBt5h2W1kwH4TU9BFmIb60c5fG4u_K0MAHnQcm4mtA/formResponse', {
 								method: 'POST',
 								body: formData,
@@ -377,7 +385,17 @@
 							})
 							.then(response => {
 
+								// Explicitly clear the value of the non-tabbable textarea
+								cartItemsField.innerHTML = '';
+								// Clear other form fields (this should now work correctly for the tabbable fields)
 								form.reset();
+
+								formSubmitButton.disabled = true; 
+								formSubmitButton.textContent = 'Thank You';
+								formSubmitButton.className = 'button fill-blue block no-pointer no-cursor';
+
+								formSubmitLabel.textContent = 'Our Team Will Get in Touch'
+								formSubmitLabel.classList.remove('invisible');
 
 								if (response.ok) {
 									// Handle success
