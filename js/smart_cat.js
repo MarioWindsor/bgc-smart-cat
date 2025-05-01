@@ -8,7 +8,7 @@ import Fuse from 'https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.mjs';
 
 
 // -- Categories DB -->
-import allCatsDB from '../media/data/category_new.json' with { type: 'json' };
+import allCatsDB from '../media/data/category-25-5-2.json' with { type: 'json' };
 const allCatsData = Object.values(allCatsDB.data.category);
 const fuseCatOptions = {
 	findAllMatches: true,
@@ -29,7 +29,8 @@ const fuseCat = new Fuse(allCatsData, fuseCatOptions);
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 import { getDatabase, ref, push, onValue, get, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 const appSettings = {
-	databaseURL: "https://bgc-smart-cat-default-rtdb.asia-southeast1.firebasedatabase.app/"
+	// databaseURL: "https://bgc-smart-cat-default-rtdb.asia-southeast1.firebasedatabase.app/"
+	databaseURL: "https://bharat-glass-default-rtdb.asia-southeast1.firebasedatabase.app/"
 };
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
@@ -145,6 +146,19 @@ document.addEventListener("DOMContentLoaded", function() {
 	// ~ ~ Wait for Firebase Connection ~ ~ //
 	onValue(allProdsDB, function(snapshot) {
 		const allProdsData = Object.values(snapshot.val());
+
+
+		/* 
+		 * TEST FOR DATABASE CLEANUP ATTEMPT
+		 */
+		// --- TESTING
+		// console.log("DELETING");
+		// remove(allProdsData[0].A_price);
+		// console.log(allProdsData[0]);
+		// --- END: TESTING
+		/* 
+		 * Issue Unresolved
+		 */
 
 		// -- Search Cats & Prods -->
 		const fuseProd = new Fuse(allProdsData, fuseProdOptions);

@@ -9,12 +9,12 @@ https://bgc.sixorbit.com/?urlq=service&version=1.0&key=123&task=login&email=dev@
 
 ### Fetch Variations: (replace new access token)
 ```
-https://bgc.sixorbit.com/?urlq=service&version=1.0&key=123&task=variation/fetch&user_id=410002480&access_token=5056529410151999108&last_updated&limit=&searchtext&limit_bit=0
+https://bgc.sixorbit.com/?urlq=service&version=1.0&key=123&task=variation/fetch&user_id=410002480&access_token=6109126298656921604&last_updated&limit=&searchtext&limit_bit=0
 ```
 
 ### Fetch Category: (replace new access token)
 ```
-http://bgc.sixorbit.com/?urlq=service&version=1.0&key=123&task=variation/fetch_category&user_id=410002480&access_token=5056529410151999108
+http://bgc.sixorbit.com/?urlq=service&version=1.0&key=123&task=variation/fetch_category&user_id=410002480&access_token=6109126298656921604
 ```
 
 
