@@ -79,58 +79,87 @@
 			</div>
 			<div class="columns small-12 large-5 large-offset-1">
 				<div class="form-box form-dark fill-blue radius-25 space-50" style="box-shadow: 0 0 1px 1px rgba(0, 102, 255, 0.2), 0 0 var(--space-200) 0px rgba(0, 102, 255, 0.3);">
-					<form id="catalogueQuote" action="https://docs.google.com/forms/d/e/1FAIpQLSeG6nfZX6S_nq29su85Olfx_5UT31lj8Mj50WJIwbrVa1wPTw/formResponse" method="POST" enctype="multipart/form-data">
-					<div class="row">
-						<div class="columns small-12 space-25">
-							<div class="p">Best value in the industry.</div>
-							<div class="h4">Get a Custom Offer:</div>
+					<form id="catalogueQuote" action="https://docs.google.com/forms/d/e/1FAIpQLScSdYMiiBt5h2W1kwH4TU9BFmIb60c5fG4u_K0MAHnQcm4mtA/formResponse" method="POST" enctype="multipart/form-data" onsubmit="googleFormSubmit(event)">
+						<div class="row">
+							<div class="columns small-12 space-25">
+								<div class="p">Best value in the industry.</div>
+								<div class="h4">Get a Custom Offer:</div>
+							</div>
+							<div class="form-field columns small-12 large-6 space-25">
+								<label class="block">
+									<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Full Name <span class="text-yellow">*</span></span>
+									<input type="text" name="entry.313819976" required class="input-field block">
+								</label>
+							</div>
+							<div class="form-field columns small-12 large-6 space-25">
+								<label class="block">
+									<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Email ID <span class="text-yellow">*</span></span>
+									<input type="text" name="entry.1535704871" required class="input-field block">
+								</label>
+							</div>
+							<div class="form-field columns small-12 large-6 space-25">
+								<label class="block">
+									<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Phone Number <span class="text-yellow">*</span></span>
+									<input type="text" name="entry.870193729" required class="input-field block">
+								</label>
+							</div>
+							<div class="form-field columns small-12 large-6 space-25">
+								<label class="block">
+									<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Industry</span>
+									<select name="entry.2143785537" class="input-field block">
+										<option value="blank" disabled="disabled" selected="selected">Select</option>
+										<option value="Hotel">Hotel</option>
+										<option value="Restaurant">Restaurant</option>
+										<option value="Bakery">Bakery</option>
+										<option value="Catering">Catering</option>
+										<option value="Cloud Kitchen">Cloud Kitchen</option>
+										<option value="Others">Others</option>
+									</select>
+								</label>
+							</div>
+							<div class="form-field columns small-12 space-25 no-pointer">
+								<label class="block">
+									<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Cart Items (Choose From Catalogue)</span>
+									<textarea id="form-cart-items" class="input-field block" tabindex="-1" name="entry.1606945529" style="font-size: var(--small); line-height: 1.25;"></textarea>
+								</label>
+							</div>
+							<div class="columns small-12 space-25">
+								<label class="block">
+									<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Submit</span>
+									<button class="button fill-blue-dark-dark block" type="submit">Request a Quote</button>
+								</label>
+							</div>
 						</div>
-						<div class="form-field columns small-12 large-6 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Full Name <span class="text-yellow">*</span></span>
-								<input type="text" name="entry.1421501943" required class="input-field block">
-							</label>
-						</div>
-						<div class="form-field columns small-12 large-6 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Email ID <span class="text-yellow">*</span></span>
-								<input type="text" name="entry.839199106" required class="input-field block">
-							</label>
-						</div>
-						<div class="form-field columns small-12 large-6 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Phone Number <span class="text-yellow">*</span></span>
-								<input type="text" name="entry.636038964" required class="input-field block">
-							</label>
-						</div>
-						<div class="form-field columns small-12 large-6 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Industry</span>
-								<select name="entry.203903897" class="input-field block">
-									<option value="blank" disabled="disabled" selected="selected">Select</option>
-									<option value="Hotel">Hotel</option>
-									<option value="Restaurant">Restaurant</option>
-									<option value="Bakery">Bakery</option>
-									<option value="Catering">Catering</option>
-									<option value="Cloud Kitchen">Cloud Kitchen</option>
-									<option value="Others">Others</option>
-								</select>
-							</label>
-						</div>
-						<div class="form-field columns small-12 space-25 no-pointer">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Cart Items (Choose From Catalogue)</span>
-								<textarea id="form-cart-items" class="input-field block" disabled name="entry.1788879696" style="font-size: var(--small); line-height: 1.25;"></textarea>
-							</label>
-						</div>
-						<div class="columns small-12 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Submit</span>
-								<button class="button fill-blue-dark-dark block" type="submit">Request a Quote</button>
-							</label>
-						</div>
-					</div>
 					</form>
+					<script>
+						function googleFormSubmit(event) {
+							event.preventDefault(); // Prevent the default form submission behavior
+
+							const form = document.getElementById('catalogueQuote');
+							const formData = new FormData(form);
+
+							fetch('https://docs.google.com/forms/d/e/1FAIpQLScSdYMiiBt5h2W1kwH4TU9BFmIb60c5fG4u_K0MAHnQcm4mtA/formResponse', {
+								method: 'POST',
+								body: formData,
+								mode: 'no-cors' // Add this to handle potential CORS issues with Google Forms
+							})
+							.then(response => {
+
+								form.reset();
+
+								if (response.ok) {
+									// Handle success
+									console.log('Form submitted successfully!');
+								} else {
+									// Handle error
+									console.error('Form submission failed.');
+								}
+							})
+							.catch(error => {
+								console.error('Error during form submission:', error);
+							});
+						}
+					</script>
 				</div>
 			</div>
 		</div>
