@@ -484,9 +484,9 @@ document.addEventListener("DOMContentLoaded", function() {
 				const cartItemName = allCartItems[i].name
 				// console.log(cartItemID);
 				if ( i == 0) {
-					formCartItems.innerHTML += cartItemID;
+					formCartItems.innerHTML += cartItemID +" - "+ cartItemName;
 				} else {
-					formCartItems.innerHTML += " , " + cartItemID;
+					formCartItems.innerHTML += " , \n" + cartItemID +" - "+ cartItemName;
 				}
 			}
 		} else {
