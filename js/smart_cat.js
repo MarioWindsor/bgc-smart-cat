@@ -143,18 +143,82 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+
+	/* 
+	 * TEST FOR DATABASE CLEANUP ATTEMPT
+	 */
+	// --- TESTING
+	// console.log("CLEAN UP");
+
+	// for (let c = 0; c < 11662; c++) {
+
+		// const A_price = ref(database, "data/variations/"+c+"/A_price");
+
+		// remove(A_price);
+
+	// 	const A_price = ref(database, "data/variations/"+c+"/A_price");
+
+	// 	const appltid = ref(database, "data/variations/"+c+"/appltid");
+	// 	const barcode = ref(database, "data/variations/"+c+"/barcode");
+	// 	const limit = ref(database, "data/variations/"+c+"/limit");
+	// 	const meaid = ref(database, "data/variations/"+c+"/meaid");
+	// 	const meatid = ref(database, "data/variations/"+c+"/meatid");
+	// 	const mrp = ref(database, "data/variations/"+c+"/mrp");
+	// 	const physical_count_measurement = ref(database, "data/variations/"+c+"/physical_count_measurement");
+	// 	const physical_count_qty = ref(database, "data/variations/"+c+"/physical_count_qty");
+	// 	const quantity_length_limit = ref(database, "data/variations/"+c+"/quantity_length_limit");
+	// 	const quantity_width_limit = ref(database, "data/variations/"+c+"/quantity_width_limit");
+	// 	const rack_code = ref(database, "data/variations/"+c+"/rack_code");
+
+
+	// 	remove(appltid);
+	// 	remove(barcode);
+	// 	remove(limit);
+	// 	remove(meaid);
+	// 	remove(meatid);
+	// 	remove(mrp);
+	// 	remove(physical_count_measurement);
+	// 	remove(physical_count_qty);
+	// 	remove(quantity_length_limit);
+	// 	remove(quantity_width_limit);
+	// 	remove(rack_code);
+
+	// 	console.log(c);
+	// }
+	// console.log("CLEAN UP - DONE");
+	/* -- END TEST -- */
+
+
 	// ~ ~ Wait for Firebase Connection ~ ~ //
 	onValue(allProdsDB, function(snapshot) {
 		const allProdsData = Object.values(snapshot.val());
-
 
 		/* 
 		 * TEST FOR DATABASE CLEANUP ATTEMPT
 		 */
 		// --- TESTING
-		// console.log("DELETING");
-		// remove(allProdsData[0].A_price);
+		// console.log("CLEAN UP");
+		// // console.log(allProdsData[0]);
+
+		// for (let c = 0; c < 11662; c++) {
+		// 	const cleanupVar = ref(database, "data/variations/"+c+"/A_price");
+		// 	if (cleanupVar != "") {
+		// 		remove(cleanupVar);
+		// 		console.log(c);
+		// 	}
+		// }
+		// console.log("CLEAN UP - DONE");
+
+
+		// Get a reference to the specific A_price node you want to remove
+		// const aPriceRef = ref(database, "data/variations/0/A_price");
+		// const cleanupVarA = ref(database, "data/variations/0/A_price");
+
+		// remove(cleanupVarA);
+
 		// console.log(allProdsData[0]);
+
+		// remove(allProdsData[0].A_price);
 		// --- END: TESTING
 		/* 
 		 * Issue Unresolved
