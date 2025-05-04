@@ -232,74 +232,216 @@
 				</div>
 			</div>
 			<div class="columns small-12 large-5 large-offset-1">
-				<div class="form-box form-dark fill-blue radius-25 space-50" style="box-shadow: 0 0 1px 1px rgba(0, 102, 255, 0.2), 0 0 var(--space-200) 0px rgba(0, 102, 255, 0.3);">
-					<form id="catalogueQuote" action="" method="POST" enctype="multipart/form-data" onsubmit="googleFormSubmit(event)">
-						<div class="row">
-							<div class="columns small-12 space-25">
-								<div class="p">Best value in the industry.</div>
-								<div class="h4">Get a Custom Offer:</div>
+				<style>
+					.form-box {
+						overflow: hidden;
+					}
+					.form-box-inner {
+						width: calc( 400% + ( var(--space-100) * 3 ));
+						display: grid;
+						grid-template-columns: repeat(4, 1fr);
+						gap: var(--space-100);
+						transition: .4s ease-out;
+						align-items: center;
+					}
+					.form-box-inner.step-2 {
+						--step-2-offset: calc(( 25% + ( var(--space-100) * 0.25 )) * -1);
+						transform: translateX( var(--step-2-offset) );
+					} 
+					.form-box-inner.step-3 {
+						--step-2-offset: calc(( 50% + ( var(--space-100) * 0.5 )) * -1);
+						transform: translateX( var(--step-2-offset) );
+					}
+				</style>
+				<div id="form-box" class="form-box form-dark fill-blue radius-25 space-50" style="box-shadow: 0 0 1px 1px rgba(0, 102, 255, 0.2), 0 0 var(--space-200) 0px rgba(0, 102, 255, 0.3);">
+					<div id="form-box-inner" class="form-box-inner">
+						<!-- Quote Form -->
+						<form class="quote-form" id="catalogueQuote" action="" method="POST" enctype="multipart/form-data" onsubmit="formSubmit(event)">
+							<div class="row">
+								<div class="columns small-12 space-25">
+									<div class="p">Best value in the industry.</div>
+									<div class="h4">Get the Best Offer:</div>
+								</div>
+								<div class="form-field columns small-12 large-6 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Full Name <span class="text-yellow">*</span></span>
+										<input type="text" name="entry.313819976" class="input-field block" required autocomplete="off">
+									</label>
+								</div>
+								<div class="form-field columns small-12 large-6 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Email ID <span class="text-yellow">*</span></span>
+										<input type="email" name="entry.1535704871" class="input-field block" required autocomplete="off" inputmode="email">
+									</label>
+								</div>
+								<div class="form-field columns small-12 large-6 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Phone Number <span class="text-yellow">*</span></span>
+										<input id="mobile" type="text" name="entry.870193729" class="input-field block" required autocomplete="off" inputmode="numeric" pattern="[0-9]+" minlength="10" maxlength="10">
+									</label>
+								</div>
+								<div class="form-field columns small-12 large-6 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Industry</span>
+										<select name="entry.2143785537" class="input-field block">
+											<option value="blank" disabled="disabled" selected="selected">Select</option>
+											<option value="Hotel">Hotel</option>
+											<option value="Restaurant">Restaurant</option>
+											<option value="Bakery">Bakery</option>
+											<option value="Catering">Catering</option>
+											<option value="Cloud Kitchen">Cloud Kitchen</option>
+											<option value="Others">Others</option>
+										</select>
+									</label>
+								</div>
+								<div class="form-field columns small-12 space-25 no-pointer">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Cart Items (Choose From Catalogue)</span>
+										<textarea id="form-cart-items" class="input-field block" tabindex="-1" name="entry.1606945529" style="font-size: var(--small); line-height: 1.25;"></textarea>
+									</label>
+								</div>
+								<div class="form-field columns small-12 space-25 space-50-top">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue visuallyhidden">Submit</span>
+										<button id="form-submit-button" class="button fill-blue-dark-dark block" type="submit">Request a Quote</button>
+									</label>
+								</div>
 							</div>
-							<div class="form-field columns small-12 large-6 space-25">
-								<label class="block">
-									<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Full Name <span class="text-yellow">*</span></span>
-									<input type="text" name="entry.313819976" required class="input-field block" required autocomplete="off">
-								</label>
-							</div>
-							<div class="form-field columns small-12 large-6 space-25">
-								<label class="block">
-									<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Email ID <span class="text-yellow">*</span></span>
-									<input type="email" name="entry.1535704871" required class="input-field block" required autocomplete="off" inputmode="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
-								</label>
-							</div>
-							<div class="form-field columns small-12 large-6 space-25">
-								<label class="block">
-									<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Phone Number <span class="text-yellow">*</span></span>
-									<input type="text" name="entry.870193729" required class="input-field block" required autocomplete="off" inputmode="numeric" pattern="[0-9]+">
-								</label>
-							</div>
-							<div class="form-field columns small-12 large-6 space-25">
-								<label class="block">
-									<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Industry</span>
-									<select name="entry.2143785537" class="input-field block">
-										<option value="blank" disabled="disabled" selected="selected">Select</option>
-										<option value="Hotel">Hotel</option>
-										<option value="Restaurant">Restaurant</option>
-										<option value="Bakery">Bakery</option>
-										<option value="Catering">Catering</option>
-										<option value="Cloud Kitchen">Cloud Kitchen</option>
-										<option value="Others">Others</option>
-									</select>
-								</label>
-							</div>
-							<div class="form-field columns small-12 space-25 no-pointer">
-								<label class="block">
-									<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Cart Items (Choose From Catalogue)</span>
-									<textarea id="form-cart-items" class="input-field block" tabindex="-1" name="entry.1606945529" style="font-size: var(--small); line-height: 1.25;"></textarea>
-								</label>
-							</div>
-							<div class="columns small-12 space-25">
-								<label class="block">
-									<span id="form-submit-label" class="block label form-label text-uppercase text-center cursor-pointer space-min space-25-bottom invisible">Submit</span>
-									<button id="form-submit-button" class="button fill-blue-dark-dark block" type="submit">Request a Quote</button>
-								</label>
+						</form>
+						<!-- OTP Form -->
+						<div class="otp-form">
+							<div class="row">
+								<div class="columns small-12 space-25">
+									<div class="p">OTP Sent to your Phone.</div>
+									<div class="h4">Verify Phone Number:</div>
+								</div>
+								<div class="form-field columns small-12 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Enter OTP <span class="text-yellow">*</span></span>
+										<input id="otp" type="text" class="input-field block" required autocomplete="off" inputmode="numeric" pattern="[0-9]+" minlength="4" maxlength="6">
+									</label>
+								</div>
+								<div class="form-field columns small-12 space-25 space-50-top">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue visuallyhidden">Verify</span>
+										<button id="otp-submit-button" class="button fill-blue-dark-dark block" type="button" onclick="verifyOTP();">Verify Number</button>
+									</label>
+								</div>
 							</div>
 						</div>
-					</form>
+						<!-- Thank You -->
+						<div class="thank-you">
+							<div class="row">
+								<div class="columns small-12 space-25">
+									<div class="text-yellow h3">Thank you!</div>
+									<div class="text-yellow p">Our team will get in touch shortly.</div>
+								</div>
+							</div>
+						</div>
+					</div>
 					<script>
-						function googleFormSubmit(event) {
+						let session_id = "";
+						const api_key = "d9c46d38-4ea5-11e8-a895-0200cd936042"; // 2 Factor API Key
+
+						const form = document.getElementById('catalogueQuote');
+						let formData = new FormData(form);
+
+						const formBox = document.getElementById('form-box');
+						const formBoxInner = document.getElementById('form-box-inner');
+
+						const cartItemsField = document.getElementById('form-cart-items');
+						const formSubmitButton = document.getElementById('form-submit-button');
+
+						const otpSubmitButton = document.getElementById('form-submit-button');
+
+
+
+						/* -- Form Submit -- */
+						function formSubmit(event) {
 							event.preventDefault(); // Prevent the default form submission behavior
 
-							const form = document.getElementById('catalogueQuote');
-							const formData = new FormData(form);
-
-							const cartItemsField = document.getElementById('form-cart-items'); // Get a reference to the textarea
-							const formSubmitButton = document.getElementById('form-submit-button'); // Get a reference to the textarea
-							const formSubmitLabel = document.getElementById('form-submit-label'); // Get a reference to the textarea
-
 							// Disable the submit button and change its text immediately
-							// formSubmitButton.disabled = true;
-							// formSubmitButton.textContent = 'Submitting...';
+							formSubmitButton.disabled = true;
+							formSubmitButton.textContent = 'Submitting...';
 
+							// Send OTP
+							sendOTP();
+						}
+
+
+
+						/* -- Send OTP -- */
+						function sendOTP() {
+							let mobile_number = document.getElementById("mobile").value; // Get Mobile Number
+							let url = `https://2factor.in/API/V1/${api_key}/SMS/+91${mobile_number}/AUTOGEN2/OTP1`;
+
+							fetch(url)
+								.then(response => {
+									if (!response.ok) {
+										// Handle HTTP errors
+										console.error("HTTP Error:", response.status, response.statusText);
+										// alert(`OTP Send Failed: HTTP Error ${response.status}`);
+										throw new Error(`HTTP error! status: ${response.status}`);
+									}
+									return response.json();
+								})
+								.then(data => {
+									if (data && data["Status"] === "Success") {
+										// alert("OTP Sent Successfully!");
+										formBoxInner.classList.add('step-2');
+
+										session_id = data["Details"];
+										// console.log("OTP Response:", data);
+									} else {
+										console.error("2Factor API Error:", data);
+										// alert(`OTP Send Failed: ${data && data["Details"] ? data["Details"] : "Unknown error"}`);
+									}
+								})
+								.catch(error => {
+									console.error("Fetch Error:", error);
+									// alert("OTP Send Failed: Could not connect to the server.");
+								});
+						}
+
+
+
+						/* -- Verify OTP -- */
+						function verifyOTP() {
+
+							let otp_number = document.getElementById("otp").value;
+							// console.log(otp_number);
+							let url = `https://2factor.in/API/V1/${api_key}/SMS/VERIFY/${session_id}/${otp_number}`;
+
+							otpSubmitButton.textContent = 'Verifying...';
+
+							fetch(url)
+								.then((response) => response.json())
+								.then((data) => {
+									if (data["Details"] == "OTP Matched") {
+										// alert("OTP Matched Successfully");
+										console.log("OTP Matched successfully");
+										sendGoogleFormData();
+
+										otpSubmitButton.textContent = 'Matched';
+
+										formBoxInner.classList.add('step-3');
+									}
+									console.log(data);
+								})
+								.catch(error => {
+									console.error("OTP Match Error:", error);
+
+									otpSubmitButton.textContent = 'Wrong OTP';
+								});
+						}
+
+
+
+						/* -- Send Google Form Data -- */
+						function sendGoogleFormData() {
+							let formData = new FormData(form);
+
+							/* -- Submit Data to Google Forms -- */
 							fetch('https://docs.google.com/forms/d/e/1FAIpQLScSdYMiiBt5h2W1kwH4TU9BFmIb60c5fG4u_K0MAHnQcm4mtA/formResponse', {
 								method: 'POST',
 								body: formData,
@@ -311,13 +453,6 @@
 								cartItemsField.innerHTML = '';
 								// Clear other form fields (this should now work correctly for the tabbable fields)
 								form.reset();
-
-								formSubmitButton.disabled = true; 
-								formSubmitButton.textContent = 'Thank You';
-								formSubmitButton.className = 'button fill-blue block no-pointer no-cursor';
-
-								formSubmitLabel.textContent = 'Our Team Will Get in Touch'
-								formSubmitLabel.classList.remove('invisible');
 
 								if (response.ok) {
 									// Handle success
@@ -331,6 +466,8 @@
 								console.error('Error during form submission:', error);
 							});
 						}
+
+
 					</script>
 				</div>
 			</div>

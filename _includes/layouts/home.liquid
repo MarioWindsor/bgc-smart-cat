@@ -3,75 +3,6 @@
 
 
 
-	<div class="otp-form hidden">
-		<div class="p">OTP TESTING:</div>
-		<input id="mobile" type="text" autocomplete="off" inputmode="numeric" pattern="[0-9]+" placeholder="Phone Number">
-		<button onclick="sendOTP();">Get OTP</button><br>
-		<input id="otp" type="text" autocomplete="off" inputmode="numeric" pattern="[0-9]+" placeholder="Enter OTP">
-		<button onclick="verifyOTP();">Verify OTP</button>
-	</div>
-	<script>
-
-		let session_id = "";
-		const api_key = "d9c46d38-4ea5-11e8-a895-0200cd936042";
-
-		function sendOTP() {
-
-			let mobile_number = document.getElementById("mobile").value;
-			console.log(mobile_number);
-			let url = `https://2factor.in/API/V1/${api_key}/SMS/+91${mobile_number}/AUTOGEN2/OTP1`;
-
-			fetch(url)
-				.then(response => {
-					if (!response.ok) {
-						// Handle HTTP errors
-						console.error("HTTP Error:", response.status, response.statusText);
-						alert(`OTP Send Failed: HTTP Error ${response.status}`);
-						throw new Error(`HTTP error! status: ${response.status}`);
-					}
-					return response.json();
-				})
-				.then(data => {
-					if (data && data["Status"] === "Success") {
-						alert("OTP Sent Successfully!");
-						session_id = data["Details"];
-						console.log("OTP Response:", data);
-						// You might want to enable the OTP input and Verify button here
-						// document.getElementById("otp").style.display = "inline";
-						// document.querySelector('button[onclick="verifyOTP();"]').style.display = "inline";
-					} else {
-						console.error("2Factor API Error:", data);
-						alert(`OTP Send Failed: ${data && data["Details"] ? data["Details"] : "Unknown error"}`);
-					}
-				})
-				.catch(error => {
-					console.error("Fetch Error:", error);
-					alert("OTP Send Failed: Could not connect to the server.");
-				});
-
-		}
-
-		function verifyOTP() {
-
-			let otp_number = document.getElementById("otp").value;
-			console.log(otp_number);
-			let url = `https://2factor.in/API/V1/${api_key}/SMS/VERIFY/${session_id}/${otp_number}`;
-
-			fetch(url)
-				.then((response) => response.json())
-				.then((data) => {
-					if (data["Details"] == "OTP Matched") {
-						alert("OTP Matched Successfully");
-					}
-					console.log(data);
-				})
-				.catch(error => {
-					console.error("OTP Match Error:", error);
-				});
-
-		}
-	</script>
-
 
 		<!-- Intro Section -->
 		<section id="intro-section" class="intro-section overflow-x-clip space-250-top">
@@ -89,8 +20,7 @@
 					</div>
 					<div class="intro-video">
 						<div class="video-embed video-embed-bg">
-						<!-- <div class="video-embed video-embed-bg" style="z-index: 1; filter: opacity(85%);"> -->
-							<iframe src="https://www.youtube-nocookie.com/embed/g7TZ9mKC6gI?playlist=g7TZ9mKC6gI&html5=1&color=white&disablekb=1&fs=0&autoplay=1&loop=1&modestbranding=1&playsinline=1&rel=0&showinfo=0&enablejsapi=1&mute=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+							<!-- <iframe src="https://www.youtube-nocookie.com/embed/g7TZ9mKC6gI?playlist=g7TZ9mKC6gI&html5=1&color=white&disablekb=1&fs=0&autoplay=1&loop=1&modestbranding=1&playsinline=1&rel=0&showinfo=0&enablejsapi=1&mute=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 						</div>
 					</div>
 					<div class="points columns small-10 medium-9 large-6 space-150-top">
@@ -637,7 +567,7 @@
 					</div>
 					<div class="columns small-12">
 						<div class="video-embed radius-50 box-shadow-blue">
-							<iframe class="radius-50 no-overflow" src="https://www.youtube-nocookie.com/embed/4oGMOPkf8oc?html5=1&color=white&disablekb=0&fs=0&autoplay=0&loop=0&modestbranding=1&playsinline=1&rel=0&showinfo=1&enablejsapi=1&mute=0&controls=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+							<!-- <iframe class="radius-50 no-overflow" src="https://www.youtube-nocookie.com/embed/4oGMOPkf8oc?html5=1&color=white&disablekb=0&fs=0&autoplay=0&loop=0&modestbranding=1&playsinline=1&rel=0&showinfo=1&enablejsapi=1&mute=0&controls=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 						</div>
 					</div>
 					<div class="columns small-12 medium-10 medium-offset-1 large-8 large-offset-2 space-100-top text-center">

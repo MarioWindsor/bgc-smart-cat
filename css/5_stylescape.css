@@ -599,7 +599,7 @@ select {
 	transform: translate(0, calc( var(--space-50) * 0.75 ));
 }
 
-.form-box .thank-you {
+/*.form-box .thank-you {
 	pointer-events: none;
 	position: relative;
 }
@@ -618,7 +618,7 @@ select {
 	pointer-events: none !important;
 	opacity: 0.75;
 	filter: blur(5px);
-}
+}*/
 
 /*
  * FAQs Component
