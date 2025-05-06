@@ -4,219 +4,71 @@
 <!-- Catalogue Section -->
 <section id="catalogue-section" class="catalogue-section space-250-top-bottom">
 	<div class="container">
-		<div class="row space-250-bottom">
-			<div class="columns text-center small-12 medium-10 medium-offset-1 space-100-bottom">
+		<!-- Catalogue Header -->
+		<div class="row space-100-bottom">
+			<div class="columns text-center small-12">
 				<div class="h1 font-h strong text-blue text-uppercase">Catalogue</div>
 				<div class="h4 font-h text-blue-dark">Curated AI-Catalogue for your Ho.Re.Ca needs!</div>
 				<div class="p text-blue space-25-top">Explore our Complete Catalogue.</div>
 			</div>
-			<!-- Catalogue Box -->
-			<div class="catalogue-box columns small-12">
-				<div class="catalogue-frame">
-					<!-- Catalogue -->		
-					<div id="catalogue" class="catalogue fill-white">
-
-						<div class="filter radius-50 space-50 space-50-top">
-							<label class="h6 font-h strong inline text-orange space-50">Choose a Category:</label>
-							<ul class="filter-tabs space-50-top space-25-bottom space-50-left-right radius-50">
-								{% for category in master.category_data.data.category %}
-								{% if category.catid == category.main_parent %}
-								<li>
-									<label class="pill inline" for="cb_prime{{ category.name }}">
-										<input class="cb_prime hidden" type="radio" name="parentCategoryPrime" id="cb_prime{{ category.name }}">
-										<span class="title label strong inline cursor-pointer">
-											{{ category.name }}
-										</span>
-									</label>
-								</li>
-								{% endif %}
-								{% endfor %}
-							</ul>
-						</div>
-						<div class="listing">
-							<ul>
-								{% for category in master.category_data.data.category %}
-								{% if category.catid == category.main_parent %}
-								<!-- Prod Counter -->
-								{% capture prods %}{% for prod in master.product_data.data.variations %}{% if prod.category == category.name %}{{prod.isvid}},{% endif %}{% endfor %}{% endcapture %}
-								{% assign prodcount = prods | split: "," %}
-								<!-- End: Prod Counter -->
-								<!-- Parent Categories List -->
-								<input class="swimlane cb_slave hidden" type="radio" name="parentCategorySlave" id="cb_slave{{ category.name }}">
-								<li class="category-list carousel small-card">
-									<div class="title p strong text-neutral-3 space-50-top space-100-left">{{ category.name }}</div>
-									{% if prodcount.size > 0 %}
-									<div class="carousel-controls row">
-										<div class="container">
-											<div class="columns small-12 text-right space-50-right">
-												<div class="scroll-button inline space-25 scroll-left" data-dir="left" tabindex="-1" style="margin-right: var(--space-25);"><span class="text-blue material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;">arrow_back</span></div>
-												<div class="scroll-button inline space-25 scroll-right" data-dir="right" tabindex="-1"><span class="text-blue material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;">arrow_forward</span></div>
-											</div>
-										</div>
-									</div>
-									<ul class="carousel-list">
-										{% for product in master.product_data.data.variations %}
-											{% if product.category == category.name %}
-											<li class="item carousel-list-item">
-												<div class="card">
-													<div class="thumbnail" style="background-image: url('https://bgc.sixorbit.com{{product.image}}');"></div>
-													<div class="space-25" style="overflow: clip;">
-														<div class="isvid space-25-top small text-blue-light">{{ product.isvid }}</div>
-														{% assign prodname = product.variation_name | split: "-" %}
-														<div class="title p strong text-blue text-titlecase">{{ prodname.first | capitalize }}</div>
-														<div class="spec label text-blue-light space-min-top">Brand : {{ product.brand }}</div>
-														{% for attributes in product.attributes %}
-															<div class="spec label text-neutral-4">{{ attributes.attr_name | capitalize }} : {{ attributes.attr_value | capitalize }}</div>
-														{% endfor %}
-														{% if product.package_quantity > 0 %}
-														<div class="spec label text-neutral-4">Pack of : {{ product.package_quantity | floor }}&nbsp;{{ product.c_package_measurement }}</div>
-														{% endif %}
-														{% if product.measured_qty > 0 %}
-														<div class="spec label text-neutral-4">{{ product.measured_unit | capitalize }} of : {{ product.measured_qty | floor }}</div>
-														{% endif %}
-														<div class="price p text-blue space-min-top">&#8377;.{{ product.price | floor }}/-</div>
-													</div>
-												</div>
-											</li>
-											{% endif %}
-										{% endfor %}
-									</ul>
-									{% endif %}
-
-									<!-- Sub Counter -->
-									{% capture subs %}
-										{% for subcategory in master.category_data.data.category %}
-											{% if category.catid == subcategory.main_parent and category.name != subcategory.name %}{{subcategory.name}}, {% endif %}	
-										{% endfor %}
-									{% endcapture %}
-									{% assign subcount = subs | split: ", " %}
-									<!-- End: Sub Counter -->
-
-									<!-- Sub Categories -->
-									{% if subcount.size > 1 %}
-									<div class="sub-categories ">
-										<!-- Sub Cat Filter -->
-										<div class="filter radius-50 space-50 space-50-top">
-											<label class="h6 font-h strong inline text-orange space-50-bottom space-50-left-right">Filter By:</label>
-											<ul class="filter-tabs space-50-top space-25-bottom space-50-left-right radius-50">
-												{% for subcategory in master.category_data.data.category %}
-												{% if category.catid == subcategory.main_parent and category.name != subcategory.name %}
-												<li>
-													<label class="pill inline" for="cb_prime{{ subcategory.name }}">
-														<input class="cb_prime hidden" type="checkbox" id="cb_prime{{ subcategory.name }}">
-														<span class="title label strong inline cursor-pointer">
-															{{ subcategory.name }}
-														</span>
-													</label>
-												</li>
-												{% endif %}
-												{% endfor %}
-											</ul>
-										</div>
-										<!-- END: Sub Cat Filter -->
-										<!-- Sub Cat Listing -->
-										<ul>
-											{% for subcategory in master.category_data.data.category %}
-											{% if category.catid == subcategory.main_parent and category.name != subcategory.name %}
-											<input class="swimlane cb_slave hidden" type="checkbox" id="cb_slave{{ subcategory.name }}">
-											<li class="category-list carousel small-card">
-												<div class="title p strong text-neutral-3 space-50-top space-100-left">{{ subcategory.name }}</div>
-												<div class="carousel-controls row">
-													<div class="container">
-														<div class="columns small-12 text-right space-50-right">
-															<div class="scroll-button inline space-25 scroll-left" data-dir="left" tabindex="-1" style="margin-right: var(--space-25);"><span class="text-blue material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;">arrow_back</span></div>
-															<div class="scroll-button inline space-25 scroll-right" data-dir="right" tabindex="-1"><span class="text-blue material-symbols-rounded inline-middle" style="font-size: var(--h5); line-height: 1;">arrow_forward</span></div>
-														</div>
-													</div>
-												</div>
-												<ul class="carousel-list">
-													{% for product in master.product_data.data.variations %}
-														{% if product.category == subcategory.name %}
-														<li class="item carousel-list-item">
-															<div class="card">
-																<div class="thumbnail" style="background-image: url('https://bgc.sixorbit.com{{product.image}}');"></div>
-																<div class="space-25" style="overflow: clip;">
-																	<div class="isvid space-25-top small text-blue-light">{{ product.isvid }}</div>
-																	{% assign prodname = product.variation_name | split: "-" %}
-																	<div class="title p strong text-blue text-titlecase">{{ prodname.first | capitalize }}</div>
-																	<div class="spec label text-blue-light space-min-top">Brand : {{ product.brand }}</div>
-																	{% for attributes in product.attributes %}
-																		<div class="spec label text-neutral-4">{{ attributes.attr_name | capitalize }} : {{ attributes.attr_value | capitalize }}</div>
-																	{% endfor %}
-																	{% if product.package_quantity > 0 %}
-																	<div class="spec label text-neutral-4">Pack of : {{ product.package_quantity | floor }}&nbsp;{{ product.c_package_measurement }}</div>
-																	{% endif %}
-																	{% if product.measured_qty > 0 %}
-																	<div class="spec label text-neutral-4">{{ product.measured_unit | capitalize }} of : {{ product.measured_qty | floor }}</div>
-																	{% endif %}
-																	<div class="price p text-blue space-min-top">&#8377;.{{ product.price | floor }}/-</div>
-																</div>
-															</div>
-														</li>
-														{% endif %}
-													{% endfor %}
-												</ul>
-											</li>
-											{% endif %}
-											{% endfor %}
-										</ul>
-										<!-- END: Sub Cat Listing -->
-									</div>
-									{% endif %}
-									<!-- END: Sub Categories -->
-								</li>
-								{% endif %}
-								{% endfor %}
-							</ul>
-						</div>
-						<div class="cta hidden">
-							<div class="cart row fill-white space-50">
-								<div class="total h4 strong font-h">Total: ₹ 4,82,529/-</div>
-								<div class="items p strong font-h text-neutral-5">Total Items: 20</div>
-								<div class="units p strong font-h text-neutral-5">Total Units: 500</div>
-								<a href="https://google.com" target="_blank" class="action button fill-blue text-white">Get Quote</a>
-							</div>
-							<div class="download row fill-orange space-75">
-								<input type="checkbox" id="catDownloadMin" class="download-toggle hidden">
-								<label for="catDownloadMin" class="minimise">Minimise</label>
-								<div class="action columns small-9">
-									<div class="h4 font-h strong">Complete Catalogue</div>
-									<div class="p space-25-top space-150-bottom">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
-									<a href="https://google.com" target="_blank" class="button fill-white text-orange">Download Now</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End: Catalogue -->
-				</div>
-				<div class="shadow fill-light"></div>
-			</div>
-
-			<script type="text/javascript">
-				
-				const primeCheckboxes = document.querySelectorAll('.cb_prime');
-				const slaveCheckboxes = document.querySelectorAll('.cb_slave');
-
-				primeCheckboxes.forEach((primeCheckbox) => {
-					// console.log(primeCheckbox);
-					primeCheckbox.addEventListener('change', () => {
-						const slaveCheckboxId = `cb_slave${primeCheckbox.id.replace('cb_prime', '')}`;
-						// console.log(slaveCheckboxId);
-						const slaveCheckbox = document.getElementById(slaveCheckboxId);
-
-						if (slaveCheckbox) {
-							slaveCheckbox.checked = primeCheckbox.checked;
-						}
-					});
-				});
-
-			</script>
-
-			<!-- End: Catalogue Box -->
-
-
 		</div>
-		<div class="row space-75-top">
+		<!-- END: Catalogue Header -->
+		<!-- Catalogue -->
+		<div id="catalogue" class="catalogue container">
+			<div id="loading-overlay"></div>
+			<div id="loading-indicator">
+				<div class="spinner">
+				  <div class="dot1"></div>
+				  <div class="dot2"></div>
+				</div>
+				<div class="spinner-border text-primary" role="status">
+					<span class="visually-hidden h6 strong font-h">Loading...</span>
+				</div>
+			</div>
+			<div class="cat-head">
+				<div class="toggle-home">
+					<label class="block">
+						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Home</span>
+						<button id="cat-home" class="button fill-blue box-shadow-blue block" style="padding: 0; text-align: center;"><i class='h5 bx bx-category-alt' style="line-height: inherit;"></i></button>
+					</label>
+				</div>
+				<div class="search form-box">
+					<div class="search-bar form-field position-relative">
+						<label class="block">
+							<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">Quick Search</span>
+							<input id="search-input" type="text" name="" class="input-field block" placeholder="Item/Category...">
+						</label>
+						<button class="button clear-button block text-blue" id="search-clear" style="padding: 0; text-align: center; position: absolute; right: 0; bottom: 0; z-index: 2; background-color: transparent;"><i class='h5 bx bx-x-circle' style="line-height: inherit;"></i></button>
+					</div>
+					<div id="search-list-label" class="p text-blue-light space-25"></div>
+				</div>
+				<div class="toggle-cart">
+					<span class="block">
+						<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Cart</span>
+						<label for="toggle-cart" class="button fill-blue box-shadow-blue block" style="padding: 0; text-align: center;"><i class='h5 bx bx-cart' style="line-height: inherit;"></i></label>
+						<span id="cart-counter" class="cart-counter no-pointer"></span>
+					</span>
+				</div>
+			</div>
+			<input type="checkbox" id="toggle-cart" class="hidden">
+			<div class="cat-main space-25-top">
+				<div class="browse">
+					<ul id="cat-list" class="pill-list"></ul>
+					<ul id="prod-list" class="item-list"></ul>
+				</div>
+				<div class="cart box-shadow-blue radius-25">
+					<div id="cart-label" class="p text-blue space-25">Items in cart... 0</div>
+					<ol id="cart-list" class="cart-list small text-blue-dark"></ol>
+					<div id="cart-cta" class="cart-cta text-center space-50-top" style="display: none;">
+						<a href="#catalogueQuote" class="button inline fill-blue">Get a Quote, Now</a><br>
+						<span class="inline h6 text-blue font-h space-50-top">Enter Your Details Below to get a Custom Offer 👇</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END: Catalogue -->
+		<!-- Catalogue Form -->
+		<div class="row space-100-top">
 			<div class="columns small-12 large-6">
 				<div class="heading space-75-bottom">
 					<div class="h2 font-h space-50-bottom text-blue"><span class="strong text-blue-dark">Elevate your operation with tailored:</span> End-to-end Ho.Re.Ca Solutions</div>
@@ -227,67 +79,249 @@
 				</div>
 			</div>
 			<div class="columns small-12 large-5 large-offset-1">
-				<div class="form-box fill-blue radius-25 space-50" style="box-shadow: 0 0 1px 1px rgba(0, 102, 255, 0.2), 0 0 var(--space-200) 0px rgba(0, 102, 255, 0.3);">
-					<form id="homeGeneralLeads" action="https://docs.google.com/forms/d/e/1FAIpQLSeG6nfZX6S_nq29su85Olfx_5UT31lj8Mj50WJIwbrVa1wPTw/formResponse" method="POST" enctype="multipart/form-data">
-					<div class="row">
-						<div class="columns small-12 space-25">
-							<div class="p">Best value in the industry.</div>
-							<div class="h4">Get a Custom Offer:</div>
+				<style>
+					.form-box {
+						overflow: hidden;
+					}
+					.form-box-inner {
+						width: calc( 400% + ( var(--space-100) * 3 ));
+						display: grid;
+						grid-template-columns: repeat(4, 1fr);
+						gap: var(--space-100);
+						transition: .4s ease-out;
+						align-items: center;
+					}
+					.form-box-inner.step-2 {
+						--step-2-offset: calc(( 25% + ( var(--space-100) * 0.25 )) * -1);
+						transform: translateX( var(--step-2-offset) );
+					} 
+					.form-box-inner.step-3 {
+						--step-2-offset: calc(( 50% + ( var(--space-100) * 0.5 )) * -1);
+						transform: translateX( var(--step-2-offset) );
+					}
+				</style>
+				<div id="form-box" class="form-box form-dark fill-blue radius-25 space-50" style="box-shadow: 0 0 1px 1px rgba(0, 102, 255, 0.2), 0 0 var(--space-200) 0px rgba(0, 102, 255, 0.3);">
+					<div id="form-box-inner" class="form-box-inner">
+						<!-- Quote Form -->
+						<form class="quote-form" id="catalogueQuote" action="" method="POST" enctype="multipart/form-data" onsubmit="formSubmit(event)">
+							<div class="row">
+								<div class="columns small-12 space-25">
+									<div class="p">Best value in the industry.</div>
+									<div class="h4">Get the Best Offer:</div>
+								</div>
+								<div class="form-field columns small-12 large-6 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Full Name <span class="text-yellow">*</span></span>
+										<input type="text" name="entry.313819976" class="input-field block" required autocomplete="off">
+									</label>
+								</div>
+								<div class="form-field columns small-12 large-6 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Email ID <span class="text-yellow">*</span></span>
+										<input type="email" name="entry.1535704871" class="input-field block" required autocomplete="off" inputmode="email">
+									</label>
+								</div>
+								<div class="form-field columns small-12 large-6 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Phone Number <span class="text-yellow">*</span></span>
+										<input id="mobile" type="text" name="entry.870193729" class="input-field block" required autocomplete="off" inputmode="numeric" pattern="[0-9]+" minlength="10" maxlength="10">
+									</label>
+								</div>
+								<div class="form-field columns small-12 large-6 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Industry</span>
+										<select name="entry.2143785537" class="input-field block">
+											<option value="blank" disabled="disabled" selected="selected">Select</option>
+											<option value="Hotel">Hotel</option>
+											<option value="Restaurant">Restaurant</option>
+											<option value="Bakery">Bakery</option>
+											<option value="Catering">Catering</option>
+											<option value="Cloud Kitchen">Cloud Kitchen</option>
+											<option value="Others">Others</option>
+										</select>
+									</label>
+								</div>
+								<div class="form-field columns small-12 space-25 no-pointer">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Cart Items (Choose From Catalogue)</span>
+										<textarea id="form-cart-items" class="input-field block" tabindex="-1" name="entry.1606945529" style="font-size: var(--small); line-height: 1.25;"></textarea>
+									</label>
+								</div>
+								<div class="form-field columns small-12 space-25 space-50-top">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue visuallyhidden">Submit</span>
+										<button id="form-submit-button" class="button fill-blue-dark-dark block" type="submit">Request a Quote</button>
+									</label>
+								</div>
+							</div>
+						</form>
+						<!-- OTP Form -->
+						<div class="otp-form">
+							<div class="row">
+								<div class="columns small-12 space-25">
+									<div class="p">OTP Sent to your Phone.</div>
+									<div class="h4">Verify Phone Number:</div>
+								</div>
+								<div class="form-field columns small-12 space-25">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Enter OTP <span class="text-yellow">*</span></span>
+										<input id="otp" type="text" class="input-field block" required autocomplete="off" inputmode="numeric" pattern="[0-9]+" minlength="4" maxlength="6">
+									</label>
+								</div>
+								<div class="form-field columns small-12 space-25 space-50-top">
+									<label class="block">
+										<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue visuallyhidden">Verify</span>
+										<button id="otp-submit-button" class="button fill-blue-dark-dark block" type="button" onclick="verifyOTP();">Verify Number</button>
+									</label>
+								</div>
+							</div>
 						</div>
-						<div class="columns small-12 large-6 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Full Name <span class="text-orange">*</span></span>
-								<input type="text" name="entry.1421501943" required class="input-field block">
-							</label>
-						</div>
-						<div class="columns small-12 large-6 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Email ID <span class="text-orange">*</span></span>
-								<input type="text" name="entry.839199106" required class="input-field block">
-							</label>
-						</div>
-						<div class="columns small-12 large-6 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Phone Number <span class="text-orange">*</span></span>
-								<input type="text" name="entry.636038964" required class="input-field block">
-							</label>
-						</div>
-						<div class="columns small-12 large-6 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Industry</span>
-								<select name="entry.203903897" class="input-field block">
-									<option value="blank" disabled="disabled" selected="selected">Select</option>
-									<option value="Hotel">Hotel</option>
-									<option value="Restaurant">Restaurant</option>
-									<option value="Bakery">Bakery</option>
-									<option value="Catering">Catering</option>
-									<option value="Cloud Kitchen">Cloud Kitchen</option>
-									<option value="Others">Others</option>
-								</select>
-							</label>
-						</div>
-						<div class="columns small-12 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-blue">Requirement</span>
-								<textarea class="input-field block" name="entry.1788879696"></textarea>
-							</label>
-						</div>
-						<div class="columns small-12 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min invisible">Submit</span>
-								<button class="button fill-blue-dark-dark block" type="submit">Request a Quote</button>
-							</label>
+						<!-- Thank You -->
+						<div class="thank-you">
+							<div class="row">
+								<div class="columns small-12 space-25">
+									<div class="text-yellow h3">Thank you!</div>
+									<div class="text-yellow p">Our team will get in touch shortly.</div>
+								</div>
+							</div>
 						</div>
 					</div>
-					</form>
+					<!-- FORM JS -->
+					<script>
+						let session_id = "";
+						const api_key = "d9c46d38-4ea5-11e8-a895-0200cd936042"; // 2 Factor API Key
+
+						const form = document.getElementById('catalogueQuote');
+						let formData = new FormData(form);
+
+						const formBox = document.getElementById('form-box');
+						const formBoxInner = document.getElementById('form-box-inner');
+
+						const cartItemsField = document.getElementById('form-cart-items');
+						const formSubmitButton = document.getElementById('form-submit-button');
+
+						const otpSubmitButton = document.getElementById('form-submit-button');
+
+
+
+						/* -- Form Submit -- */
+						function formSubmit(event) {
+							event.preventDefault(); // Prevent the default form submission behavior
+
+							// Disable the submit button and change its text immediately
+							formSubmitButton.disabled = true;
+							formSubmitButton.textContent = 'Submitting...';
+
+							// Send OTP
+							sendOTP();
+						}
+
+
+
+						/* -- Send OTP -- */
+						function sendOTP() {
+							let mobile_number = document.getElementById("mobile").value; // Get Mobile Number
+							let url = `https://2factor.in/API/V1/${api_key}/SMS/+91${mobile_number}/AUTOGEN2/OTP1`;
+
+							fetch(url)
+								.then(response => {
+									if (!response.ok) {
+										// Handle HTTP errors
+										console.error("HTTP Error:", response.status, response.statusText);
+										// alert(`OTP Send Failed: HTTP Error ${response.status}`);
+										throw new Error(`HTTP error! status: ${response.status}`);
+									}
+									return response.json();
+								})
+								.then(data => {
+									if (data && data["Status"] === "Success") {
+										// alert("OTP Sent Successfully!");
+										formBoxInner.classList.add('step-2');
+
+										session_id = data["Details"];
+										// console.log("OTP Response:", data);
+									} else {
+										console.error("2Factor API Error:", data);
+										// alert(`OTP Send Failed: ${data && data["Details"] ? data["Details"] : "Unknown error"}`);
+									}
+								})
+								.catch(error => {
+									console.error("Fetch Error:", error);
+									// alert("OTP Send Failed: Could not connect to the server.");
+								});
+						}
+
+
+
+						/* -- Verify OTP -- */
+						function verifyOTP() {
+
+							let otp_number = document.getElementById("otp").value;
+							// console.log(otp_number);
+							let url = `https://2factor.in/API/V1/${api_key}/SMS/VERIFY/${session_id}/${otp_number}`;
+
+							otpSubmitButton.textContent = 'Verifying...';
+
+							fetch(url)
+								.then((response) => response.json())
+								.then((data) => {
+									if (data["Details"] == "OTP Matched") {
+										// alert("OTP Matched Successfully");
+										console.log("OTP Matched successfully");
+										sendGoogleFormData();
+
+										otpSubmitButton.textContent = 'Matched';
+
+										formBoxInner.classList.add('step-3');
+									}
+									console.log(data);
+								})
+								.catch(error => {
+									console.error("OTP Match Error:", error);
+
+									otpSubmitButton.textContent = 'Wrong OTP';
+								});
+						}
+
+
+
+						/* -- Send Google Form Data -- */
+						function sendGoogleFormData() {
+							let formData = new FormData(form);
+
+							/* -- Submit Data to Google Forms -- */
+							fetch('https://docs.google.com/forms/d/e/1FAIpQLScSdYMiiBt5h2W1kwH4TU9BFmIb60c5fG4u_K0MAHnQcm4mtA/formResponse', {
+								method: 'POST',
+								body: formData,
+								mode: 'no-cors' // Add this to handle potential CORS issues with Google Forms
+							})
+							.then(response => {
+
+								// Explicitly clear the value of the non-tabbable textarea
+								cartItemsField.innerHTML = '';
+								// Clear other form fields (this should now work correctly for the tabbable fields)
+								form.reset();
+
+								if (response.ok) {
+									// Handle success
+									console.log('Form submitted successfully!');
+								} else {
+									// Handle error
+									console.error('Form submission failed.');
+								}
+							})
+							.catch(error => {
+								console.error('Error during form submission:', error);
+							});
+						}
+
+					</script>
 				</div>
 			</div>
 		</div>
+		<!-- END: Catalogue Form -->
 	</div>
 </section>
 <!-- End: Catalogue Section -->
-
-
-
 
 
