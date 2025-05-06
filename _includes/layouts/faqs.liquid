@@ -1,1 +1,60 @@
-faqs.liquid
+{% include 'parts/head.liquid' %}
+
+
+
+		<!-- Intro Section -->
+		<section id="intro-section" class="intro-section overflow-x-clip space-250-top">
+			<div class="container">
+				<div class="row intro">
+					<div class="logo columns small-12 medium-8 large-6">
+						<img class="block" src="media/logo-combination-eng.png">
+					</div>
+				</div>
+			</div>
+		</section>
+		
+
+		<!-- FAQs Section -->
+		<section id="faqs-section" class="faqs-section space-250-top-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="columns small-12 large-3 space-50-bottom">
+						<div class="h2 font-h strong text-blue">Frequently Asked Questions</div>
+					</div>
+					<div class="columns small-12 large-8 large-offset-1">
+						<div class="faqs-container">
+							<input id="more-faqs" type="checkbox" name="more-faqs" class="more-faqs visuallyhidden" checked="">
+							<div class="faqs">
+								{% for post in collections.faqs %}
+								<div class="faq">
+									<input id="faq-{{ forloop.index }}" type="radio" name="faq" class="visuallyhidden" {% if forloop.first %}checked=""{% endif %}>
+									<label for="faq-{{ forloop.index }}" class="question block row space-25-top-bottom">
+										<div class="title columns small-11 space-25">
+											<div class="p text-blue-dark-dark">{{ post.data.title }}&nbsp;</div>
+										</div>
+										<div class="toggle columns small-1"><div class="arrow"><span class="a1"></span><span class="a2"></span></div></div>
+									</label>
+									<div class="answer fill-light radius-50">
+										<div class="p space-50">
+											{{ post.content }}
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+							<label class="show-faqs block text-center" for="more-faqs">
+								<div class="button fill-white text-blue strong">Show All FAQs</div>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End: FAQs Section -->
+
+
+
+
+
+{% include 'parts/footer.liquid' %}
+{% include 'parts/foot.liquid' %}
