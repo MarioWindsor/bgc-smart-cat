@@ -19,7 +19,7 @@ collections:
     sortable_fields: ['date', 'title']
     fields: # The fields for each document, usually in front matter
       - { label: "Tags", name: "tags", widget: "hidden", default: ["blogs"] }
-      - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}", date_format: "DD.MM.YYYY", time_format: "HH:mm" }
+      - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}", date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LLL" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
@@ -31,7 +31,7 @@ collections:
     sortable_fields: ['date', 'title']
     fields: # The fields for each document, usually in front matter
       - { label: "Tags", name: "tags", widget: "hidden", default: ["faqs"] }
-      - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}", date_format: "DD.MM.YYYY", time_format: "HH:mm" }
+      - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}", date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LLL" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "brands" # Used in routes, e.g., /admin/collections/brands
@@ -42,6 +42,6 @@ collections:
     sortable_fields: ['date', 'title']
     fields: # The fields for each document, usually in front matter
       - { label: "Tags", name: "tags", widget: "hidden", default: ["brands"] }
-      - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}", date_format: "DD.MM.YYYY", time_format: "HH:mm" }
+      - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}", date_format: "DD.MM.YYYY", time_format: "HH:mm", format: "LLL" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Featured Image", name: "thumbnail", widget: "image" }
