@@ -34,14 +34,14 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}"}
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
-  - name: "brands" # Used in routes, e.g., /admin/collections/brands
-    label: "Brands" # Used in the UI
-    folder: "brands" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    sortable_fields: ['date', 'title']
-    fields: # The fields for each document, usually in front matter
-      - { label: "Tags", name: "tags", widget: "hidden", default: ["brands"] }
-      - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}"}
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+  # - name: "brands" # Used in routes, e.g., /admin/collections/brands
+  #   label: "Brands" # Used in the UI
+  #   folder: "brands" # The path to the folder where the documents are stored
+  #   create: true # Allow users to create new documents in this collection
+  #   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  #   sortable_fields: ['date', 'title']
+  #   fields: # The fields for each document, usually in front matter
+  #     - { label: "Tags", name: "tags", widget: "hidden", default: ["brands"] }
+  #     - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}"}
+  #     - { label: "Title", name: "title", widget: "string" }
+  #     - { label: "Featured Image", name: "thumbnail", widget: "image" }
