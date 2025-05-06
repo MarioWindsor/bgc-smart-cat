@@ -40,6 +40,17 @@
 
 
 
+		TEST LOOP
+
+		{% for post in collections.faqs %}
+			<div class="p">Heading: {{ post.data.title }}</div><br>
+			<div class="p">Body: {{ post.content }}</div>
+			<hr>
+		{% endfor %}
+
+
+
+
 		<!-- Copyright Section -->
 		<style>
 			.copyright-section { text-align: center; }
