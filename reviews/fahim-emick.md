@@ -1,0 +1,8 @@
+---
+tags:
+  - reviews
+date: August 17, 2021
+title: Fahim Emick
+rating: 5
+---
+If you want to start a restaurant or any type food industry I recommend to visit this place . It’s “one stop solution “ also you can get “a to z” items from here . Also different kind brands , all Type machine , kitchen equipment, crockery items . Also they provide like a new updated items only . Also getting a good price . In other side staffs are doing well service and updated .mainly I need to mention here Jyothi . She was so help full and good knowledge about the all criteria. Thank you again for your great service
