@@ -1,7 +1,7 @@
 ---
 tags:
   - reviews
-review-date: June 12, 2024
+reviewdate: June 12, 2024
 title: Pallavi Kanak
 rating: 5
 ---

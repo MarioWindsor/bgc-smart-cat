@@ -1,7 +1,7 @@
 ---
 tags:
   - reviews
-review-date: May 9, 2022
+reviewdate: May 9, 2022
 title: Vijay Niranjan Amanchi
 rating: 5
 ---

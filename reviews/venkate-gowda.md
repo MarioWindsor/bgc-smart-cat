@@ -1,7 +1,7 @@
 ---
 tags:
   - reviews
-review-date: April 2, 2025
+reviewdate: April 2, 2025
 title: Venkate Gowda
 rating: 5
 ---
