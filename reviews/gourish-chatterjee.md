@@ -1,7 +1,7 @@
 ---
 tags:
   - reviews
-date: 2019-05-01T15:23:00.000Z
+date: May 7, 2025
 title: Gourish Chatterjee
 rating: 4
 ---
