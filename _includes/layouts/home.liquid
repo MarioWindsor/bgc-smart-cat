@@ -482,11 +482,12 @@
 					</div>
 				</div>
 				<div class="carousel-list">
-					{% for post in collections.reviews %}
+					{% assign reviews_by_date = collections.reviews | sort: "reviewdate" | reverse %}
+					{% for post in reviews_by_date %}
 					<div class="carousel-list-item">
 						<div class="card fill-white space-100 radius-50 box-shadow-blue">
 							<div class="title space-25-bottom">
-								<div class="h5 strong no-wrap space-min-bottom">{{ post.data.title }}</div>
+								<div class="h5 strong no-wrap space-min-bottom overflow-x-clip">{{ post.data.title }}</div>
 								<div class="label text-neutral-4">
 									{{ post.data.reviewdate }}
 								</div>
