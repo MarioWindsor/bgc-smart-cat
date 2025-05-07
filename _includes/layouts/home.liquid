@@ -482,14 +482,19 @@
 					</div>
 				</div>
 				<div class="carousel-list">
-					{% assign reviews_by_date = collections.reviews | sort: "reviewdate" | reverse %}
+					{% assign reviews_by_date = collections.reviews | sort: "data.reviewdate" | reverse %}
 					{% for post in reviews_by_date %}
 					<div class="carousel-list-item">
 						<div class="card fill-white space-100 radius-50 box-shadow-blue">
 							<div class="title space-25-bottom">
 								<div class="h5 strong no-wrap space-min-bottom overflow-x-clip">{{ post.data.title }}</div>
 								<div class="label text-neutral-4">
-									{{ post.data.reviewdate }}
+									{% assign date_string = post.data.reviewdate %}
+									{% assign year = date_string | slice: 0, 4 %}
+									{% assign month_number = date_string | slice: 5, 2 %}
+									{% assign day = date_string | slice: 8, 2 %}
+									{% assign date_object = year | append: "-" | append: month_number | append: "-" | append: day | date: "%B %d, %Y" %}
+									{{ date_object }}
 								</div>
 							</div>
 							<div class="stars space-50-bottom">
