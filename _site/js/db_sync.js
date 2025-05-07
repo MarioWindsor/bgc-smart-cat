@@ -21,12 +21,27 @@ document.addEventListener("DOMContentLoaded", function() {
 						return {
 							variation_number: variation.variation_number,
 							variation_name: variation.variation_name,
+							image: variation.image,
 							brand: variation.brand,
-							parent_category: variation.parent_category,
+							category: variation.category,
+							category_id: variation.category_id,
+							main_category: variation.main_category,
+							main_category_id: variation.main_category_id,
+							attributes: variation.attributes,
 						};
 					});
-					downloadJson(subsetOfVariations, 'variations_subset.json');
+
+					// downloadJson(subsetOfVariations, 'variations_subset.json');
 					console.log('Subset of variations data downloaded successfully!');
+					const nestedVarArray = {
+						data : {
+							variations : subsetOfVariations
+						}
+					};
+
+					console.log(nestedVarArray);
+					downloadJson(nestedVarArray, 'variations_new.json');
+
 				} else {
 					console.error('Variations data structure is not as expected.');
 				}
@@ -35,7 +50,9 @@ document.addEventListener("DOMContentLoaded", function() {
 				const categoriesUrl = `http://bgc.sixorbit.com/?urlq=service&version=1.0&key=123&task=variation/fetch_category&user_id=${userId}&access_token=${accessToken}`;
 				const categoriesResponse = await fetch(categoriesUrl);
 				const categoriesData = await categoriesResponse.json();
-				downloadJson(categoriesData, 'categories.json');
+
+				// downloadJson(categoriesData, 'categories.json');
+				
 				console.log('Categories data downloaded successfully!');
 
 			} else {
