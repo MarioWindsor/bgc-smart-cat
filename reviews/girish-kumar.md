@@ -1,7 +1,7 @@
 ---
 tags:
   - reviews
-date: November 21, 2019
+review-date: November 21, 2019
 title: Girish Kumar
 rating: 4
 ---
