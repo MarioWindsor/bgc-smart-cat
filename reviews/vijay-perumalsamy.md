@@ -1,7 +1,7 @@
 ---
 tags:
   - reviews
-reviewdate: July 17, 2020
+reviewdate: 2020/07/16
 title: Vijay Perumalsamy
 rating: 5
 ---
