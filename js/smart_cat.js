@@ -8,8 +8,20 @@ import Fuse from 'https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.mjs';
 
 
 // -- Categories DB -->
-import allCatsDB from '../media/data/category-25-5-2.json' with { type: 'json' };
-const allCatsData = Object.values(allCatsDB.data.category);
+
+/* -- Legacy Browser Compatible Fetch/Import --*/
+let allCatsData = [];
+fetch('../media/data/category-25-5-2.json')
+	.then(response => response.json())
+	.then(data => {
+		allCatsData = Object.values(data.data.category);
+	})
+	.catch(error => console.error('Error fetching JSON:', error));
+/* -- END: Legacy Browser Compatible Fetch/Import --*/
+
+
+// import allCatsDB from '../media/data/category-25-5-2.json' with { type: 'json' };
+// const allCatsData = Object.values(allCatsDB.data.category);
 const fuseCatOptions = {
 	findAllMatches: true,
 	distance: 600,
