@@ -19,7 +19,7 @@ collections:
     sortable_fields: ['date', 'title']
     fields: # The fields for each document, usually in front matter
       - { label: "Tags", name: "tags", widget: "hidden", default: ["reviews"] }
-      - { label: "Review Date", name: "date", widget: "datetime", default: "{{now}}", format: "LL"}
+      - { label: "Review Date", name: "review-date", widget: "datetime", default: "{{now}}", format: "LL"}
       - { label: "Name", name: "title", widget: "string" }
       - { label: "Rating (scale of 1-5)", name: "rating", widget: "number" }
       - { label: "Body", name: "body", widget: "markdown" }
