@@ -145,18 +145,36 @@
 
 
 		
-
+	
+		<script>
+			if (window.netlifyIdentity) {
+				window.netlifyIdentity.on("init", (user) => {
+					if (!user) {
+						window.netlifyIdentity.on("login", () => {
+							console.log("logged-in");
+							// document.location.href = "/admin/";
+						});
+					}
+				});
+			}
+		</script>
 
 
 		<!-- DB Sync Section -->
 		<section id="dbsync-section" class="dbsync-section">
 			<div class="container">
+				<div class="row space-100-top-bottom">
+					<div class="columns small-9 inline-middle">
+						<div class="h3 font-h">Database Sync</div>
+					</div>
+					<div class="columns small-3 inline-middle text-right">
+						<!-- <div data-netlify-identity-menu></div> -->
+						<div class="button fill-blue" data-netlify-identity-button></div>
+					</div>
+				</div>
 				<div class="row">
 					<div class="columns small-12">
-						<div data-netlify-identity-menu></div>
-						<div class="h3 strong">Welcome to Database Sync:</div>
-						<!-- JSON Link Buttons -->
-						<div id="dbsync" style="display: none;">
+						<div id="dbsync">
 						    <button id="fetch-variations">Fetch Variations</button>
 						    <button id="fetch-categories">Fetch Categories</button>
 						</div>
