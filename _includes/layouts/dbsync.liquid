@@ -1,96 +1,98 @@
 {% include 'parts/head.liquid' %}
 
 
-		<!-- DB Sync Section -->
-		<section id="dbsync-section" class="dbsync-section">
-			<div class="container">
-				<div class="row space-100-top-bottom">
-					<div class="columns small-9 inline-middle">
-						<div id="userTitle" class="h3 font-h">Admin Login</div>
-					</div>
-					<div class="columns small-3 inline-middle text-right">
-						<!-- <div data-netlify-identity-menu></div> -->
-						<div class="button fill-blue" data-netlify-identity-button></div>
-					</div>
-				</div>
-				<div class="row" id="dbsync" style="display: none;">
-				<!-- <div class="row"> -->
-					<form class="form-box" action="">
-						<div class="columns small-12 space-25">
-							<div class="h5 text-blue text-center">Authorize Data Fetch</div>
-						</div>
-						<div class="form-field columns small-12 large-3 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">User <span class="text-red">*</span></span>
-								<input type="text" name="user" class="input-field block" required autocomplete="off">
-							</label>
-						</div>
-						<div class="form-field columns small-12 large-3 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">Password <span class="text-red">*</span></span>
-								<input type="password" name="password" class="input-field block" required autocomplete="off">
-							</label>
-						</div>
-						<div class="form-field columns small-12 large-3 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white invisible">Variations</span>
-								<button class="block fill-blue" id="fetch-variations">Fetch Variations</button>
-							</label>
-						</div>
-						<div class="form-field columns small-12 large-3 space-25">
-							<label class="block">
-								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white invisible">Categories</span>
-								<button class="block fill-blue" id="fetch-categories">Fetch Categories</button>
-							</label>
-						</div>
-					</form>
-				</div>
+<!-- DB Sync Section -->
+<section id="dbsync-section" class="dbsync-section">
+	<div class="container">
+		<div class="row space-100-top-bottom">
+			<div class="columns small-9 inline-middle">
+				<div id="userTitle" class="h3 font-h">Admin Login</div>
 			</div>
-		</section>
-		<!-- END: DB Sync Section -->
+			<div class="columns small-3 inline-middle text-right">
+				<!-- <div data-netlify-identity-menu></div> -->
+				<div class="button fill-blue" data-netlify-identity-button></div>
+			</div>
+		</div>
+		<div class="row" id="dbsync" style="display: none;">
+			<form id="auth-form" action="" method="post" class="form-box">
+				<div class="columns small-12 space-25 text-center">
+					<div class="h5 text-blue space-50-bottom">Authorise Data Fetch</div>
+					<div id="toast" class="inline small space-25 space-50-left-right fill-blue-dark-dark text-yellow radius-25" style="display: none;"></div>
+				</div>
+				<div class="form-field columns small-12 large-3 space-25">
+					<label class="block">
+						<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">Email <span class="text-red">*</span></span>
+						<input id="auth-email" type="text" name="email" class="input-field block" required autocomplete="off">
+					</label>
+				</div>
+				<div class="form-field columns small-12 large-3 space-25">
+					<label class="block">
+						<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">Password <span class="text-red">*</span></span>
+						<input id="auth-pass" type="password" name="password" class="input-field block" required autocomplete="off">
+					</label>
+				</div>
+				<div class="form-field columns small-12 large-3 space-25">
+					<label class="block">
+						<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white invisible">Variations</span>
+						<button class="block fill-blue" type="submit" value="variations">Fetch Variations</button>
+					</label>
+				</div>
+				<div class="form-field columns small-12 large-3 space-25">
+					<label class="block">
+						<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white invisible">Categories</span>
+						<button class="block fill-blue" type="submit" value="categories">Fetch Categories</button>
+					</label>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+<!-- END: DB Sync Section -->
 
-		<script>
-		const dbsync = document.getElementById('dbsync');
-		const userTitle = document.getElementById('userTitle');
+<script>
+const dbsync = document.getElementById('dbsync');
+const userTitle = document.getElementById('userTitle');
 
-		function updateElementVisibility() {
-			const user = window.netlifyIdentity.currentUser();
-			
-			if (user) {
-				dbsync.style.display = 'block';
-			} else {
-				dbsync.style.display = 'none';
-			}
+function updateElementVisibility() {
+	const user = window.netlifyIdentity.currentUser();
+	
+	if (user) {
+		dbsync.style.display = 'block';
+	} else {
+		dbsync.style.display = 'none';
+	}
 
-			function displayUsername() {
-				if (user) {
-					// Check for common username properties, adjust as needed based on your auth provider
-					// const username = user.email || user.name || user.nickname || 'User';
-					const username = user.user_metadata.full_name || 'User';
-					userTitle.textContent = `Hi, ${username}`;
-				} else {
-					userTitle.textContent = 'Admin Login';
-				}
-			}
-
-			// Call on initial load
-			displayUsername();
+	function displayUsername() {
+		if (user) {
+			// Check for common username properties, adjust as needed based on your auth provider
+			// const username = user.email || user.name || user.nickname || 'User';
+			const username = user.user_metadata.full_name || 'User';
+			userTitle.textContent = `Hi, ${username}`;
+		} else {
+			userTitle.textContent = 'Admin Login';
 		}
+	}
 
-		if (window.netlifyIdentity) {
-			window.netlifyIdentity.on('init', user => {
-				updateElementVisibility();
-			});
+	// Call on initial load
+	displayUsername();
+}
 
-			window.netlifyIdentity.on('login', user => {
-				updateElementVisibility();
-			});
+if (window.netlifyIdentity) {
+	window.netlifyIdentity.on('init', user => {
+		updateElementVisibility();
+	});
 
-			window.netlifyIdentity.on('logout', () => {
-				updateElementVisibility();
-			});
-		}
-		</script>
+	window.netlifyIdentity.on('login', user => {
+		updateElementVisibility();
+	});
+
+	window.netlifyIdentity.on('logout', () => {
+		updateElementVisibility();
+	});
+}
+</script>
+
+<script type="module" src="/js/db_sync.js"></script>
 
 
 

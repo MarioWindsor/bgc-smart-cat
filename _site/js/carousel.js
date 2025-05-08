@@ -7,7 +7,7 @@
 /* -- Scroll Controls -- */
 
 document.addEventListener("DOMContentLoaded", function() {
-	console.log("Carousel Ready")
+	// console.log("Carousel Ready")
 	const scollButtons = document.querySelectorAll('.scroll-button');
 	scollButtons.forEach((scrollButton) => {
 		scrollButton.addEventListener('click', (e) => {
