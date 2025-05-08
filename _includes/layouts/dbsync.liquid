@@ -13,37 +13,8 @@
 				<div class="button fill-blue" data-netlify-identity-button></div>
 			</div>
 		</div>
-		<div class="row" id="dbsync" style="display: none;">
-			<form id="auth-form" action="" method="post" class="form-box">
-				<div class="columns small-12 space-25 text-center">
-					<div class="h5 text-blue space-50-bottom">Authorise Data Fetch</div>
-					<div id="toast" class="inline small space-25 space-50-left-right fill-blue-dark-dark text-yellow radius-25" style="display: none;"></div>
-				</div>
-				<div class="form-field columns small-12 large-3 space-25">
-					<label class="block">
-						<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">Email <span class="text-red">*</span></span>
-						<input id="auth-email" type="text" name="email" class="input-field block" required autocomplete="off">
-					</label>
-				</div>
-				<div class="form-field columns small-12 large-3 space-25">
-					<label class="block">
-						<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">Password <span class="text-red">*</span></span>
-						<input id="auth-pass" type="password" name="password" class="input-field block" required autocomplete="off">
-					</label>
-				</div>
-				<div class="form-field columns small-12 large-3 space-25">
-					<label class="block">
-						<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white invisible">Variations</span>
-						<button class="block fill-blue" type="submit" value="variations">Fetch Variations</button>
-					</label>
-				</div>
-				<div class="form-field columns small-12 large-3 space-25">
-					<label class="block">
-						<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white invisible">Categories</span>
-						<button class="block fill-blue" type="submit" value="categories">Fetch Categories</button>
-					</label>
-				</div>
-			</form>
+		<div class="row" id="dbsync">
+			
 		</div>
 	</div>
 </section>
@@ -57,9 +28,39 @@ function updateElementVisibility() {
 	const user = window.netlifyIdentity.currentUser();
 	
 	if (user) {
-		dbsync.style.display = 'block';
+		dbsync.innerHTML = `
+		<form id="auth-form" action="" method="post" class="form-box">
+			<div class="columns small-12 space-25 text-center">
+				<div class="h5 text-blue space-50-bottom">Authorise Data Fetch</div>
+				<div id="toast" class="inline small space-25 space-50-left-right fill-blue-dark-dark text-yellow radius-25" style="display: none;"></div>
+			</div>
+			<div class="form-field columns small-12 large-3 space-25">
+				<label class="block">
+					<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">Email <span class="text-red">*</span></span>
+					<input id="auth-email" type="text" name="email" class="input-field block" required autocomplete="off">
+				</label>
+			</div>
+			<div class="form-field columns small-12 large-3 space-25">
+				<label class="block">
+					<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">Password <span class="text-red">*</span></span>
+					<input id="auth-pass" type="password" name="password" class="input-field block" required autocomplete="off">
+				</label>
+			</div>
+			<div class="form-field columns small-12 large-3 space-25">
+				<label class="block">
+					<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white invisible">Variations</span>
+					<button class="block fill-blue" type="submit" value="variations">Fetch Variations</button>
+				</label>
+			</div>
+			<div class="form-field columns small-12 large-3 space-25">
+				<label class="block">
+					<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white invisible">Categories</span>
+					<button class="block fill-blue" type="submit" value="categories">Fetch Categories</button>
+				</label>
+			</div>
+		</form>`;
 	} else {
-		dbsync.style.display = 'none';
+		dbsync.innerHTML = "";
 	}
 
 	function displayUsername() {
