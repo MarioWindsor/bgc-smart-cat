@@ -86,7 +86,7 @@
 			function displayUsername() {
 				if (user) {
 					// Check for common username properties, adjust as needed based on your auth provider
-					const username = user.email || user.name || user.nickname || 'User';
+					const username = user.name || 'User';
 					userTitle.textContent = `Welcome, ${username}!`;
 				} else {
 					userTitle.textContent = 'Admin Login';
