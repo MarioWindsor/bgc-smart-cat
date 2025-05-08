@@ -76,6 +76,11 @@ function updateElementVisibility() {
 
 	// Call on initial load
 	displayUsername();
+
+	if (window.location.hash === '#') {
+	  // If the hash is just '#', replace it with an empty string
+	  window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+	}
 }
 
 if (window.netlifyIdentity) {
