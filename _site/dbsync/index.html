@@ -159,9 +159,11 @@
 				<div class="button fill-blue" data-netlify-identity-button></div>
 			</div>
 		</div>
-		<div class="row" id="dbsync">
-			
-		</div>
+		<form id="auth-form" action="" method="post" class="form-box">
+			<div class="row" id="dbsync">
+				
+			</div>
+		</form>
 	</div>
 </section>
 <!-- END: DB Sync Section -->
@@ -175,7 +177,6 @@ function updateElementVisibility() {
 	
 	if (user) {
 		dbsync.innerHTML = `
-		<form id="auth-form" action="" method="post" class="form-box">
 			<div class="columns small-12 space-25 text-center">
 				<div class="h5 text-blue space-50-bottom">Authorise Data Fetch</div>
 				<div id="toast" class="inline small space-25 space-50-left-right fill-blue-dark-dark text-yellow radius-25" style="display: none;"></div>
@@ -203,8 +204,7 @@ function updateElementVisibility() {
 					<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white invisible">Categories</span>
 					<button class="block fill-blue" type="submit" value="categories">Fetch Categories</button>
 				</label>
-			</div>
-		</form>`;
+			</div>`;
 	} else {
 		dbsync.innerHTML = "";
 	}
