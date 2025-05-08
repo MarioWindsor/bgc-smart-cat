@@ -16,7 +16,7 @@ collections:
     files:
       - name: "home"
         label: "Home Page"
-        file: "_data/home.yml"
+        file: "_data/home.json"
         fields:
           # - {label: SEO Title, name: seotitle, widget: string}
           # - {label: SEO Description, name: seodescription, widget: text}
