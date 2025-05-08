@@ -18,18 +18,19 @@ collections:
         label: "Home Page"
         file: "_data/home.yml"
         fields:
-          - {label: SEO Title, name: seotitle, widget: string}
-          - {label: SEO Description, name: seodescription, widget: text}
-          - label: Team
-            name: team
-            widget: list
-            fields:
-              - {label: Name, name: name, widget: string}
-              - {label: Position, name: position, widget: string}
-              - {label: Photo, name: photo, widget: image}
+          # - {label: SEO Title, name: seotitle, widget: string}
+          # - {label: SEO Description, name: seodescription, widget: text}
+          # - label: Team
+          #   name: team
+          #   widget: list
+          #   fields:
+          #     - {label: Name, name: name, widget: string}
+          #     - {label: Position, name: position, widget: string}
+          #     - {label: Photo, name: photo, widget: image}
           - {label: Intro Video YouTube ID, name: introvideoid, widget: string}
           - {label: Brand Video YouTube ID, name: brandvideoid, widget: string}
           - {label: Database (categories.json), name: categoriesfile, widget: file}
+          - {label: Helpdesk Timing, name: helpdesktiming, widget: string}
   - name: "articles" # Used in routes, e.g., /admin/collections/articles
     label: "Articles" # Used in the UI
     folder: "articles" # The path to the folder where the documents are stored
