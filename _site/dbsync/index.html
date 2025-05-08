@@ -145,19 +145,7 @@
 
 
 		
-	
-		<script>
-			if (window.netlifyIdentity) {
-				window.netlifyIdentity.on("init", (user) => {
-					if (!user) {
-						window.netlifyIdentity.on("login", () => {
-							console.log("logged-in");
-							// document.location.href = "/admin/";
-						});
-					}
-				});
-			}
-		</script>
+		
 
 
 		<!-- DB Sync Section -->
@@ -174,7 +162,8 @@
 				</div>
 				<div class="row">
 					<div class="columns small-12">
-						<div id="dbsync">
+						<div id="dbsync" style="display: none;">
+		    				<h3>Secret Content</h3>
 						    <button id="fetch-variations">Fetch Variations</button>
 						    <button id="fetch-categories">Fetch Categories</button>
 						</div>
@@ -183,6 +172,33 @@
 			</div>
 		</section>
 		<!-- END: DB Sync Section -->
+
+		<script>
+		const dbsync = document.getElementById('dbsync');
+
+		function updateElementVisibility() {
+			const user = window.netlifyIdentity.currentUser();
+			if (user) {
+					dbsync.style.display = 'block';
+				} else {
+					dbsync.style.display = 'none';
+				}
+			}
+
+			if (window.netlifyIdentity) {
+				window.netlifyIdentity.on('init', user => {
+				updateElementVisibility();
+			});
+
+			window.netlifyIdentity.on('login', user => {
+				updateElementVisibility();
+			});
+
+			window.netlifyIdentity.on('logout', () => {
+				updateElementVisibility();
+			});
+		}
+		</script>
 
 
 

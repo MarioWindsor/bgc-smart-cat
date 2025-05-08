@@ -1,14 +1,19 @@
 {% include 'parts/head.liquid' %}
-	
+		{% comment %}
 		<script>
 			if (window.netlifyIdentity) {
 				window.netlifyIdentity.on("init", (user) => {
-					if (!user) {
-						window.netlifyIdentity.on("login", () => {
-							console.log("logged-in");
-							// document.location.href = "/admin/";
-						});
-					}
+					// if (!user) {
+					// 	window.netlifyIdentity.on("login", () => {
+					// 		console.log("ACCESS GRANTED");
+					// 		// document.location.href = "/admin/";
+					// 	});
+					// } else {
+					// 	console.log("ACCESS DENIED");
+					// }
+					console.log(user);
+					const dbsync = document.getElementById("dbsync");
+					dbsync.style.display = "block";
 				});
 			}
 		</script>
@@ -28,7 +33,7 @@
 				</div>
 				<div class="row">
 					<div class="columns small-12">
-						<div id="dbsync">
+						<div id="dbsync" style="display: none;">
 						    <button id="fetch-variations">Fetch Variations</button>
 						    <button id="fetch-categories">Fetch Categories</button>
 						</div>
@@ -37,6 +42,60 @@
 			</div>
 		</section>
 		<!-- END: DB Sync Section -->
+		{% endcomment %}
+
+
+		<!-- DB Sync Section -->
+		<section id="dbsync-section" class="dbsync-section">
+			<div class="container">
+				<div class="row space-100-top-bottom">
+					<div class="columns small-9 inline-middle">
+						<div class="h3 font-h">Database Sync</div>
+					</div>
+					<div class="columns small-3 inline-middle text-right">
+						<!-- <div data-netlify-identity-menu></div> -->
+						<div class="button fill-blue" data-netlify-identity-button></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="columns small-12">
+						<div id="dbsync" style="display: none;">
+		    				<h3>Secret Content</h3>
+						    <button id="fetch-variations">Fetch Variations</button>
+						    <button id="fetch-categories">Fetch Categories</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- END: DB Sync Section -->
+
+		<script>
+		const dbsync = document.getElementById('dbsync');
+
+		function updateElementVisibility() {
+			const user = window.netlifyIdentity.currentUser();
+			if (user) {
+					dbsync.style.display = 'block';
+				} else {
+					dbsync.style.display = 'none';
+				}
+			}
+
+			if (window.netlifyIdentity) {
+				window.netlifyIdentity.on('init', user => {
+				updateElementVisibility();
+			});
+
+			window.netlifyIdentity.on('login', user => {
+				updateElementVisibility();
+			});
+
+			window.netlifyIdentity.on('logout', () => {
+				updateElementVisibility();
+			});
+		}
+		</script>
 
 
 
