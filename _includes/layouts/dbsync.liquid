@@ -1,48 +1,4 @@
 {% include 'parts/head.liquid' %}
-		{% comment %}
-		<script>
-			if (window.netlifyIdentity) {
-				window.netlifyIdentity.on("init", (user) => {
-					// if (!user) {
-					// 	window.netlifyIdentity.on("login", () => {
-					// 		console.log("ACCESS GRANTED");
-					// 		// document.location.href = "/admin/";
-					// 	});
-					// } else {
-					// 	console.log("ACCESS DENIED");
-					// }
-					console.log(user);
-					const dbsync = document.getElementById("dbsync");
-					dbsync.style.display = "block";
-				});
-			}
-		</script>
-
-
-		<!-- DB Sync Section -->
-		<section id="dbsync-section" class="dbsync-section">
-			<div class="container">
-				<div class="row space-100-top-bottom">
-					<div class="columns small-9 inline-middle">
-						<div class="h3 font-h">Database Sync</div>
-					</div>
-					<div class="columns small-3 inline-middle text-right">
-						<!-- <div data-netlify-identity-menu></div> -->
-						<div class="button fill-blue" data-netlify-identity-button></div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="columns small-12">
-						<div id="dbsync" style="display: none;">
-						    <button id="fetch-variations">Fetch Variations</button>
-						    <button id="fetch-categories">Fetch Categories</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- END: DB Sync Section -->
-		{% endcomment %}
 
 
 		<!-- DB Sync Section -->
@@ -57,14 +13,37 @@
 						<div class="button fill-blue" data-netlify-identity-button></div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="columns small-12">
-						<div id="dbsync" style="display: none;">
-		    				<h3>Secret Content</h3><br>
-						    <button id="fetch-variations">Fetch Variations</button>
-						    <button id="fetch-categories">Fetch Categories</button>
+				<div class="row" id="dbsync" style="display: none;">
+				<!-- <div class="row"> -->
+					<form class="form-box" action="">
+						<div class="columns small-12 space-25">
+							<div class="h5 text-blue text-center">Authorize Data Fetch</div>
 						</div>
-					</div>
+						<div class="form-field columns small-12 large-3 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">User <span class="text-red">*</span></span>
+								<input type="text" name="user" class="input-field block" required autocomplete="off">
+							</label>
+						</div>
+						<div class="form-field columns small-12 large-3 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">Password <span class="text-red">*</span></span>
+								<input type="password" name="password" class="input-field block" required autocomplete="off">
+							</label>
+						</div>
+						<div class="form-field columns small-12 large-3 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white invisible">Variations</span>
+								<button class="block fill-blue" id="fetch-variations">Fetch Variations</button>
+							</label>
+						</div>
+						<div class="form-field columns small-12 large-3 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white invisible">Categories</span>
+								<button class="block fill-blue" id="fetch-categories">Fetch Categories</button>
+							</label>
+						</div>
+					</form>
 				</div>
 			</div>
 		</section>

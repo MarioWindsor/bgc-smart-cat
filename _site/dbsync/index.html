@@ -145,7 +145,6 @@
 
 
 		
-		
 
 
 		<!-- DB Sync Section -->
@@ -160,14 +159,37 @@
 						<div class="button fill-blue" data-netlify-identity-button></div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="columns small-12">
-						<div id="dbsync" style="display: none;">
-		    				<h3>Secret Content</h3><br>
-						    <button id="fetch-variations">Fetch Variations</button>
-						    <button id="fetch-categories">Fetch Categories</button>
+				<div class="row" id="dbsync" style="display: none;">
+				<!-- <div class="row"> -->
+					<form class="form-box" action="">
+						<div class="columns small-12 space-25">
+							<div class="h5 text-blue text-center">Authorize Data Fetch</div>
 						</div>
-					</div>
+						<div class="form-field columns small-12 large-3 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">User <span class="text-red">*</span></span>
+								<input type="text" name="user" class="input-field block" required autocomplete="off">
+							</label>
+						</div>
+						<div class="form-field columns small-12 large-3 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white">Password <span class="text-red">*</span></span>
+								<input type="password" name="password" class="input-field block" required autocomplete="off">
+							</label>
+						</div>
+						<div class="form-field columns small-12 large-3 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white invisible">Variations</span>
+								<button class="block fill-blue" id="fetch-variations">Fetch Variations</button>
+							</label>
+						</div>
+						<div class="form-field columns small-12 large-3 space-25">
+							<label class="block">
+								<span class="label form-label text-uppercase inline cursor-pointer space-min fill-white invisible">Categories</span>
+								<button class="block fill-blue" id="fetch-categories">Fetch Categories</button>
+							</label>
+						</div>
+					</form>
 				</div>
 			</div>
 		</section>
