@@ -11,7 +11,7 @@ import Fuse from 'https://cdn.jsdelivr.net/npm/fuse.js@7.1.0/dist/fuse.mjs';
 
 /* -- Legacy Browser Compatible Fetch/Import --*/
 let allCatsData = [];
-fetch('../media/data/category-25-5-2.json')
+fetch('../media/uploads/categories.json')
 	.then(response => response.json())
 	.then(data => {
 		allCatsData = Object.values(data.data.category);
