@@ -11,6 +11,33 @@ local_backend: true
 media_folder: "/media/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/media/uploads" # The src attribute for uploaded media will begin with /images/uploads
 collections:
+  - name: "home" # Used in routes, e.g., /admin/collections/home
+    label: "Home"
+    file: "_data/home.yml"
+    fields:
+      - {label: SEO Title, name: seotitle, widget: string}
+      - {label: SEO Description, name: seodescription, widget: text}
+      - label: Team
+        name: team
+        widget: list
+        fields:
+          - {label: Name, name: name, widget: string}
+          - {label: Position, name: position, widget: string}
+          - {label: Photo, name: photo, widget: image}
+      - {label: Intro Video YouTube ID, name: introvideoid, widget: string}
+      - {label: Brand Video YouTube ID, name: brandvideoid, widget: string}
+      - {label: Database (categories.json), name: categoriesfile, widget: file}
+  - name: "articles" # Used in routes, e.g., /admin/collections/articles
+    label: "Articles" # Used in the UI
+    folder: "articles" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}-{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    sortable_fields: ['date', 'title']
+    fields: # The fields for each document, usually in front matter
+      - { label: "Tags", name: "tags", widget: "hidden", default: ["articles"] }
+      - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
   - name: "review" # Used in routes, e.g., /admin/collections/review
     label: "Reviews" # Used in the UI
     folder: "reviews" # The path to the folder where the documents are stored
