@@ -11,8 +11,8 @@ local_backend: true
 media_folder: "/media/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/media/uploads" # The src attribute for uploaded media will begin with /images/uploads
 collections:
-  - label: "Pages"
-    name: "pages"
+  - name: "pages"
+    label: "Pages"
     files:
       - name: "home"
         label: "Home Page"
