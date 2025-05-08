@@ -153,7 +153,7 @@
 			<div class="container">
 				<div class="row space-100-top-bottom">
 					<div class="columns small-9 inline-middle">
-						<div class="h3 font-h">Database Sync</div>
+						<div id="userTitle" class="h3 font-h">Admin Login</div>
 					</div>
 					<div class="columns small-3 inline-middle text-right">
 						<!-- <div data-netlify-identity-menu></div> -->
@@ -163,7 +163,7 @@
 				<div class="row">
 					<div class="columns small-12">
 						<div id="dbsync" style="display: none;">
-		    				<h3>Secret Content</h3>
+		    				<h3>Secret Content</h3><br>
 						    <button id="fetch-variations">Fetch Variations</button>
 						    <button id="fetch-categories">Fetch Categories</button>
 						</div>
@@ -175,18 +175,33 @@
 
 		<script>
 		const dbsync = document.getElementById('dbsync');
+		const userTitle = document.getElementById('userTitle');
 
 		function updateElementVisibility() {
 			const user = window.netlifyIdentity.currentUser();
+			
 			if (user) {
-					dbsync.style.display = 'block';
+				dbsync.style.display = 'block';
+			} else {
+				dbsync.style.display = 'none';
+			}
+
+			function displayUsername() {
+				if (user) {
+					// Check for common username properties, adjust as needed based on your auth provider
+					const username = user.email || user.name || user.nickname || 'User';
+					userTitle.textContent = `Welcome, ${username}!`;
 				} else {
-					dbsync.style.display = 'none';
+					userTitle.textContent = 'Admin Login';
 				}
 			}
 
-			if (window.netlifyIdentity) {
-				window.netlifyIdentity.on('init', user => {
+			// Call on initial load
+			displayUsername();
+		}
+
+		if (window.netlifyIdentity) {
+			window.netlifyIdentity.on('init', user => {
 				updateElementVisibility();
 			});
 
