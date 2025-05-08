@@ -90,17 +90,19 @@ if (window.netlifyIdentity) {
 
 	window.netlifyIdentity.on('login', user => {
 		updateElementVisibility();
+
+		setTimeout(() => {
+			if (document.location.href.includes('#')) {
+				const currentUrl = new URL(document.location.href);
+				currentUrl.hash = '';
+				document.location.replace(currentUrl.toString());
+			}
+		}, 1500); // 5000 milliseconds = 5 seconds
 	});
 
 	window.netlifyIdentity.on('logout', () => {
 		updateElementVisibility();
 	});
-
-	if (document.location.href.includes('#')) {
-		const currentUrl = new URL(document.location.href);
-		currentUrl.hash = '';
-		document.location.replace(currentUrl.toString());
-	}
 }
 </script>
 
