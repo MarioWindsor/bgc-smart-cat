@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
 					} else if (action === 'categories') {
 						// Step 3-2: Fetch categories (download all category data)
 						// console.log("Categories");
-						const categoriesUrl = `http://bgc.sixorbit.com/?urlq=service&version=1.0&key=123&task=variation/fetch_category&user_id=${userId}&access_token=${accessToken}`;
+						const categoriesUrl = `https://bgc.sixorbit.com/?urlq=service&version=1.0&key=123&task=variation/fetch_category&user_id=${userId}&access_token=${accessToken}`;
 						const categoriesResponse = await fetch(categoriesUrl);
 						const categoriesData = await categoriesResponse.json();
 
