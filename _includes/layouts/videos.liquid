@@ -1,0 +1,27 @@
+{% include 'parts/head.liquid' %}
+{% include 'parts/header.liquid' %}
+
+<!-- Articles Section -->
+<section id="articles-section" class="articles-section space-250-top-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="columns small-12 large-2 space-50-bottom">
+				<div class="h2 font-h strong text-blue">Articles</div>
+			</div>
+			<div class="articles columns small-12 large-9 large-offset-1">
+				{% for post in collections.videos %}
+					<a href="{{ post.url }}" class="post-card block fill-light radius-50 no-overflow space-50 space-75-left-right box-shadow-blue" style="margin-bottom: var(--space-50);">
+						<div class="info">
+							<div class="h6 font-h strong text-blue">{{ post.data.title }}</div>
+						</div>
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Articles Section -->
+
+
+{% include 'parts/footer.liquid' %}
+{% include 'parts/foot.liquid' %}

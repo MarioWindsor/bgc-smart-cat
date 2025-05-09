@@ -36,7 +36,14 @@ collections:
         label: "Awards Page"
         file: "_data/awards.md"
         fields:
-          - { label: "Body", name: "body", widget: "markdown" }
+          - label: Menu
+            name: menu
+            widget: list
+            fields:
+              - { label: "Award Name", name: "name", widget: "string" }
+              - { label: "Award Date", name: "date", widget: "datetime", default: "{{now}}" }
+              - { label: "Award Photo", name: "image", widget: "image" }
+              - { label: "Award Description", name: "description", widget: "text" }
   - name: "articles" # Used in routes, e.g., /admin/collections/articles
     label: "Articles" # Used in the UI
     folder: "articles" # The path to the folder where the documents are stored
