@@ -57,7 +57,7 @@ Coffee machines are a must-have for cafes and restaurants that serve coffee. The
 
 Water coolers and dispensers are essential for providing customers with fresh, cold water. They are also used for preparing beverages and ensuring that kitchen staff have easy access to clean water. These units are designed for high-volume use and are easy to maintain.
 
-
+![](/media/uploads/2148865580.jpg)
 
 ## 5. Dishwashing and Cleaning Equipment
 
@@ -68,6 +68,8 @@ Commercial dishwashers are designed to handle the large volumes of dishes and ut
 ### Floor Cleaning Machines
 
 Floor cleaning machines, such as scrubbers and vacuum cleaners, are essential for maintaining a clean and hygienic environment. They are designed to handle the heavy foot traffic and various types of spills and debris found in commercial kitchens and dining areas.
+
+![](/media/uploads/27100.jpg)
 
 ## 6. Miscellaneous Equipment
 
@@ -82,6 +84,8 @@ High-quality seating and furniture are essential for creating a comfortable and 
 ### Ventilation Systems
 
 Ventilation systems are vital for maintaining air quality and managing odors in commercial kitchens. They help in removing smoke, steam, and excess heat, ensuring that the kitchen remains a safe and comfortable working environment.
+
+![](/media/uploads/100.jpg)
 
 ## Conclusion
 
