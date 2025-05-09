@@ -36,8 +36,8 @@ collections:
         label: "Awards Page"
         file: "_data/awards.md"
         fields:
-          - label: Menu
-            name: menu
+          - label: Award
+            name: award
             widget: list
             fields:
               - { label: "Award Name", name: "name", widget: "string" }
