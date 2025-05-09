@@ -65,26 +65,32 @@
 
 
 <!-- Intro Section -->
-<section id="intro-section" class="intro-section overflow-x-clip space-100-top-bottom">
+<section id="intro-section" class="intro-section space-50-top-bottom">
 	<div class="container">
-		<div class="row intro text-center">
-			<div class="logo columns small-12  medium-6 large-5 xlarge-4 space-25">
+		<div class="intro" style="font-size: 0; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+			<div class="logo columns small-10 medium-6 large-4 xlarge-3 space-25">
 				<img class="block" src="media/logo-combination-eng.png">
+			</div>
+			<div class="menu-toggle">
+				<label class="row cursor-pointer" for="">
+					<div class="inline text-blue fill-light space-25 radius-25 no-pointer hide-large hide-xlarge"><i class='inline bx bx-menu h2' style="display: inline-block; line-height: var(--h2);"></i></div>
+					<div class="inline text-blue fill-light space-25 radius-25 no-pointer hide-small hide-medium hide-xlarge"><i class='inline bx bx-menu h3' style="display: inline-block; line-height: var(--h3);"></i></div>
+					<div class="inline text-blue fill-light space-25 radius-25 no-pointer hide-small hide-medium hide-large"><i class='inline bx bx-menu h4' style="display: inline-block; line-height: var(--h4);"></i></div>
+				</label>
 			</div>
 		</div>
 	</div>
 </section>
 <!-- END: Intro Section -->
-
-
+<img class="cover-image block" src="{{ coverimage }}" alt="{{ title }}">
 <!-- Article Section -->
-<section id="article-section" class="article-section overflow-x-clip space-100-top-bottom">
+<section id="article-section" class="article-section space-50-top-bottom">
 	<div class="container">
 		<div class="row article">
 			<div class="logo columns small-12 large-8 large-offset-2">
-				<h1 class="h2 block font-h strong">{{ title }}</h1>
-				<small class="block small text-neutral-3 space-50-top">Published on: {{ date | date: "%B %d, %Y" }}</small>
-				<div class="article-content space-100-top-bottom">{{ content }}</div>
+				<h1 class="h2 block font-h strong space-25-top">{{ title }}</h1>
+				<small class="block small text-neutral-3 space-25-top">Published on: {{ date | date: "%B %d, %Y" }}</small>
+				<div class="article-content space-50-top-bottom">{{ content }}</div>
 				<a href="/articles" class="button fill-blue"><span class="inline-middle h5">&#9204;&nbsp;</span><span class="inline-middle">More Articles</span></a>
 			</div>
 		</div>
