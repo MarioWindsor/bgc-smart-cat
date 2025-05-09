@@ -34,7 +34,7 @@ collections:
           - { label: "Helpdesk Timing", name: "helpdesktiming", widget: "string" }
       - name: "awards"
         label: "Awards Page"
-        file: "_data/awards.md"
+        file: "_data/awards.json"
         fields:
           - label: Award
             name: award
