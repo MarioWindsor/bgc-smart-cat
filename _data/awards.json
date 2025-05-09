@@ -1,0 +1,16 @@
+{
+  "award": [
+    {
+      "date": "2025-05-09T22:06:00.000Z",
+      "name": "Sample Trophy",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "image": "/media/uploads/sample-award.webp"
+    },
+    {
+      "date": "2025-05-09T22:06:00.000Z",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "name": "Sample Certificate",
+      "image": "/media/uploads/sample-certificate.webp"
+    }
+  ]
+}
