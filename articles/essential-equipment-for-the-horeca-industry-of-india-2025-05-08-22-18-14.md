@@ -17,6 +17,8 @@ Walk-in freezers and coolers are crucial for storing large quantities of perisha
 
 Display refrigerators are perfect for cafes and restaurants that want to showcase their products attractively. These units keep food at optimal temperatures while allowing customers to view and select their items easily. They are commonly used for displaying pastries, sandwiches, and cold beverages.
 
+![](/media/uploads/84926.jpg)
+
 ## 2. Cooking Equipment
 
 ### Gas Ranges and Burners
@@ -31,6 +33,8 @@ Fryers are indispensable for preparing fried foods, which are popular in Indian 
 
 Commercial ovens and grills are used for baking, roasting, and grilling. They are designed to handle high volumes and maintain consistent temperatures, ensuring that dishes are cooked evenly and thoroughly. These units are essential for preparing baked goods, meats, and vegetables.
 
+![](/media/uploads/59064.jpg)
+
 ## 3. Food Preparation Equipment
 
 ### Mixers and Blenders
@@ -41,6 +45,8 @@ Mixers and blenders are essential for preparing ingredients for various dishes. 
 
 Slicers and choppers are used for preparing ingredients with precision and consistency. They are essential for tasks such as slicing vegetables, meats, and cheeses, and chopping herbs and nuts. These tools help in saving time and ensuring that ingredients are prepared uniformly.
 
+![](/media/uploads/47288.jpg)
+
 ## 4. Beverage Equipment
 
 ### Coffee Machines
@@ -50,6 +56,8 @@ Coffee machines are a must-have for cafes and restaurants that serve coffee. The
 ### Water Coolers and Dispensers
 
 Water coolers and dispensers are essential for providing customers with fresh, cold water. They are also used for preparing beverages and ensuring that kitchen staff have easy access to clean water. These units are designed for high-volume use and are easy to maintain.
+
+
 
 ## 5. Dishwashing and Cleaning Equipment
 
