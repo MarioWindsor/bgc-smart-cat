@@ -396,11 +396,11 @@
 				</div>
 				<div class="carousel-list">
 					{% for post in collections.brands %}
-					<div class="carousel-list-item">
-						<div class="card fill-white space-50 radius-50 box-shadow-blue">
+					<a {% if post.data.path %} href="{{ post.data.path }}" target="_blank" {% endif %} class="carousel-list-item">
+						<div class="card block fill-white space-50 radius-50 box-shadow-blue">
 							<img class="block" loading="lazy" src="{{ post.data.thumbnail }}" alt="{{ post.data.title }}">
 						</div>
-					</div>
+					</a>
 					{% endfor %}
 				</div>
 			</div>

@@ -34,7 +34,7 @@ collections:
           - { label: "Helpdesk Timing", name: "helpdesktiming", widget: "string" }
       - name: "awards"
         label: "Awards Page"
-        file: "_data/awards.json"
+        file: "_data/awards.md"
         fields:
           - { label: "Body", name: "body", widget: "markdown" }
   - name: "articles" # Used in routes, e.g., /admin/collections/articles
