@@ -1,82 +1,66 @@
 {% include 'parts/head.liquid' %}
 {% include 'parts/header.liquid' %}
 
+
 <style>
-	.article-content h1 { 
-		display: block;
-		margin-bottom: var(--p);
-		font-size: var(--h3);
-		font-family: "Rajdhani", Arial, serif;
-		line-height: 1.125;
-	}
-	.article-content h2 { 
-		display: block;
-		margin-bottom: var(--p);
-		font-size: var(--h3);
-		font-family: "Rajdhani", Arial, serif;
-		line-height: 1.125;
-	}
-	.article-content h3 { 
-		display: block;
-		margin-bottom: var(--p);
-		font-size: var(--h4);
-		font-family: "Rajdhani", Arial, serif;
-		line-height: 1.125;
-	}
-	.article-content h4 { 
-		display: block;
-		margin-bottom: var(--p);
-		font-size: var(--h5);
-		font-family: "Rajdhani", Arial, serif;
-		line-height: 1.125;
-	}
-	.article-content h5 { 
-		display: block;
-		margin-bottom: var(--p);
-		font-size: var(--h6);
-		font-family: "Rajdhani", Arial, serif;
-		line-height: 1.125;
-	}
-	.article-content h6 { 
-		display: block;
-		margin-bottom: var(--p);
-		font-size: var(--p);
-		font-family: "Rajdhani", Arial, serif;
-		line-height: 1.125;
-	}
-	.article-content p {
-		display: block;
-		margin-bottom: var(--p);
-		font-size: var(--p);
-	}
-	.article-content label { 
-		display: inline-block;
-		font-size: var(--label);
-	}
-	.article-content small { 
-		display: inline-block;
-		font-size: var(--small);
+
+.award-card {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-50);
+	margin-bottom: var(--space-75);
+}
+
+.award-card .cover-image {
+	padding-top: 100%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+@media( min-width: 640px )  {
+	.award-card {
+		padding: var(--space-75);
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--space-75);
 	}
 
-	.article-content img {
-		border-radius: var(--space-25);
-		box-shadow: 0 0 3px 1px rgba(var(---red), 0.125),  0 0 12px 4px rgba(var(---red), 0.2);
+}
+@media( min-width: 1040px ) {
+	.award-card {
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--space-75);
 	}
+	.award-card .cover-image {
+		grid-column: span 2;
+	}
+}
+@media( min-width: 1480px ) {}
 </style>
 
-<!-- Article Section -->
-<section id="article-section" class="article-section space-50-top-bottom">
+<!-- Articles Section -->
+<section id="articles-section" class="articles-section space-250-top-bottom">
 	<div class="container">
 		<div class="row">
-			<div class="article columns small-12 large-8 large-offset-2">
-				<h1 class="h2 block font-h strong space-25-top">Awards</h1>
-				<div class="article-content space-50-top-bottom">{{ awards.body }}</div>
-				<a href="/articles" class="button fill-blue"><span class="inline-middle h5">&#9204;&nbsp;</span><span class="inline-middle">More Articles</span></a>
+			<div class="columns small-12 large-2 space-50-bottom">
+				<div class="h2 font-h strong text-blue">Articles</div>
+			</div>
+			<div class="articles columns small-12 large-9 large-offset-1">
+				{% for post in awards.award %}
+					<div class="award-card fill-light radius-50 no-overflow space-50 box-shadow-blue">
+						<div class="cover-image fill-white radius-25" style="background-image: url('{{ post.image }}');"></div>
+						<div class="info">
+							<div class="h5 font-h strong text-blue space-25-bottom">{{ post.name }}</div>
+							<div class="small text-neutral-3 space-25-bottom">Awarded on: {{ post.date | date: "%B %d, %Y" }}</div>
+							<div class="label space-50-bottom">{{ post.description | truncate: 240, "..." }}</div>
+						</div>
+					</div>
+				{% endfor %}
 			</div>
 		</div>
 	</div>
 </section>
-<!-- END: Article Section -->
+<!-- END: Articles Section -->
 
 
 {% include 'parts/footer.liquid' %}
