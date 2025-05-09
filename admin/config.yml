@@ -14,22 +14,25 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
+      - name: "settings"
+        label: "Settings Page"
+        file: "_data/settings.json"
+        fields:
+          - {label: Database (categories.json), name: categoriesfile, widget: file}
+          - label: Menu
+            name: menu
+            widget: list
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Path, name: path, widget: string}
       - name: "home"
         label: "Home Page"
         file: "_data/home.json"
         fields:
           # - {label: SEO Title, name: seotitle, widget: string}
           # - {label: SEO Description, name: seodescription, widget: text}
-          # - label: Team
-          #   name: team
-          #   widget: list
-          #   fields:
-          #     - {label: Name, name: name, widget: string}
-          #     - {label: Position, name: position, widget: string}
-          #     - {label: Photo, name: photo, widget: image}
           - {label: Intro Video YouTube ID, name: introvideoid, widget: string}
           - {label: Brand Video YouTube ID, name: brandvideoid, widget: string}
-          - {label: Database (categories.json), name: categoriesfile, widget: file}
           - {label: Helpdesk Timing, name: helpdesktiming, widget: string}
   - name: "articles" # Used in routes, e.g., /admin/collections/articles
     label: "Articles" # Used in the UI

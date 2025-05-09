@@ -1,0 +1,67 @@
+{% include 'parts/head.liquid' %}
+{% include 'parts/header.liquid' %}
+
+
+<style>
+
+.post-card {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: var(--space-50);
+}
+
+.post-card .cover-image {
+	padding-top: 66.666%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+@media( min-width: 640px )  {
+	.post-card {
+		padding: var(--space-75);
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--space-75);
+	}
+
+}
+@media( min-width: 1040px ) {
+	.post-card {
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--space-75);
+	}
+	.post-card .info {
+		grid-column: span 2;
+	}
+}
+@media( min-width: 1480px ) {}
+</style>
+
+<!-- Articles Section -->
+<section id="articles-section" class="articles-section space-250-top-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="columns small-12 large-2 space-50-bottom">
+				<div class="h2 font-h strong text-blue">Articles</div>
+			</div>
+			<div class="articles columns small-12 large-9 large-offset-1">
+				{% for post in collections.articles %}
+					<a href="{{ post.url }}" class="post-card fill-light radius-50 no-overflow space-50 box-shadow-blue">
+						<div class="cover-image radius-25" style="background-image: url('{{ post.data.coverimage }}');"></div>
+						<div class="info">
+							<div class="h4 font-h strong text-blue space-25-bottom">{{ post.data.title }}</div>
+							<div class="small text-neutral-3 space-25-bottom">Published: {{ post.date | date: "%B %d, %Y" }}</div>
+							<div class="p space-50-bottom">{{ post.content | truncate: 185, "..." }}</div>
+							<div class="p text-blue">Learn More...</div>
+						</div>
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Articles Section -->
+
+
+{% include 'parts/footer.liquid' %}
+{% include 'parts/foot.liquid' %}
