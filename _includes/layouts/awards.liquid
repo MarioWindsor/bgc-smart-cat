@@ -1,0 +1,83 @@
+{% include 'parts/head.liquid' %}
+{% include 'parts/header.liquid' %}
+
+<style>
+	.article-content h1 { 
+		display: block;
+		margin-bottom: var(--p);
+		font-size: var(--h3);
+		font-family: "Rajdhani", Arial, serif;
+		line-height: 1.125;
+	}
+	.article-content h2 { 
+		display: block;
+		margin-bottom: var(--p);
+		font-size: var(--h3);
+		font-family: "Rajdhani", Arial, serif;
+		line-height: 1.125;
+	}
+	.article-content h3 { 
+		display: block;
+		margin-bottom: var(--p);
+		font-size: var(--h4);
+		font-family: "Rajdhani", Arial, serif;
+		line-height: 1.125;
+	}
+	.article-content h4 { 
+		display: block;
+		margin-bottom: var(--p);
+		font-size: var(--h5);
+		font-family: "Rajdhani", Arial, serif;
+		line-height: 1.125;
+	}
+	.article-content h5 { 
+		display: block;
+		margin-bottom: var(--p);
+		font-size: var(--h6);
+		font-family: "Rajdhani", Arial, serif;
+		line-height: 1.125;
+	}
+	.article-content h6 { 
+		display: block;
+		margin-bottom: var(--p);
+		font-size: var(--p);
+		font-family: "Rajdhani", Arial, serif;
+		line-height: 1.125;
+	}
+	.article-content p {
+		display: block;
+		margin-bottom: var(--p);
+		font-size: var(--p);
+	}
+	.article-content label { 
+		display: inline-block;
+		font-size: var(--label);
+	}
+	.article-content small { 
+		display: inline-block;
+		font-size: var(--small);
+	}
+
+	.article-content img {
+		border-radius: var(--space-25);
+		box-shadow: 0 0 3px 1px rgba(var(---red), 0.125),  0 0 12px 4px rgba(var(---red), 0.2);
+	}
+</style>
+
+<!-- Article Section -->
+<section id="article-section" class="article-section space-50-top-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="article columns small-12 large-8 large-offset-2">
+				<h1 class="h2 block font-h strong space-25-top">Awards</h1>
+				<div class="article-content space-50-top-bottom">{{ content }}</div>
+				<a href="/articles" class="button fill-blue"><span class="inline-middle h5">&#9204;&nbsp;</span><span class="inline-middle">More Articles</span></a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Article Section -->
+
+
+{% include 'parts/footer.liquid' %}
+{% include 'parts/foot.liquid' %}
