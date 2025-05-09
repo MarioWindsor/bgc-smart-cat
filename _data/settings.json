@@ -1,0 +1,37 @@
+{
+  "categoriesfile": "/media/uploads/categories.json",
+  "menu": [
+    {
+      "name": "Welcome",
+      "path": "#welcome"
+    },
+    {
+      "name": "Catalogue",
+      "path": "#cataloge-section"
+    },
+    {
+      "name": "Hotels",
+      "path": "#hotel-section"
+    },
+    {
+      "name": "Restaurant",
+      "path": "#restaurant-section"
+    },
+    {
+      "name": "Bakery",
+      "path": "#bakery-section"
+    },
+    {
+      "name": "Catering",
+      "path": "#catering-section"
+    },
+    {
+      "name": "FAQs",
+      "path": "/faqs"
+    },
+    {
+      "path": "/articles",
+      "name": "Articles"
+    }
+  ]
+}
