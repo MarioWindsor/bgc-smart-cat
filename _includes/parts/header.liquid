@@ -1,32 +1,79 @@
 		
+<style>
+.header-section .menu {
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	top: 100%;
+	left: 0;
+	padding: 0;
+	margin: 0;
+	transform: translateY(-200%);
+	transition: .3s ease-out;
+}
 
+.header-section .menu-toggle .bx {
+	display: inline-block;
+	line-height: var(--h3);
+}
 
+.header-section .menu-toggle .close {display: none}
+.header-section .menu-toggle .open {display: inline-block;}
+
+#menu-toggle-checkbox:checked + .header-section .menu {
+	transform: translateY(0);
+}
+
+#menu-toggle-checkbox:checked + .header-section .menu-toggle .close {display: inline-block;}
+#menu-toggle-checkbox:checked + .header-section .menu-toggle .open {display: none}
+
+@media( max-width: 639px )  {
+	#menu .menu-items .link {
+		font-size: var(--h5);
+	}
+}
+@media( min-width: 1040px ) {}
+@media( min-width: 1480px ) {
+	.header-section .menu-toggle .bx {
+		font-size: var(--h4);
+		line-height: var(--h4);
+	}
+}
+	
+</style>
 
 <!-- Header Section -->
+<input id="menu-toggle-checkbox" class="menu-toggle-checkbox visuallyhidden" type="checkbox">
 <section id="header-section" class="header-section position-sticky" style="z-index: 100; top: 0; left: 0; width: 100%; height: auto;">
-	<div class="row box-shadow-blue space-50-top-bottom" style="background-color: rgba(255, 255, 255, 0.75); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px);">
+	<div class="row box-shadow-blue space-50-top-bottom" style="position: relative; z-index: 3; background-color: rgba(255, 255, 255, 0.75); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px);">
 		<div class="container">
-			<div class="intro" style="font-size: 0; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+			<div class="header" style="font-size: 0; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
 				<div class="logo columns small-10 medium-6 large-4 xlarge-3 space-100-right">
-					<img class="block" src="media/logo-combination-eng.png">
+					<a href="/" class="block"><img class="block" src="media/logo-combination-eng.png"></a>
 				</div>
 				<div class="menu-toggle">
-					<label class="row cursor-pointer" for="toggle-menu">
-						<div class="inline text-blue fill-light space-25 radius-25 no-pointer hide-large hide-xlarge"><i class='inline bx bx-menu h3' style="display: inline-block; line-height: var(--h3);"></i></div>
-						<div class="inline text-blue fill-light space-25 radius-25 no-pointer hide-small hide-medium hide-xlarge"><i class='inline bx bx-menu h3' style="display: inline-block; line-height: var(--h3);"></i></div>
-						<div class="inline text-blue fill-light space-25 radius-25 no-pointer hide-small hide-medium hide-large"><i class='inline bx bx-menu h4' style="display: inline-block; line-height: var(--h4);"></i></div>
+					<label class="inline-block row cursor-pointer" for="menu-toggle-checkbox">
+						<div class="open inline text-blue fill-light space-25 radius-25"><i class='inline bx bx-menu h3'></i></div>
+						<div class="close inline text-blue fill-light space-25 radius-25"><i class='inline bx bx-x h3'></i></div>
 					</label>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- Menu Section -->
+	<div id="menu" class="menu box-shadow-blue" style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px);">
+		<div class="container">
+			<div class="menu-items text-right space-50-top-bottom">
+				{% for item in settings.menu %}
+					<a href="{{ item.path }}" class="link p text-uppercase inline text-blue space-50">{{ item.name }}</a><br class="hide-medium hide-large hide-xlarge">
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	<!-- END: Menu Section -->
 </section>
 <!-- END: Header Section -->
 
-<!-- Menu Section -->
-<section id="menu-section" class="menu-section">
-</section>
-<!-- END: Menu Section -->
 
 
 
