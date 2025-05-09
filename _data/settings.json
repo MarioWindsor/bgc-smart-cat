@@ -32,6 +32,10 @@
     {
       "path": "/articles",
       "name": "Articles"
+    },
+    {
+      "name": "Awards",
+      "path": "/awards"
     }
   ]
 }
