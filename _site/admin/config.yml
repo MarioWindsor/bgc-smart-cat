@@ -41,6 +41,7 @@ collections:
       - { label: "Tags", name: "tags", widget: "hidden", default: ["articles"] }
       - { label: "Publish Date", name: "date", widget: "datetime", default: "{{now}}"}
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Cover Image", name: "coverimage", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "review" # Used in routes, e.g., /admin/collections/review
     label: "Reviews" # Used in the UI
