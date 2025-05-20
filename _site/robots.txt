@@ -1,0 +1,7 @@
+Sitemap: https://bgc.in/sitemap.xml
+
+User-agent: *
+Disallow: /admin/**
+Disallow: /videos/**
+Disallow: /dbsync/**
+Disallow: /media/uploads/**

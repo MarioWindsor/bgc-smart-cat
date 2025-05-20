@@ -1,0 +1,26 @@
+[
+    {
+        "id": "prod-001",
+        "name": "Stylish Bluetooth Headphones",
+        "description": "Experience immersive audio with crystal-clear sound and deep bass. Comfortable over-ear design with long-lasting battery.",
+        "image": "/media/uploads/headphones.jpg",
+        "price": 79.99,
+        "category": "Electronics"
+    },
+    {
+        "id": "prod-002",
+        "name": "Ergonomic Office Chair",
+        "description": "Designed for maximum comfort and support during long working hours. Features adjustable lumbar support and breathable mesh.",
+        "image": "/media/uploads/office-chair.png",
+        "price": 249.99,
+        "category": "Furniture"
+    },
+    {
+        "id": "prod-003",
+        "name": "Smart Home Hub",
+        "description": "Control all your smart devices from one central hub. Compatible with Alexa, Google Assistant, and Apple HomeKit.",
+        "image": "/media/uploads/smart-hub.jpg",
+        "price": 129.99,
+        "category": "Smart Home"
+    }
+]

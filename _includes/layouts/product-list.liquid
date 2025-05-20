@@ -1,0 +1,37 @@
+{% include 'parts/head.liquid' %}
+{% include 'parts/header.liquid' %}
+
+
+
+<!-- Product Section -->
+<section id="product-section" class="product-section space-50-top-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="product columns small-12">
+                <h1 class="h2 block font-h strong space-25-top text-center">All Products</h1>
+                <div class="product-grid row space-50-top space-100-bottom">
+                    {% for product_page in products %}
+                        <article class="product-card columns small-12 medium-6 large-4 space-25">
+                            <a class="block row fill-light space-25 radius-50" href="/products/{{ product_page.variation_number }}/">
+                                <div class="columns small-3">
+                                    <div class="product-image block radius-25 img-cover fill-white" style="background-image: url('https://bgc.sixorbit.com/{{ product_page.image }}'); padding-top: 100%; font-size: 0;"></div>
+                                </div>
+                                <div class="product-info columns small-9 space-50-left">
+                                    <small class="block label text-blue font-h">{{ product_page.variation_number }}</small>
+                                    <h2 class="block p font-h no-overflow" style="overflow-wrap: break-word;">{{ product_page.variation_name }}</h2>
+                                </div>
+                            </a>
+                        </article>
+                    {% endfor %}
+                </div>
+                <a href="/" class="button fill-dark"><span class="inline-middle h5">&#9204;&nbsp;</span><span class="inline-middle">Home Page</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: Product Section -->
+
+
+
+{% include 'parts/footer.liquid' %}
+{% include 'parts/foot.liquid' %}

@@ -1,0 +1,12 @@
+---
+eleventyExcludeFromCollections: true
+eleventyComputed:
+  permalink: "{{ site.robots }}"
+---
+Sitemap: {{ site.baseUrl + site.siteMap }}
+
+User-agent: *
+Disallow: /admin/**
+Disallow: /videos/**
+Disallow: /dbsync/**
+Disallow: /media/uploads/**

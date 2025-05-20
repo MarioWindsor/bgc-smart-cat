@@ -1,0 +1,21 @@
+---
+# products/product.liquid
+pagination:
+    data: products      # This refers to the 'products' data from _data/products.js
+    size: 1             # Generate one page per product
+    alias: product      # Assign each individual item to the 'product' variable
+
+permalink: "/products/{{ product.variation_number }}/" # Create a unique URL for each product
+layout: "layouts/product.liquid" # Use the product layout defined earlier
+
+# Map product.json data to front matter variables for the layout
+eleventyComputed:
+    title: "{{ product.variation_name }} | Bharat Glass & Crockeries"
+    id: "{{ product.variation_number }}"
+    name: "{{ product.variation_name }}"
+    image: "{{ product.image }}"
+    brand: "{{ product.brand }}"
+    category: "{{ product.category }}"
+    attributes: "{{ product.attributes }}"
+    # Add other fields as needed from your products.json
+---

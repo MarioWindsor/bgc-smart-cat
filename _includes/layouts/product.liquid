@@ -1,0 +1,38 @@
+{% include 'parts/head.liquid' %}
+{% include 'parts/header.liquid' %}
+
+
+
+<!-- Product Section -->
+<section id="product-section" class="product-section space-50-top-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="product columns small-12">
+				<article class="product-content row space-50-top space-100-bottom">
+					<div class="columns small-12 medium-5 large-4">
+						<div class="product-image block radius-25 img-cover box-shadow-blue fill-light" style="background-image: url('https://bgc.sixorbit.com/{{ image }}'); padding-top: 100%; font-size: 0;"></div>
+					</div>
+					<div class="product-info columns small-12 medium-6 medium-offset-1 large-7">
+						<small class="block p text-blue font-h space-100-top">{{ id }}</small>
+						<h1 class="block h3 strong font-h" style="overflow-wrap: break-word;">{{ name }}</h1>
+						<h3 class="block p space-25-top">Brand : {{ brand }}</h3>
+						<h3 class="block p space-25-top">Category : {{ category }}</h3>
+						{% for attribute in variation.attributes %}
+							{% if attribute.attr_value != blank %}
+								<p class="block p space-25-top">{{ attribute.attr_name }} : {{ attribute.attr_value }}</p>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</article>
+				<a href="/" class="button fill-dark"><span class="inline-middle h5">&#9204;&nbsp;</span><span class="inline-middle">Home Page</span></a>
+                <a href="/catalogue" class="button fill-blue" style="margin-left: var(--space-50);"><span class="inline-middle">View Catalogue</span></a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END: Product Section -->
+
+
+
+{% include 'parts/footer.liquid' %}
+{% include 'parts/foot.liquid' %}
