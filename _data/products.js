@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = function() {
-    const filePath = path.join(__dirname, '../media/uploads/variations.json'); // Adjust path as needed
+    // const filePath = path.join(__dirname, '../media/uploads/variations.json'); // Adjust path as needed
 
     try {
         const fileContents = fs.readFileSync(filePath, 'utf8');
