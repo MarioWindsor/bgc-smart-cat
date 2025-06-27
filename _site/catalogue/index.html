@@ -172,7 +172,7 @@
 				  <div class="dot2"></div>
 				</div>
 				<div class="spinner-border text-primary" role="status">
-					<span class="visually-hidden h6 strong font-h">Loading...</span>
+					<span class="h6 strong font-h">Loading...</span>
 				</div>
 			</div>
 			<div class="cat-head">
@@ -336,6 +336,7 @@
 							</div>
 						</div>
 					</div>
+					<div id="form-conversion" class="visuallyhidden"></div>
 					<!-- FORM JS -->
 					<script>
 						let session_id = "";
@@ -351,6 +352,8 @@
 						const formSubmitButton = document.getElementById('form-submit-button');
 
 						const otpSubmitButton = document.getElementById('form-submit-button');
+
+						const formConversion = document.getElementById('form-conversion');
 
 
 
@@ -419,6 +422,7 @@
 										// alert("OTP Matched Successfully");
 										console.log("OTP Matched successfully");
 										sendGoogleFormData();
+										formSuccess();
 
 										otpSubmitButton.textContent = 'Matched';
 
@@ -463,6 +467,23 @@
 							.catch(error => {
 								console.error('Error during form submission:', error);
 							});
+						}
+
+
+						/* -- Form Success Conversion Tracking -- */
+						function formSuccess() {
+								// Common practice for tracking pixels is to make them invisible.
+								const iframeElement = `<iframe 
+									class="visuallyhidden"
+							        src="https://bgc.in/success/" 
+							        width="1" 
+							        height="1" 
+							        style="display:none; visibility:hidden;"
+							        frameborder="0">
+							    </iframe>`;
+
+							// Inject the iframe into our target div.
+							formConversion.innerHTML = iframeElement;
 						}
 
 					</script>
