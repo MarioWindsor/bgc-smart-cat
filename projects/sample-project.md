@@ -1,6 +1,5 @@
 ---
-tags:
-  - projects
+tags: projects
 date: 2025-09-27T23:37:00
 name: Sample Project
 metadata:
